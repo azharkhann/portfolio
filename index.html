@@ -201,10 +201,30 @@ html{scroll-behavior:smooth}
   .topbar .tb-pdf:focus-visible{outline:2px solid #C8102E;outline-offset:2px}
   ::selection{background:#0E2A47;color:#fff}
   .h1{text-wrap:balance}
-  .js .rv{opacity:0;transform:translateY(14px);
-    transition:opacity .65s cubic-bezier(.2,.6,.2,1),transform .65s cubic-bezier(.2,.6,.2,1)}
+  .js .rv{opacity:0;transform:translateY(18px);
+    transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
   .js .rv.in{opacity:1;transform:none}
+  .js .page[data-screen-label="Cover"] .rv{transform:translateY(26px);
+    transition-duration:1s}
   @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+  .land .mapwrap{cursor:grab}
+  .land .mapwrap:active{cursor:grabbing}
+  .maphint{position:absolute;left:clamp(20px,4vw,64px);top:8px;z-index:4;
+    font:600 10.5px/1 'Archivo',sans-serif;letter-spacing:.8px;text-transform:uppercase;
+    color:#8a95a0;background:rgba(255,255,255,.9);padding:6px 9px;border-radius:3px;
+    transition:opacity .5s;pointer-events:none}
+  .maphint.off{opacity:0}
+  .tb-nav{display:flex;gap:clamp(10px,2vw,22px)}
+  .tb-nav a{font:700 11px/1 'Archivo',sans-serif;letter-spacing:1.2px;text-transform:uppercase;
+    color:#8a95a0;text-decoration:none;padding:6px 2px;border-bottom:2px solid transparent;
+    transition:color .2s,border-color .2s}
+  .tb-nav a:hover{color:#0E2A47}
+  .tb-nav a.cur{color:#0E2A47;border-bottom-color:#C8102E}
+  .tb-nav a:focus-visible{outline:2px solid #C8102E;outline-offset:2px}
+  @media (max-width:900px){.tb-nav{display:none}}
+  .skiplink{position:absolute;left:-9999px;top:0;z-index:99;background:#0E2A47;color:#fff;
+    font:700 13px/1 'Archivo',sans-serif;padding:12px 18px}
+  .skiplink:focus{left:0}
   .page.land{background:#faf9f6}
   .land .mapwrap{scrollbar-width:thin;scrollbar-color:#c9ced3 transparent}
   .land .mapwrap::-webkit-scrollbar{height:6px}
@@ -239,15 +259,19 @@ html{scroll-behavior:smooth}
 </style>
 </head>
 <body>
+<a class="skiplink" href="#main">Skip to content</a>
 <div class="topbar" id="topbar" role="banner">
-<span class="tb-name">Azhar Khan · Selected Work</span>
+<span class="tb-name">Azhar Khan</span>
+<nav class="tb-nav" aria-label="Sections">
+<a href="#sec-care">Care</a><a href="#sec-utility">Utility</a><a href="#sec-fraud">Fraud</a><a href="#sec-arc">The Arc</a>
+</nav>
 <button class="tb-pdf" type="button" onclick="window.print()">Download PDF</button>
 </div>
 <script>
 (function(){var tb=document.getElementById('topbar');
 addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{passive:true});})();
 </script>
-<div class="doc">
+<div class="doc" id="main">
 <section class="page" data-screen-label="Cover" style="padding-top:46px">
 <div style="display:flex;justify-content:space-between;align-items:baseline">
 <span class="kick" style="font-size:9.5px;letter-spacing:1px;white-space:nowrap">Selected Work · Enterprise Agentic AI &amp; Automation</span>
@@ -291,7 +315,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div class="bs">Every mark above is a unit of work. Red is where a person acts — the rest each platform closes on its own. Three industries, one operating principle: govern first, and autonomy is the result.</div>
 </div>
 </section>
-<section class="page" data-screen-label="Care case">
+<section class="page" data-screen-label="Care case" id="sec-care">
 <div class="kick"><span class="kacc">Transformation 01</span> · National Home Care</div>
 <hr class="rule" style="margin-top:12px">
 <h1 class="h1" style="font-size:40px;margin-top:26px;max-width:18ch">One governed platform runs every workflow, system, and decision.</h1>
@@ -595,7 +619,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div style="margin-top:20px;border-top:2px solid #0E2A47;padding-top:12px;font-size:11px;font-weight:800;letter-spacing:1.6px;color:#0E2A47">DATA · IDENTITY · OBSERVABILITY · EXCEPTIONS · GOVERNANCE</div>
 <div class="cap" style="margin-top:6px">The same five blocks run under every stream — a person holds only the exceptions.</div>
 </section>
-<section class="page" data-screen-label="Utility case">
+<section class="page" data-screen-label="Utility case" id="sec-utility">
 <div class="kick"><span class="kacc">Transformation 02</span> · Utility Bill Management</div>
 <hr class="rule" style="margin-top:12px">
 <h1 class="h1" style="font-size:39px;margin-top:26px;max-width:18ch">One governed twin turns 440,000 invoices into one source of truth.</h1>
@@ -855,7 +879,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div style="margin-top:20px;border-top:2px solid #0E2A47;padding-top:12px;font-size:11px;font-weight:800;letter-spacing:1.6px;color:#0E2A47">DATA · IDENTITY · OBSERVABILITY · EXCEPTIONS · GOVERNANCE</div>
 <div class="cap" style="margin-top:6px">The same five blocks run under every stream — a person holds only the exceptions.</div>
 </section>
-<section class="page" data-screen-label="Fraud case">
+<section class="page" data-screen-label="Fraud case" id="sec-fraud">
 <div class="kick"><span class="kacc">Transformation 03</span> · Fraud &amp; Risk · Fintech</div>
 <hr class="rule" style="margin-top:12px">
 <h1 class="h1" style="font-size:40px;margin-top:26px;max-width:18ch">An agent engine works every fraud case. One analyst decides.</h1>
@@ -1046,7 +1070,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div style="margin-top:20px;border-top:2px solid #0E2A47;padding-top:12px;font-size:11px;font-weight:800;letter-spacing:1.6px;color:#0E2A47">DATA · IDENTITY · OBSERVABILITY · EXCEPTIONS · GOVERNANCE</div>
 <div class="cap" style="margin-top:6px">The same five blocks run under every stream — a person holds only the exceptions.</div>
 </section>
-<section class="page" data-screen-label="The Arc">
+<section class="page" data-screen-label="The Arc" id="sec-arc">
 <div class="kick">2016 → 2026 · Three Technology Generations · One System</div>
 <hr class="rule" style="margin-top:12px">
 <h1 class="h1" style="font-size:40px;margin-top:28px;max-width:16ch">The tools changed three times. The system didn't.</h1>
@@ -1103,7 +1127,14 @@ ctx.fillRect(col*cw+m,r*ch+m,cw-2*m,ch-2*m);}
 c.setAttribute('role','img');
 function redCell(){var rr=Math.floor(red/cols),rc=red%cols;
 ctx.fillStyle='#C8102E';ctx.fillRect(rc*cw+m,rr*ch+m,cw-2*m,ch-2*m);}
-c._arm=function(){setTimeout(redCell,420);};c._flush=redCell;}
+c._arm=function(){var t0=null;
+function grow(ts){if(t0===null)t0=ts;var k=Math.min(1,(ts-t0)/240);
+var e=1-Math.pow(1-k,3),rr=Math.floor(red/cols),rc=red%cols,
+gm=m+(1-e)*(cw*0.34-m);
+ctx.fillStyle='#C8102E';ctx.fillRect(rc*cw+gm,rr*ch+gm,cw-2*gm,ch-2*gm);
+if(k<1)requestAnimationFrame(grow);}
+setTimeout(function(){requestAnimationFrame(grow);},420);};
+c._flush=redCell;}
 var care=new Set(['9,63','12,8','27,41','44,86','52,23','63,72','74,34','85,17','91,66']);
 var ems=new Set();
 for(var by=0;by<10;by++)for(var bx=0;bx<10;bx++){
@@ -1135,11 +1166,35 @@ if(RM2||!('IntersectionObserver' in window)){showAll();}
 else{var io2=new IntersectionObserver(function(es){es.forEach(function(e){
 if(e.isIntersecting){var el=e.target,
 sibs=[].slice.call(el.parentElement.children).filter(function(s){return s.classList&&s.classList.contains('rv')&&!s.classList.contains('in')}),
-idx=Math.max(0,sibs.indexOf(el));
-setTimeout(function(){el.classList.add('in');},Math.min(idx*70,280));io2.unobserve(el);}});},
+idx=Math.max(0,sibs.indexOf(el)),
+cover=el.parentElement.getAttribute('data-screen-label')==='Cover',
+d=cover?Math.min(idx*115,700):Math.min(idx*70,280);
+setTimeout(function(){el.classList.add('in');},d);io2.unobserve(el);}});},
 {threshold:0.12,rootMargin:'0px 0px -8% 0px'});
 kids.forEach(function(k){io2.observe(k);});}
 addEventListener('beforeprint',showAll);})();
+(function(){var links=[].slice.call(document.querySelectorAll('.tb-nav a'));
+if(links.length&&'IntersectionObserver' in window){
+var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+var cur=null;
+var io3=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){if(cur)cur.classList.remove('cur');
+cur=map[e.target.id];if(cur)cur.classList.add('cur');}});},
+{rootMargin:'-30% 0px -55% 0px'});
+Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)io3.observe(s);});}})();
+(function(){document.querySelectorAll('.land .mapwrap').forEach(function(w){
+var hint=document.createElement('span');hint.className='maphint';
+hint.textContent='hover the stations · drag to pan';
+w.parentElement.insertBefore(hint,w);
+function dismiss(){hint.classList.add('off');}
+w.addEventListener('pointerdown',dismiss,{once:true});
+w.addEventListener('scroll',dismiss,{once:true});
+setTimeout(dismiss,9000);
+var down=false,sx=0,sl=0;
+w.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;
+down=true;sx=e.clientX;sl=w.scrollLeft;});
+addEventListener('pointermove',function(e){if(down)w.scrollLeft=sl-(e.clientX-sx);});
+addEventListener('pointerup',function(){down=false;});});})();
 document.querySelectorAll('.maphost .fsbtn').forEach(function(btn){
 btn.addEventListener('click',function(){var host=btn.parentElement;
 if(document.fullscreenElement){document.exitFullscreen();}
