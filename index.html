@@ -233,7 +233,14 @@ html{scroll-behavior:smooth}
   .fsbtn{transition:border-color .2s,box-shadow .2s}
   .fsbtn:hover{box-shadow:0 2px 8px rgba(14,42,71,.12)}
 }
-@media print{.rv{opacity:1 !important;transform:none !important}}
+@media print{.rv{opacity:1 !important;transform:none !important}
+  section[data-screen-label="The Arc"] div[style*="150px 1fr"]>div{
+    padding-top:76px !important;padding-bottom:78px !important}}
+@media screen{
+  .page[data-screen-label="Back cover"]{min-height:88vh;display:flex;
+    flex-direction:column;justify-content:center}
+  .page[data-screen-label="Back cover"] .rv:last-child{margin-top:auto}
+}
 @media screen{
   .page canvas{max-width:100%;height:auto}
   .page svg,.page img{max-width:100%;height:auto}
