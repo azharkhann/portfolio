@@ -201,15 +201,18 @@ html{scroll-behavior:smooth}
   .topbar .tb-pdf:focus-visible{outline:2px solid #C8102E;outline-offset:2px}
   ::selection{background:#0E2A47;color:#fff}
   .h1{text-wrap:balance}
-  .js .rv{opacity:0;transform:translateY(18px);
-    transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-  .js .rv.in{opacity:1;transform:none}
-  .js .page[data-screen-label="Cover"] .rv{transform:translateY(26px);
-    transition-duration:1s}
+  .js .rv{opacity:0;transform:translateY(12px);will-change:opacity,transform;
+    transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .js .rv.in{opacity:1;transform:none;will-change:auto}
+  .js .page[data-screen-label="Cover"] .rv{transform:translateY(20px);
+    transition-duration:1.05s}
+  [id]{scroll-margin-top:76px}
+  .page [style*="justify-content:space-between"]{gap:24px;flex-wrap:wrap}
+  .mapwrap .avm-root .avm-bar,.mapwrap .avm2-root .bar{display:revert}
   @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
   .land .mapwrap{cursor:grab}
   .land .mapwrap:active{cursor:grabbing}
-  .maphint{position:absolute;left:clamp(20px,4vw,64px);top:8px;z-index:4;
+  .maphint{position:absolute;left:12px;bottom:12px;z-index:4;
     font:600 10.5px/1 'Archivo',sans-serif;letter-spacing:.8px;text-transform:uppercase;
     color:#8a95a0;background:rgba(255,255,255,.9);padding:6px 9px;border-radius:3px;
     transition:opacity .5s;pointer-events:none}
@@ -285,8 +288,8 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <span class="kick kmut" style="font-size:9.5px;letter-spacing:1px;white-space:nowrap">Azhar Khan · ap.applyy@gmail.com</span>
 </div>
 <hr class="rule" style="margin-top:12px">
-<h1 class="h1" style="font-size:38px;margin-top:22px;max-width:15ch">I put operations on a governed plane — then let them run themselves.</h1>
-<p class="lead" style="margin-top:15px">Take a tangled enterprise operation, put every workflow, system, and decision on one governed plane, and let the routine run itself — keeping people for the judgment that needs them. I've done it in production across <b>healthcare, utilities, and financial services</b>. Three transformations follow — different industries, different stacks, the same five blocks every time. That repetition is the point.</p>
+<h1 class="h1" style="font-size:38px;margin-top:22px;max-width:15ch">I put operations on a governed plane, then let them run themselves.</h1>
+<p class="lead" style="margin-top:15px">Take a tangled enterprise operation, put every workflow, system, and decision on one governed plane, and let the routine run itself, keeping people for the judgment that needs them. I've done it in production across <b>healthcare, utilities, and financial services</b>. Three transformations follow: different industries, different stacks, the same five blocks every time. That repetition is the point.</p>
 
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:20px;border-top:2px solid #0E2A47">
 <div style="padding:15px 22px 15px 0;border-right:1px solid #e2e6ea">
@@ -313,13 +316,13 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 </div>
 
 <div style="margin-top:18px;border:2px solid #0E2A47;padding:12px 18px">
-<div class="kick"><span class="kacc">The Invariant</span> — Data · Identity · Observability · Exceptions · Governance</div>
+<div class="kick"><span class="kacc">The Invariant</span>: Data · Identity · Observability · Exceptions · Governance</div>
 <div style="font-size:13px;color:#3a4750;margin-top:6px;line-height:1.5">Five blocks, three industries, zero rewrites. The industry changes; the system doesn't.</div>
 </div>
 
 <div class="banner" style="margin-top:16px;padding:20px 26px">
 <div class="bt">Governed autonomy, in production.</div>
-<div class="bs">Every mark above is a unit of work. Red is where a person acts — the rest each platform closes on its own. Three industries, one operating principle: govern first, and autonomy is the result.</div>
+<div class="bs">Every mark above is a unit of work. Red is where a person acts; the rest each platform closes on its own. Three industries, one operating principle: govern first, and autonomy is the result.</div>
 </div>
 </section>
 <section class="page" data-screen-label="Care case" id="sec-care">
@@ -340,7 +343,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 </div>
 
 <div style="margin-top:28px;background:#f4f5f6;padding:14px 18px">
-<span class="kick">Same five blocks · different industry —</span>
+<span class="kick">Same five blocks · different industry:</span>
 <span style="font-size:13px;color:#3a4750"> here 170M tasks run across eleven functions flowing through seven value streams.</span>
 </div>
 
@@ -357,7 +360,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div class="kick" style="margin-top:22px;color:#8a95a0">The five-block invariant</div>
 <div style="margin-top:8px">
 <div class="blk"><span class="bn">DATA</span><span class="bg">One source of truth; every system feeds it, every decision reads it.</span></div>
-<div class="blk"><span class="bn">IDENTITY</span><span class="bg">Every action carries a name — human, robot, or agent.</span></div>
+<div class="blk"><span class="bn">IDENTITY</span><span class="bg">Every action carries a name: human, robot, or agent.</span></div>
 <div class="blk"><span class="bn">OBSERVABILITY</span><span class="bg">The platform watches itself; every job reports what it did.</span></div>
 <div class="blk"><span class="bn">EXCEPTIONS</span><span class="bg">Failures arrive with instructions: retry, halt, or hand to a person.</span></div>
 <div class="blk"><span class="bn">GOVERNANCE</span><span class="bg">Nothing ships without review; nothing stays without reason.</span></div>
@@ -376,16 +379,16 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div class="kick" style="margin-top:30px">The decisions behind it</div>
 <hr class="hair" style="margin-top:10px">
 <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:0;flex:1">
-<div class="panel" style="border-right:1px solid #e2e6ea;padding-right:24px"><div class="pt">01 · Map first, automate second</div><div class="pb">Built a process register before automating a line — what to orchestrate, what to redesign, what stays human. <b>Cost:</b> a slower start. <b>Return:</b> 35 systems under one governed layer, no rewrite since 2021.</div></div>
-<div class="panel" style="padding-left:24px"><div class="pt">02 · One routing layer</div><div class="pb">Every system connects through a single hub — 450 workflows composing 3,650 services from one shared library. <b>Cost:</b> every point-to-point shortcut refused. <b>Return:</b> new markets and nine acquisitions land as configuration.</div></div>
-<div class="panel" style="border-right:1px solid #e2e6ea;padding-right:24px;border-top:1px solid #e2e6ea"><div class="pt">03 · Say no to the client's own purchase</div><div class="pb">Scored 16 capabilities of their separately-bought Salesforce AI estate, ruled all three nominated use cases unsafe, delivered a phased path — Phase 1 at no new spend. <b>Cost:</b> telling a client no. <b>Return:</b> nothing shipped that would have failed in production.</div></div>
+<div class="panel" style="border-right:1px solid #e2e6ea;padding-right:24px"><div class="pt">01 · Map first, automate second</div><div class="pb">Built a process register before automating a line: what to orchestrate, what to redesign, what stays human. <b>Cost:</b> a slower start. <b>Return:</b> 35 systems under one governed layer, no rewrite since 2021.</div></div>
+<div class="panel" style="padding-left:24px"><div class="pt">02 · One routing layer</div><div class="pb">Every system connects through a single hub: 450 workflows composing 3,650 services from one shared library. <b>Cost:</b> every point-to-point shortcut refused. <b>Return:</b> new markets and nine acquisitions land as configuration.</div></div>
+<div class="panel" style="border-right:1px solid #e2e6ea;padding-right:24px;border-top:1px solid #e2e6ea"><div class="pt">03 · Say no to the client's own purchase</div><div class="pb">Scored 16 capabilities of their separately-bought Salesforce AI estate, ruled all three nominated use cases unsafe, delivered a phased path, Phase 1 at no new spend. <b>Cost:</b> telling a client no. <b>Return:</b> nothing shipped that would have failed in production.</div></div>
 <div class="panel" style="padding-left:24px;border-top:1px solid #e2e6ea"><div class="pt">04 · Design recovery, don't hope</div><div class="pb">Fail-closed batches, bounded retries, 3,175 typed error codes. <b>Cost:</b> engineering the exceptions before the features. <b>Return:</b> nine in ten thousand reach a person; zero outages in five years.</div></div>
 </div>
 <hr class="hair" style="margin-top:18px">
 <div class="aph" style="margin-top:14px">Govern first. Autonomy is the result.</div>
 </section>
 <section class="page land" data-screen-label="Care map">
-<div class="kick"><span class="kacc">Transformation 01</span> · The Operating Map — National Home Care</div>
+<div class="kick"><span class="kacc">Transformation 01</span> · The Operating Map · National Home Care</div>
 <hr class="rule" style="margin-top:12px">
 <p class="lead" style="margin-top:16px">Seven value streams on one governed platform, drawn as it runs in production since 2021.</p>
 <div class="mapwrap" style="margin-top:18px;border-top:2px solid #0E2A47;padding-top:16px">
@@ -618,19 +621,19 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div style="margin-top:20px;border-top:2px solid #0E2A47;padding-top:14px">
 <div class="kick" style="color:#8a95a0">How to read it</div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:12px">
-<div style="padding-right:24px;border-right:1px solid #e2e6ea"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE FLOW</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Seven value streams run left to right — demand, hiring, lead-to-cash, fulfilment, procurement, service, and platform operations.</div></div>
-<div style="padding:0 24px;border-right:1px solid #e2e6ea"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE CORE</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Every stream reads and writes one source of truth — the dashed core. No stream keeps its own copy.</div></div>
+<div style="padding-right:24px;border-right:1px solid #e2e6ea"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE FLOW</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Seven value streams run left to right: demand, hiring, lead-to-cash, fulfilment, procurement, service, and platform operations.</div></div>
+<div style="padding:0 24px;border-right:1px solid #e2e6ea"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE CORE</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Every stream reads and writes one source of truth: the dashed core. No stream keeps its own copy.</div></div>
 <div style="padding-left:24px"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE HUMAN</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Red marks the exception gate. Nine jobs in ten thousand reach a person; the platform closes the rest.</div></div>
 </div>
 </div>
 <div style="margin-top:20px;border-top:2px solid #0E2A47;padding-top:12px;font-size:11px;font-weight:800;letter-spacing:1.6px;color:#0E2A47">DATA · IDENTITY · OBSERVABILITY · EXCEPTIONS · GOVERNANCE</div>
-<div class="cap" style="margin-top:6px">The same five blocks run under every stream — a person holds only the exceptions.</div>
+<div class="cap" style="margin-top:6px">The same five blocks run under every stream; a person holds only the exceptions.</div>
 </section>
 <section class="page" data-screen-label="Utility case" id="sec-utility">
 <div class="kick"><span class="kacc">Transformation 02</span> · Utility Bill Management</div>
 <hr class="rule" style="margin-top:12px">
 <h1 class="h1" style="font-size:39px;margin-top:26px;max-width:18ch">One governed twin turns 440,000 invoices into one source of truth.</h1>
-<p class="lead" style="margin-top:18px">Every invoice was read and reconciled by hand across 15,000+ vendors and 300+ layouts. Rebuilt on one governed digital twin, each bill is normalized and reconciled once — and benchmarking, forecasts, accruals, and carbon reporting are all cut from that single base. Payment is the byproduct.</p>
+<p class="lead" style="margin-top:18px">Every invoice was read and reconciled by hand across 15,000+ vendors and 300+ layouts. Rebuilt on one governed digital twin, each bill is normalized and reconciled once, and benchmarking, forecasts, accruals, and carbon reporting are all cut from that single base. Payment is the byproduct.</p>
 
 <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:center;margin-top:30px">
 <div>
@@ -644,7 +647,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 </div>
 
 <div style="margin-top:28px;background:#f4f5f6;padding:14px 18px">
-<span class="kick">Same five blocks · different industry —</span>
+<span class="kick">Same five blocks · different industry:</span>
 <span style="font-size:13px;color:#3a4750"> here a month of invoices turns into one source of truth.</span>
 </div>
 
@@ -661,7 +664,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div class="kick" style="margin-top:22px;color:#8a95a0">The five-block invariant</div>
 <div style="margin-top:8px">
 <div class="blk"><span class="bn">DATA</span><span class="bg">One source of truth; every system feeds it, every decision reads it.</span></div>
-<div class="blk"><span class="bn">IDENTITY</span><span class="bg">Every action carries a name — human, robot, or agent.</span></div>
+<div class="blk"><span class="bn">IDENTITY</span><span class="bg">Every action carries a name: human, robot, or agent.</span></div>
 <div class="blk"><span class="bn">OBSERVABILITY</span><span class="bg">The platform watches itself; every job reports what it did.</span></div>
 <div class="blk"><span class="bn">EXCEPTIONS</span><span class="bg">Failures arrive with instructions: retry, halt, or hand to a person.</span></div>
 <div class="blk"><span class="bn">GOVERNANCE</span><span class="bg">Nothing ships without review; nothing stays without reason.</span></div>
@@ -688,9 +691,9 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div class="aph" style="margin-top:14px">The data is the moat. Payment is the byproduct.</div>
 </section>
 <section class="page land" data-screen-label="Utility map">
-<div class="kick"><span class="kacc">Transformation 02</span> · The Operating Map — Utility Bill Management</div>
+<div class="kick"><span class="kacc">Transformation 02</span> · The Operating Map · Utility Bill Management</div>
 <hr class="rule" style="margin-top:12px">
-<p class="lead" style="margin-top:16px">One governed twin feeding four data products — benchmarking, forecasts, carbon, and budget-vs-actual.</p>
+<p class="lead" style="margin-top:16px">One governed twin feeding four data products: benchmarking, forecasts, carbon, and budget-vs-actual.</p>
 <div class="mapwrap" style="margin-top:18px;border-top:2px solid #0E2A47;padding-top:16px">
 <div class="maphost" data-map="ems"><button class="fsbtn" type="button" aria-label="View map full screen">⛶ Full screen</button><div class="avm-root" id="avm-ems" data-variant="a">
 <div class="avm-bar" role="toolbar">
@@ -884,13 +887,13 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 </div>
 </div>
 <div style="margin-top:20px;border-top:2px solid #0E2A47;padding-top:12px;font-size:11px;font-weight:800;letter-spacing:1.6px;color:#0E2A47">DATA · IDENTITY · OBSERVABILITY · EXCEPTIONS · GOVERNANCE</div>
-<div class="cap" style="margin-top:6px">The same five blocks run under every stream — a person holds only the exceptions.</div>
+<div class="cap" style="margin-top:6px">The same five blocks run under every stream; a person holds only the exceptions.</div>
 </section>
 <section class="page" data-screen-label="Fraud case" id="sec-fraud">
 <div class="kick"><span class="kacc">Transformation 03</span> · Fraud &amp; Risk · Fintech</div>
 <hr class="rule" style="margin-top:12px">
 <h1 class="h1" style="font-size:40px;margin-top:26px;max-width:18ch">An agent engine works every fraud case. One analyst decides.</h1>
-<p class="lead" style="margin-top:18px">Seven alert streams once meant seven manual programs. One agent engine now gathers the evidence, scores the risk, and drafts the case across 6–8 systems — then a person makes every regulated decision. Live across India and LATAM.</p>
+<p class="lead" style="margin-top:18px">Seven alert streams once meant seven manual programs. One agent engine now gathers the evidence, scores the risk, and drafts the case across 6–8 systems. A person makes every regulated decision. Live across India and LATAM.</p>
 
 <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:center;margin-top:28px">
 <div>
@@ -898,13 +901,13 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div class="scale" style="margin-top:10px">this grid is one case, opened up · 129 gathered by the agent · 1 decided by a person</div>
 </div>
 <div>
-<div class="fignum" style="font-size:34px;letter-spacing:-1px">129 gathered<br>· 1 decided</div>
+<div class="fignum" style="font-size:34px;letter-spacing:-1px">129 gathered<br>1 decided</div>
 <p style="font-size:15px;line-height:1.55;color:#3a4750;margin:16px 0 0">One case: the agent gathers and scores 130 data points, then hands the analyst a decision-ready file. The human makes the one decision that counts.</p>
 </div>
 </div>
 
 <div style="margin-top:24px;background:#f4f5f6;padding:14px 18px">
-<span class="kick">Same five blocks · different industry —</span>
+<span class="kick">Same five blocks · different industry:</span>
 <span style="font-size:13px;color:#3a4750"> here the cases are worked while a person owns every regulated call.</span>
 </div>
 
@@ -914,7 +917,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div class="stat"><div class="snum">100%</div><div class="slab">regulated decisions keep a human</div></div>
 <div class="stat"><div class="snum">~$12M</div><div class="slab">annual benefit · CSAT up 13 points</div></div>
 </div>
-<div class="kick" style="margin-top:16px;color:#8a95a0">Stack — Vertex AI · Workato · Decagon · Sierra · BigQuery</div>
+<div class="kick" style="margin-top:16px;color:#8a95a0">Stack: Vertex AI · Workato · Decagon · Sierra · BigQuery</div>
 </section>
 <section class="page sys" data-screen-label="Fraud system">
 <div class="kick">One Engine · Seven Alert Streams · Three Shared Checks</div>
@@ -922,7 +925,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div class="kick" style="margin-top:22px;color:#8a95a0">The five-block invariant</div>
 <div style="margin-top:8px">
 <div class="blk"><span class="bn">DATA</span><span class="bg">One source of truth; every system feeds it, every decision reads it.</span></div>
-<div class="blk"><span class="bn">IDENTITY</span><span class="bg">Every action carries a name — human, robot, or agent.</span></div>
+<div class="blk"><span class="bn">IDENTITY</span><span class="bg">Every action carries a name: human, robot, or agent.</span></div>
 <div class="blk"><span class="bn">OBSERVABILITY</span><span class="bg">The platform watches itself; every job reports what it did.</span></div>
 <div class="blk"><span class="bn">EXCEPTIONS</span><span class="bg">Failures arrive with instructions: retry, halt, or hand to a person.</span></div>
 <div class="blk"><span class="bn">GOVERNANCE</span><span class="bg">Nothing ships without review; nothing stays without reason.</span></div>
@@ -950,7 +953,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div class="aph" style="margin-top:14px">The engine works the case. The human owns the call.</div>
 </section>
 <section class="page land" data-screen-label="Fraud map">
-<div class="kick"><span class="kacc">Transformation 03</span> · The Operating Map — Fraud &amp; Risk · Fintech</div>
+<div class="kick"><span class="kacc">Transformation 03</span> · The Operating Map · Fraud &amp; Risk · Fintech</div>
 <hr class="rule" style="margin-top:12px">
 <p class="lead" style="margin-top:16px">Seven alert streams into one agent engine; the analyst decides, and the model learns from the outcome.</p>
 <div class="mapwrap" style="margin-top:18px;border-top:2px solid #0E2A47;padding-top:16px">
@@ -1068,14 +1071,14 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div style="margin-top:20px;border-top:2px solid #0E2A47;padding-top:14px">
 <div class="kick" style="color:#8a95a0">How to read it</div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:12px">
-<div style="padding-right:24px;border-right:1px solid #e2e6ea"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE FLOW</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Seven alert streams collapse into one engine — ingestion, investigation, and reporting agents over shared state.</div></div>
+<div style="padding-right:24px;border-right:1px solid #e2e6ea"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE FLOW</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Seven alert streams collapse into one engine: ingestion, investigation, and reporting agents over shared state.</div></div>
 <div style="padding:0 24px;border-right:1px solid #e2e6ea"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE HUMAN</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">The red ring is the analyst. The engine recommends; one person decides, on every regulated call.</div></div>
 <div style="padding-left:24px"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE LOOP</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Adjudicated outcomes become labels that retrain the model for the next case.</div></div>
 </div>
 </div>
 <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:12px 20px"><span class="chip"><i style="background:#c2417f"></i>Card Fraud</span><span class="chip"><i style="background:#e8963d"></i>ACH &amp; Wire</span><span class="chip"><i style="background:#2f9e4f"></i>Account Takeover</span><span class="chip"><i style="background:#3b76d0"></i>Scams · APP</span><span class="chip"><i style="background:#8b4fd8"></i>AML &amp; Sanctions</span><span class="chip"><i style="background:#3f9b8e"></i>Disputes</span><span class="chip"><i style="background:#b6603a"></i>Credit &amp; KYC Risk</span></div>
 <div style="margin-top:20px;border-top:2px solid #0E2A47;padding-top:12px;font-size:11px;font-weight:800;letter-spacing:1.6px;color:#0E2A47">DATA · IDENTITY · OBSERVABILITY · EXCEPTIONS · GOVERNANCE</div>
-<div class="cap" style="margin-top:6px">The same five blocks run under every stream — a person holds only the exceptions.</div>
+<div class="cap" style="margin-top:6px">The same five blocks run under every stream; a person holds only the exceptions.</div>
 </section>
 <section class="page" data-screen-label="The Arc" id="sec-arc">
 <div class="kick">2016 → 2026 · Three Technology Generations · One System</div>
@@ -1087,7 +1090,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div style="padding:54px 0 56px 26px;border-bottom:1px solid #e2e6ea"><p style="font-size:14px;line-height:1.6;color:#3a4750;margin:0">CoE design at a top US telecom; a 250-automation program at a Fortune 50; 70+ automations at a Fortune 20; AP cycles cut 90 days to 2 at a Fortune 500. The doctrine that survived: <b style="color:#0E2A47">never automate a broken process.</b></p></div>
 
 <div style="padding:54px 20px 56px 0;border-right:2px solid #0E2A47;border-bottom:1px solid #e2e6ea"><div class="snum" style="font-size:20px">2019–2021</div><div class="kick kmut" style="margin-top:6px">Governance</div></div>
-<div style="padding:54px 0 56px 26px;border-bottom:1px solid #e2e6ea"><p style="font-size:14px;line-height:1.6;color:#3a4750;margin:0">Observability and governance for automation fleets — logging, tracing, failure attribution, self-healing. Productised as BotScope, before the market had a word for AgentOps. A global bank's fraud floor cut 188 → low 30s through process redesign alone: no new systems, no capex.</p></div>
+<div style="padding:54px 0 56px 26px;border-bottom:1px solid #e2e6ea"><p style="font-size:14px;line-height:1.6;color:#3a4750;margin:0">Observability and governance for automation fleets: logging, tracing, failure attribution, self-healing. Productised as BotScope, before the market had a word for AgentOps. A global bank's fraud floor cut 188 → low 30s through process redesign alone: no new systems, no capex.</p></div>
 
 <div style="padding:54px 20px 56px 0;border-right:2px solid #0E2A47"><div class="snum" style="font-size:20px">2021–2026</div><div class="kick" style="margin-top:6px;color:#C8102E">Governed Autonomy</div></div>
 <div style="padding:54px 0 56px 26px"><p style="font-size:14px;line-height:1.6;color:#3a4750;margin:0">The three transformations in this portfolio. Same five blocks, now running agents.</p><div style="margin-top:12px;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#0E2A47">DATA · IDENTITY · OBSERVABILITY · EXCEPTIONS · GOVERNANCE</div></div>
@@ -1144,9 +1147,10 @@ setTimeout(function(){requestAnimationFrame(grow);},420);};
 c._flush=redCell;}
 var care=new Set(['9,63','12,8','27,41','44,86','52,23','63,72','74,34','85,17','91,66']);
 var ems=new Set();
-for(var by=0;by<10;by++)for(var bx=0;bx<10;bx++){
-var h1=Math.sin(by*127.1+bx*311.7)*43758.5453,h2=Math.sin(by*269.5+bx*183.3)*24634.6345;
-ems.add((by*10+Math.floor((h1-Math.floor(h1))*10))+','+(bx*10+Math.floor((h2-Math.floor(h2))*10)));}
+(function(){var s=20260805;
+function lcg(){s=(s*1664525+1013904223)>>>0;return s/4294967296;}
+while(ems.size<100){var cell=Math.floor(lcg()*10000);
+ems.add(Math.floor(cell/100)+','+(cell%100));}})();
 ['cov-care','big-care'].forEach(function(id){dots(id,care);});
 ['cov-ems','big-ems'].forEach(function(id){dots(id,ems);});
 ['cov-fin','big-fin'].forEach(function(id){fraud(id);});
@@ -1192,7 +1196,7 @@ Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)io3
 (function(){document.querySelectorAll('.land .mapwrap').forEach(function(w){
 var hint=document.createElement('span');hint.className='maphint';
 hint.textContent='hover the stations · drag to pan';
-w.parentElement.insertBefore(hint,w);
+var host=w.querySelector('.maphost')||w;host.appendChild(hint);
 function dismiss(){hint.classList.add('off');}
 w.addEventListener('pointerdown',dismiss,{once:true});
 w.addEventListener('scroll',dismiss,{once:true});
