@@ -209,6 +209,11 @@ html{scroll-behavior:smooth}
   [id]{scroll-margin-top:76px}
   .page [style*="justify-content:space-between"]{gap:24px;flex-wrap:wrap}
   .mapwrap .avm-root .avm-bar,.mapwrap .avm2-root .bar{display:revert}
+  .avm-root #printBtn,.avm2-root #printBtn,
+  .avm-root .avm-tgl[data-font],.avm2-root .avm-tgl[data-font]{display:none !important}
+  .maplegend{max-width:1180px;margin:14px auto 0;padding:10px clamp(20px,6vw,88px) 0;
+    font:600 11px/1.7 'Archivo',sans-serif;letter-spacing:.6px;text-transform:uppercase;
+    color:#8a95a0;border-top:1px solid #eceae7}
   @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
   .land .mapwrap{cursor:grab}
   .land .mapwrap:active{cursor:grabbing}
@@ -262,7 +267,7 @@ html{scroll-behavior:smooth}
   .fsbtn{display:none}
   .h1{overflow-wrap:break-word}
 }
-@media print{.topbar,.fsbtn,.maphint,.skiplink{display:none !important}
+@media print{.topbar,.fsbtn,.maphint,.skiplink,.maplegend{display:none !important}
   .land .mapwrap{overflow:visible}
   [data-map="care"] .avm-root{zoom:.88}
 }
@@ -616,12 +621,12 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <text x="2210" y="1699" fill="#9aa4ad" font-size="12" text-anchor="end">Live deployment · in production since 2021</text>
 </svg>
 </div>
-</x-dc></div>
+</x-dc></div><div class="maplegend">Hover any station for what runs there · the buttons above light up layers: AI stations, the activation loop, exceptions, off-network work, and production receipts · drag to pan · red marks where a person acts</div>
 </div>
 <div style="margin-top:20px;border-top:2px solid #0E2A47;padding-top:14px">
 <div class="kick" style="color:#8a95a0">How to read it</div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:12px">
-<div style="padding-right:24px;border-right:1px solid #e2e6ea"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE FLOW</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Seven value streams run left to right: demand, hiring, lead-to-cash, fulfilment, procurement, service, and platform operations.</div></div>
+<div style="padding-right:24px;border-right:1px solid #e2e6ea"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE FLOW</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Seven value streams run left to right: demand, hiring, lead-to-cash, fulfillment, procurement, service, and platform operations.</div></div>
 <div style="padding:0 24px;border-right:1px solid #e2e6ea"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE CORE</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Every stream reads and writes one source of truth: the dashed core. No stream keeps its own copy.</div></div>
 <div style="padding-left:24px"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE HUMAN</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Red marks the exception gate. Nine jobs in ten thousand reach a person; the platform closes the rest.</div></div>
 </div>
@@ -876,14 +881,14 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <text x="2210" y="1699" fill="#9aa4ad" font-size="12" text-anchor="end">Live deployment · governed digital twin</text>
 </svg>
 </div>
-</x-dc></div>
+</x-dc></div><div class="maplegend">Hover any station for what runs there · the buttons above light up layers: AI stations, the activation loop, exceptions, off-network work, and production receipts · drag to pan · red marks where a person acts</div>
 </div>
 <div style="margin-top:20px;border-top:2px solid #0E2A47;padding-top:14px">
 <div class="kick" style="color:#8a95a0">How to read it</div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:12px">
-<div style="padding-right:24px;border-right:1px solid #e2e6ea"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE FLOW</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Bills enter at the left, resolve into the digital twin at the centre, and fan out as four data products on the right.</div></div>
+<div style="padding-right:24px;border-right:1px solid #e2e6ea"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE FLOW</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Bills enter at the left, resolve into the digital twin at the center, and fan out as four data products on the right.</div></div>
 <div style="padding:0 24px;border-right:1px solid #e2e6ea"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE CORE</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Everything is cut from one reconciled source of truth. A record that will not reconcile is held, never published.</div></div>
-<div style="padding-left:24px"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE LOOP</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Actuals feed back along the gold loop, sharpening the twin’s next forecast.</div></div>
+<div style="padding-left:24px"><div style="font-size:11.5px;font-weight:800;letter-spacing:.6px;color:#0E2A47">THE LOOP</div><div style="font-size:12.5px;line-height:1.55;color:#3a4750;margin-top:7px">Actuals feed back along the gold loop, sharpening the twin's next forecast.</div></div>
 </div>
 </div>
 <div style="margin-top:20px;border-top:2px solid #0E2A47;padding-top:12px;font-size:11px;font-weight:800;letter-spacing:1.6px;color:#0E2A47">DATA · IDENTITY · OBSERVABILITY · EXCEPTIONS · GOVERNANCE</div>
@@ -1066,7 +1071,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <defs><marker id="mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#b8912f"/></marker></defs>
 </svg>
 </div>
-</x-dc></div>
+</x-dc></div><div class="maplegend">Hover any station for what runs there · drag to pan · the red ring is the analyst; every regulated decision is theirs</div>
 </div>
 <div style="margin-top:20px;border-top:2px solid #0E2A47;padding-top:14px">
 <div class="kick" style="color:#8a95a0">How to read it</div>
@@ -1090,7 +1095,7 @@ addEventListener('scroll',function(){tb.classList.toggle('on',scrollY>560)},{pas
 <div style="padding:54px 0 56px 26px;border-bottom:1px solid #e2e6ea"><p style="font-size:14px;line-height:1.6;color:#3a4750;margin:0">CoE design at a top US telecom; a 250-automation program at a Fortune 50; 70+ automations at a Fortune 20; AP cycles cut 90 days to 2 at a Fortune 500. The doctrine that survived: <b style="color:#0E2A47">never automate a broken process.</b></p></div>
 
 <div style="padding:54px 20px 56px 0;border-right:2px solid #0E2A47;border-bottom:1px solid #e2e6ea"><div class="snum" style="font-size:20px">2019–2021</div><div class="kick kmut" style="margin-top:6px">Governance</div></div>
-<div style="padding:54px 0 56px 26px;border-bottom:1px solid #e2e6ea"><p style="font-size:14px;line-height:1.6;color:#3a4750;margin:0">Observability and governance for automation fleets: logging, tracing, failure attribution, self-healing. Productised as BotScope, before the market had a word for AgentOps. A global bank's fraud floor cut 188 → low 30s through process redesign alone: no new systems, no capex.</p></div>
+<div style="padding:54px 0 56px 26px;border-bottom:1px solid #e2e6ea"><p style="font-size:14px;line-height:1.6;color:#3a4750;margin:0">Observability and governance for automation fleets: logging, tracing, failure attribution, self-healing. Productized as BotScope, before the market had a word for AgentOps. A global bank's fraud floor cut 188 → low 30s through process redesign alone: no new systems, no capex.</p></div>
 
 <div style="padding:54px 20px 56px 0;border-right:2px solid #0E2A47"><div class="snum" style="font-size:20px">2021–2026</div><div class="kick" style="margin-top:6px;color:#C8102E">Governed Autonomy</div></div>
 <div style="padding:54px 0 56px 26px"><p style="font-size:14px;line-height:1.6;color:#3a4750;margin:0">The three transformations in this portfolio. Same five blocks, now running agents.</p><div style="margin-top:12px;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#0E2A47">DATA · IDENTITY · OBSERVABILITY · EXCEPTIONS · GOVERNANCE</div></div>
@@ -1210,6 +1215,113 @@ document.querySelectorAll('.maphost .fsbtn').forEach(function(btn){
 btn.addEventListener('click',function(){var host=btn.parentElement;
 if(document.fullscreenElement){document.exitFullscreen();}
 else if(host.requestFullscreen){host.requestFullscreen();}});});
-</script>
+(function(){
+    const root = document.getElementById('avm-care');
+    if (!root) return;
+    const tip = root.querySelector('#tip');
+    root.querySelectorAll('.station').forEach(s => {
+      const show = () => {
+        tip.innerHTML = '<span class="k">' + s.dataset.line + '</span><h4>' + s.dataset.name + '</h4><p>' + s.dataset.tip + '</p>';
+        const w = root.getBoundingClientRect(), bb = s.getBoundingClientRect();
+        tip.style.left = Math.min(bb.left - w.left + 24, w.width - 320) + 'px';
+        tip.style.top = (bb.top - w.top - 10) + 'px';
+        tip.style.opacity = 1;
+      };
+      const hide = () => { tip.style.opacity = 0; };
+      s.addEventListener('mouseenter', show);
+      s.addEventListener('focus', show);
+      s.addEventListener('mouseleave', hide);
+      s.addEventListener('blur', hide);
+    });
+    const ovs = { agentics: null, activation: 'ov-activation', exceptions: 'ov-exceptions', offnet: 'ov-offnet', receipts: 'ov-receipts' };
+    const EXCL = ['activation', 'exceptions', 'offnet'];
+    root.querySelectorAll('.avm-tgl[data-ov]').forEach(b => b.addEventListener('click', () => {
+      const k = b.dataset.ov, on = b.getAttribute('aria-pressed') !== 'true';
+      if (on && EXCL.includes(k)) {
+        EXCL.filter(x => x !== k).forEach(x => {
+          const ob = root.querySelector('.avm-tgl[data-ov="' + x + '"]');
+          if (ob && ob.getAttribute('aria-pressed') === 'true') {
+            ob.setAttribute('aria-pressed', 'false');
+            root.querySelector('#' + ovs[x]).setAttribute('opacity', 0);
+          }
+        });
+      }
+      b.setAttribute('aria-pressed', on);
+      if (k === 'agentics') { root.querySelectorAll('.aibadge').forEach(x => x.setAttribute('opacity', on ? 1 : 0)); return; }
+      root.querySelector('#' + ovs[k]).setAttribute('opacity', on ? 1 : 0);
+    }));
+    root.querySelectorAll('.avm-tgl[data-font]').forEach(b => b.addEventListener('click', () => {
+      root.querySelectorAll('.avm-tgl[data-font]').forEach(x => x.setAttribute('aria-pressed', 'false'));
+      b.setAttribute('aria-pressed', 'true');
+      root.style.setProperty('--map-font', b.dataset.font);
+      root.setAttribute('data-variant', b.dataset.variant);
+    }));
+    const pb = root.querySelector('#printBtn');
+    if (pb) pb.addEventListener('click', () => window.print());
+  })();
+(function(){
+    const root = document.getElementById('avm-ems');
+    if (!root) return;
+    const tip = root.querySelector('#tip');
+    root.querySelectorAll('.station').forEach(s => {
+      const show = () => {
+        tip.innerHTML = '<span class="k">' + s.dataset.line + '</span><h4>' + s.dataset.name + '</h4><p>' + s.dataset.tip + '</p>';
+        const w = root.getBoundingClientRect(), bb = s.getBoundingClientRect();
+        tip.style.left = Math.min(bb.left - w.left + 24, w.width - 320) + 'px';
+        tip.style.top = (bb.top - w.top - 10) + 'px';
+        tip.style.opacity = 1;
+      };
+      const hide = () => { tip.style.opacity = 0; };
+      s.addEventListener('mouseenter', show);
+      s.addEventListener('focus', show);
+      s.addEventListener('mouseleave', hide);
+      s.addEventListener('blur', hide);
+    });
+    const ovs = { activation: 'ov-activation', exceptions: 'ov-exceptions', offnet: 'ov-offnet', receipts: 'ov-receipts' };
+    const EXCL = ['activation', 'exceptions', 'offnet'];
+    root.querySelectorAll('.avm-tgl[data-ov]').forEach(b => b.addEventListener('click', () => {
+      const k = b.dataset.ov, on = b.getAttribute('aria-pressed') !== 'true';
+      if (on && EXCL.includes(k)) {
+        EXCL.filter(x => x !== k).forEach(x => {
+          const ob = root.querySelector('.avm-tgl[data-ov="' + x + '"]');
+          if (ob && ob.getAttribute('aria-pressed') === 'true') {
+            ob.setAttribute('aria-pressed', 'false');
+            root.querySelector('#' + ovs[x]).setAttribute('opacity', 0);
+          }
+        });
+      }
+      b.setAttribute('aria-pressed', on);
+      root.querySelector('#' + ovs[k]).setAttribute('opacity', on ? 1 : 0);
+    }));
+    root.querySelectorAll('.avm-tgl[data-font]').forEach(b => b.addEventListener('click', () => {
+      root.querySelectorAll('.avm-tgl[data-font]').forEach(x => x.setAttribute('aria-pressed', 'false'));
+      b.setAttribute('aria-pressed', 'true');
+      root.style.setProperty('--map-font', b.dataset.font);
+      root.setAttribute('data-variant', b.dataset.variant);
+    }));
+    const pb = root.querySelector('#printBtn');
+    if (pb) pb.addEventListener('click', () => window.print());
+  })();
+(function(){
+    const root = document.getElementById('avm2-fin');
+    if (!root) return;
+    const tip = root.querySelector('#tip');
+    root.querySelectorAll('.station').forEach(s => {
+      const show = () => {
+        tip.innerHTML = '<span class="k">' + s.dataset.line + '</span><h4>' + s.dataset.name + '</h4><p>' + s.dataset.tip + '</p>';
+        const w = root.getBoundingClientRect(), bb = s.getBoundingClientRect();
+        tip.style.left = Math.min(Math.max(bb.left - w.left + bb.width / 2 - 145, 8), w.width - 300) + 'px';
+        tip.style.top = (bb.top - w.top - 12) + 'px';
+        tip.style.opacity = 1;
+      };
+      const hide = () => { tip.style.opacity = 0; };
+      s.addEventListener('mouseenter', show);
+      s.addEventListener('focus', show);
+      s.addEventListener('mouseleave', hide);
+      s.addEventListener('blur', hide);
+    });
+    const pb = root.querySelector('#printBtn');
+    if (pb) pb.addEventListener('click', () => window.print());
+  })();</script>
 </body>
 </html>
