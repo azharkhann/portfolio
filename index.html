@@ -100,6 +100,123 @@ h1 .struck::after{content:"";position:absolute;left:-2%;right:-2%;top:54%;height
 .idplate{margin:64px auto 0;padding:0}
 .idslot{aspect-ratio:4/5;max-width:360px;margin:0 auto;border:1px solid var(--rule);background:var(--paper)}
 .idslot-label{margin:16px auto 0;max-width:360px;text-align:center;font:700 13px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+
+/* ── idm: identity plate, decade-rail walk cycle ── */
+.idslot.idm-plate{background:var(--void);border-color:var(--dline);overflow:hidden;position:relative}
+.idm-stage{position:absolute;inset:0;opacity:0;transition:opacity .6s var(--idm-settle,ease)}
+.idm-stage.idm-ready{opacity:1}
+.idm-svg{width:100%;height:100%;display:block}
+.idm-clock{position:absolute;width:0;height:0;left:0;top:0;opacity:0;pointer-events:none}
+.idm-stage.idm-go .idm-clock{animation:idm-clocktick 9000ms steps(1,end) infinite}
+@keyframes idm-clocktick{0%{left:0}100%{left:1px}}
+
+.idm-railline{fill:none;stroke:var(--dfog);stroke-width:2}
+.idm-yr{font:400 10px/1 var(--mono);letter-spacing:.04em;fill:var(--haze)}
+.idm-slabtxt{font:700 7px/1 var(--mono);letter-spacing:.06em;fill:var(--haze);opacity:0}
+.idm-strand{fill:none;stroke:var(--haze);stroke-width:1.3;opacity:0}
+
+.idm-node-outline{fill:none;stroke:var(--dfog);stroke-width:1.5}
+.idm-node-fill{fill:var(--dwhite);opacity:1;transform-box:fill-box;transform-origin:center}
+
+.idm-era1{opacity:.28}
+.idm-era2{opacity:.32}
+.idm-era3{opacity:1}
+.idm-block{fill:none;stroke:var(--haze);stroke-width:1.3}
+.idm-tap{stroke:var(--haze);stroke-width:1}
+.idm-tick-dot{fill:var(--haze)}
+.idm-cluster-line{stroke:var(--dfog);stroke-width:1.2}
+.idm-gatetrace{fill:none;stroke:var(--dfog);stroke-width:1.4;stroke-dashoffset:0}
+.idm-touch{fill:var(--dwhite);opacity:0}
+.idm-mesh-node{fill:none;stroke:var(--dfog);stroke-width:1.3}
+.idm-mesh-edge{fill:none;stroke:var(--dline);stroke-width:1}
+.idm-notch{stroke:var(--haze);stroke-width:1.2}
+.idm-tvgroup{display:none}
+.idm-stage:not([data-idm-variant]) .idm-tvgroup[data-idm-v="0"],
+.idm-stage[data-idm-variant="0"] .idm-tvgroup[data-idm-v="0"],
+.idm-stage[data-idm-variant="1"] .idm-tvgroup[data-idm-v="1"],
+.idm-stage[data-idm-variant="2"] .idm-tvgroup[data-idm-v="2"]{display:block}
+.idm-agenttrace{fill:none;stroke:var(--haze);stroke-width:1;stroke-linecap:round;opacity:.4}
+
+.idm-figure{transform:translate(170px,250px)}
+.idm-torso{fill:none;stroke:var(--dfog);stroke-width:1.6;stroke-linecap:round;transform-box:fill-box;transform-origin:50% 100%;transition:transform .3s var(--idm-pop,cubic-bezier(.34,1.56,.64,1))}
+.idm-eye{fill:var(--dwhite);stroke:none}
+.idm-armU{transform-box:fill-box;transform-origin:0% 0%;transition:transform .3s var(--idm-pop,cubic-bezier(.34,1.56,.64,1))}
+.idm-legL,.idm-legR{fill:none;stroke:var(--dfog);stroke-width:1.6;stroke-linecap:round;transform-box:fill-box;transition:transform .22s var(--idm-pop,cubic-bezier(.34,1.56,.64,1))}
+.idm-legL{transform-origin:100% 0%}
+.idm-legR{transform-origin:0% 0%}
+
+.idm-figure.idm-crouch .idm-torso{transform:translateY(3px) scaleY(.88)}
+.idm-figure.idm-reach .idm-armU{transform:rotate(-100deg)}
+.idm-figure.idm-kneel .idm-torso{transform:translateY(4px) scaleY(.82)}
+.idm-figure.idm-kneel .idm-legL{transition:none;transform:rotate(-34deg)}
+.idm-figure.idm-kneel .idm-legR{transition:none;transform:rotate(30deg)}
+.idm-figure.idm-kneel .idm-armU{transform:rotate(55deg)}
+.idm-figure.idm-lean .idm-torso{transform:rotate(-7deg)}
+.idm-figure.idm-still .idm-torso,.idm-figure.idm-still .idm-legL,.idm-figure.idm-still .idm-legR,.idm-figure.idm-still .idm-armU{transform:none}
+
+.idm-figure.idm-walk .idm-legL{animation:idm-swingL .38s var(--idm-walkease,cubic-bezier(.45,.05,.55,.95)) infinite}
+.idm-figure.idm-walk .idm-legR{animation:idm-swingR .38s var(--idm-walkease,cubic-bezier(.45,.05,.55,.95)) infinite}
+.idm-figure.idm-walk.idm-fast .idm-legL{animation:idm-swingLfast .27s var(--idm-walkease,cubic-bezier(.45,.05,.55,.95)) infinite}
+.idm-figure.idm-walk.idm-fast .idm-legR{animation:idm-swingRfast .27s var(--idm-walkease,cubic-bezier(.45,.05,.55,.95)) infinite}
+@keyframes idm-swingL{0%{transform:rotate(0)}25%{transform:rotate(-15deg)}50%{transform:rotate(0)}75%{transform:rotate(15deg)}100%{transform:rotate(0)}}
+@keyframes idm-swingR{0%{transform:rotate(0)}25%{transform:rotate(15deg)}50%{transform:rotate(0)}75%{transform:rotate(-15deg)}100%{transform:rotate(0)}}
+@keyframes idm-swingLfast{0%{transform:rotate(0)}25%{transform:rotate(-21deg)}50%{transform:rotate(0)}75%{transform:rotate(21deg)}100%{transform:rotate(0)}}
+@keyframes idm-swingRfast{0%{transform:rotate(0)}25%{transform:rotate(21deg)}50%{transform:rotate(0)}75%{transform:rotate(-21deg)}100%{transform:rotate(0)}}
+
+.idm-caption{opacity:1}
+.idm-cap-line{font:700 11px/1.5 var(--mono);letter-spacing:.02em;fill:var(--dwhite)}
+
+.idm-stage.idm-go .idm-strand{animation:idm-strandLife 9000ms var(--idm-draw,linear) infinite}
+.idm-stage.idm-go .idm-slabtxt{animation:idm-slabLife 9000ms linear infinite}
+.idm-stage.idm-go .idm-era1{animation:idm-era1Life 9000ms linear infinite}
+.idm-stage.idm-go .idm-era2{animation:idm-era2Life 9000ms linear infinite}
+.idm-stage.idm-go .idm-era3{animation:idm-era3Life 9000ms linear infinite}
+.idm-stage.idm-go .idm-node-fill-1{animation:idm-node1Life 9000ms linear infinite}
+.idm-stage.idm-go .idm-node-fill-2{animation:idm-node2Life 9000ms linear infinite}
+.idm-stage.idm-go .idm-node-fill-3{animation:idm-node3Life 9000ms linear infinite}
+.idm-stage.idm-go .idm-touch{animation:idm-touchLife 9000ms linear infinite}
+.idm-stage.idm-go .idm-gatetrace{animation:idm-gateLife 9000ms linear infinite}
+.idm-stage.idm-go .idm-agenttrace{animation:idm-agentLife 9000ms linear infinite}
+.idm-stage.idm-go .idm-figure{animation:idm-figPos 9000ms cubic-bezier(.22,1,.36,1) infinite,idm-figOpacity 9000ms linear infinite}
+.idm-stage.idm-go .idm-caption{animation:idm-capLife 9000ms linear infinite}
+
+@keyframes idm-strandLife{0%{opacity:0;stroke-dashoffset:var(--slen)}2%{opacity:1}13%{stroke-dashoffset:0;opacity:1}16%{opacity:0}100%{opacity:0}}
+@keyframes idm-slabLife{0%{opacity:0}2%{opacity:1}11%{opacity:1}15%{opacity:0}100%{opacity:0}}
+@keyframes idm-era1Life{0%,16.6%{opacity:0}18%{opacity:1}33.3%{opacity:1}36%{opacity:.28}100%{opacity:.28}}
+@keyframes idm-era2Life{0%,33.3%{opacity:0}34.8%{opacity:1}50%{opacity:1}52%{opacity:.32}100%{opacity:.32}}
+@keyframes idm-era3Life{0%,49.5%{opacity:0}51%{opacity:1}100%{opacity:1}}
+@keyframes idm-node1Life{0%,19.9%{opacity:0;transform:scale(.5)}20.3%{opacity:1;transform:scale(1.3)}21.5%,100%{opacity:1;transform:scale(1)}}
+@keyframes idm-node2Life{0%,43.9%{opacity:0;transform:scale(.5)}44.3%{opacity:1;transform:scale(1.3)}45.5%,100%{opacity:1;transform:scale(1)}}
+@keyframes idm-node3Life{0%,50.4%{opacity:0;transform:scale(.5)}50.8%{opacity:1;transform:scale(1.3)}52%,100%{opacity:1;transform:scale(1)}}
+@keyframes idm-gateLife{0%,33.3%{stroke-dashoffset:var(--glen)}38.8%{stroke-dashoffset:calc(var(--glen) * .12)}41.6%{stroke-dashoffset:calc(var(--glen) * .12)}44.4%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+@keyframes idm-touchLife{0%,40.5%{opacity:0}41%{opacity:1}42.5%{opacity:0}100%{opacity:0}}
+@keyframes idm-agentLife{0%,49.9%{opacity:0;stroke-dashoffset:var(--alen)}52%{opacity:.4}63%{stroke-dashoffset:0;opacity:.4}80%{opacity:.4}84%{opacity:0}100%{opacity:0}}
+@keyframes idm-figPos{0%,16.6%,20%{transform:translate(30px,250px)}33.3%{transform:translate(100px,250px)}36.6%{transform:translate(150px,250px)}38.9%,44.4%{transform:translate(168px,250px)}50%{transform:translate(232px,250px)}66.6%,76.6%{transform:translate(300px,250px)}80%,100%{transform:translate(380px,250px)}}
+@keyframes idm-figOpacity{0%,16.6%{opacity:0}16.9%,80%{opacity:1}80.4%,100%{opacity:0}}
+@keyframes idm-capLife{0%,67.9%{opacity:0}69%{opacity:1}76%{opacity:1}77.5%{opacity:0}100%{opacity:0}}
+
+.idm-counters{max-width:360px;margin:20px auto 0;background:var(--void);border:1px solid var(--dline);padding:16px 20px}
+.idm-crow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--dline)}
+.idm-crow:last-child{border-bottom:0}
+.idm-cv{display:inline-flex;gap:1px}
+.idm-cd{font:700 10px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--haze);text-align:right}
+.idm-tile{position:relative;display:inline-block;width:.72em;height:1.15em;font:700 15px/1 var(--mono);color:var(--dwhite)}
+.idm-tile.idm-narrow{width:.4em}
+.idm-tile .h,.idm-tile .f{position:absolute;left:0;right:0;overflow:hidden;background:var(--steel);border:1px solid var(--dline)}
+.idm-tile .h span,.idm-tile .f span{position:absolute;left:0;right:0;height:1.15em;line-height:1.15em;text-align:center}
+.idm-tile .ht,.idm-tile .ft{top:0;height:50%}
+.idm-tile .ht span,.idm-tile .ft span{top:0}
+.idm-tile .hb,.idm-tile .fb{bottom:0;height:50%}
+.idm-tile .hb span,.idm-tile .fb span{bottom:0}
+.idm-tile .ft{z-index:2;transform-origin:bottom;transition:transform .07s ease-in}
+.idm-tile .fb{z-index:2;transform-origin:top;transform:scaleY(0);transition:transform .07s ease-out}
+.idm-tile.idm-tick .ft{transform:scaleY(0)}
+.idm-tile.idm-tock .fb{transform:scaleY(1)}
+.idm-tile::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.5);z-index:3;pointer-events:none}
+@media (prefers-reduced-motion:reduce){
+  .idm-tile .ft,.idm-tile .fb,.idm-torso,.idm-armU,.idm-legL,.idm-legR,.idm-stage{transition:none}
+  .idm-stage.idm-go .idm-strand,.idm-stage.idm-go .idm-slabtxt,.idm-stage.idm-go .idm-era1,.idm-stage.idm-go .idm-era2,.idm-stage.idm-go .idm-era3,.idm-stage.idm-go .idm-node-fill-1,.idm-stage.idm-go .idm-node-fill-2,.idm-stage.idm-go .idm-node-fill-3,.idm-stage.idm-go .idm-touch,.idm-stage.idm-go .idm-gatetrace,.idm-stage.idm-go .idm-agenttrace,.idm-stage.idm-go .idm-figure,.idm-stage.idm-go .idm-caption,.idm-stage.idm-go .idm-clock,.idm-figure.idm-walk .idm-legL,.idm-figure.idm-walk .idm-legR,.idm-figure.idm-walk.idm-fast .idm-legL,.idm-figure.idm-walk.idm-fast .idm-legR{animation:none}
+}
 h3.slede{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:clamp(28px,3vw,38px);line-height:1.15;margin:32px 0 0;max-width:24ch}
 .sbody{margin:24px 0 0;font-size:17px;line-height:1.62;color:var(--ink-2);max-width:62ch}
 .creds{margin:32px 0 0;padding:16px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font:400 13px/1.7 var(--mono);letter-spacing:.04em;color:var(--ink-3)}
@@ -712,8 +829,136 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 </section>
 
 <div class="frame idplate">
-  <!-- ILLUSTRATION SLOT: who-Azhar-is, illustrator artwork pending, do not fill -->
-  <div class="idslot" role="img" aria-label="Reserved space for a portrait illustration of Azhar Khan, pending commission"></div>
+  <div class="idslot idm-plate" role="img" aria-label="Animated identity mark: a figure walks a decade rail from 2016 to 2026 while process, data, technology and people braid into one governed line and the estate evolves from RPA blocks to an agent mesh, ending with a turn to the viewer and the line: the tools changed three times, the system didn't">
+    <div class="idm-stage" id="idmStage">
+      <i class="idm-clock" aria-hidden="true"></i>
+      <svg class="idm-svg" viewBox="0 0 320 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <filter id="idmWobble" x="-40%" y="-40%" width="180%" height="180%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.05 0.09" numOctaves="2" seed="11" result="idmN"/>
+            <feDisplacementMap in="SourceGraphic" in2="idmN" scale="2.6"/>
+          </filter>
+        </defs>
+
+        <g class="idm-era1">
+          <rect class="idm-block" x="118" y="294" width="16" height="28"/>
+          <rect class="idm-block" x="144" y="280" width="16" height="42"/>
+          <rect class="idm-block" x="170" y="298" width="16" height="24"/>
+          <rect class="idm-block" x="196" y="286" width="16" height="36"/>
+          <line class="idm-tap" x1="126" y1="250" x2="126" y2="294"/>
+          <line class="idm-tap" x1="152" y1="250" x2="152" y2="280"/>
+          <line class="idm-tap" x1="178" y1="250" x2="178" y2="298"/>
+          <line class="idm-tap" x1="204" y1="250" x2="204" y2="286"/>
+          <circle class="idm-tick-dot" cx="126" cy="250" r="1.6"/>
+          <circle class="idm-tick-dot" cx="152" cy="250" r="1.6"/>
+          <circle class="idm-tick-dot" cx="178" cy="250" r="1.6"/>
+          <circle class="idm-tick-dot" cx="204" cy="250" r="1.6"/>
+        </g>
+
+        <g class="idm-era2">
+          <rect class="idm-block" x="118" y="294" width="16" height="28" rx="2"/>
+          <rect class="idm-block" x="144" y="280" width="16" height="42" rx="2"/>
+          <rect class="idm-block" x="170" y="298" width="16" height="24" rx="2"/>
+          <rect class="idm-block" x="196" y="286" width="16" height="36" rx="2"/>
+          <line class="idm-cluster-line" x1="134" y1="308" x2="144" y2="308"/>
+          <line class="idm-cluster-line" x1="186" y1="304" x2="196" y2="304"/>
+          <line class="idm-tap" x1="126" y1="250" x2="126" y2="294"/>
+          <line class="idm-tap" x1="139" y1="250" x2="139" y2="266"/>
+          <line class="idm-tap" x1="152" y1="250" x2="152" y2="280"/>
+          <line class="idm-tap" x1="178" y1="250" x2="178" y2="298"/>
+          <line class="idm-tap" x1="191" y1="250" x2="191" y2="266"/>
+          <line class="idm-tap" x1="204" y1="250" x2="204" y2="286"/>
+          <circle class="idm-tick-dot" cx="126" cy="250" r="1.6"/>
+          <circle class="idm-tick-dot" cx="139" cy="250" r="1.3"/>
+          <circle class="idm-tick-dot" cx="152" cy="250" r="1.6"/>
+          <circle class="idm-tick-dot" cx="178" cy="250" r="1.6"/>
+          <circle class="idm-tick-dot" cx="191" cy="250" r="1.3"/>
+          <circle class="idm-tick-dot" cx="204" cy="250" r="1.6"/>
+          <path class="idm-gatetrace" d="M150,308 Q170,316 190,304"/>
+          <circle class="idm-touch" cx="170" cy="312" r="2.4"/>
+        </g>
+
+        <g class="idm-era3">
+          <line class="idm-notch" x1="112" y1="250" x2="112" y2="258"/>
+          <line class="idm-notch" x1="228" y1="250" x2="228" y2="258"/>
+          <g class="idm-tvgroup" data-idm-v="0">
+            <path class="idm-agenttrace" d="M112,254 Q140,274 165,264 Q190,252 214,268"/>
+            <path class="idm-agenttrace" d="M112,254 Q135,266 158,290 Q182,280 214,262"/>
+            <path class="idm-agenttrace" d="M112,254 Q150,258 176,282 Q198,294 214,268"/>
+          </g>
+          <g class="idm-tvgroup" data-idm-v="1">
+            <path class="idm-agenttrace" d="M112,254 Q145,268 162,252 Q188,242 214,258"/>
+            <path class="idm-agenttrace" d="M112,254 Q130,276 156,268 Q178,288 214,274"/>
+            <path class="idm-agenttrace" d="M112,254 Q152,276 170,260 Q194,266 214,252"/>
+          </g>
+          <g class="idm-tvgroup" data-idm-v="2">
+            <path class="idm-agenttrace" d="M112,254 Q138,252 160,274 Q184,258 214,266"/>
+            <path class="idm-agenttrace" d="M112,254 Q142,280 168,266 Q186,250 214,256"/>
+            <path class="idm-agenttrace" d="M112,254 Q125,268 154,254 Q180,276 214,272"/>
+          </g>
+          <circle class="idm-mesh-node" cx="124" cy="288" r="3"/>
+          <circle class="idm-mesh-node" cx="150" cy="302" r="3"/>
+          <circle class="idm-mesh-node" cx="176" cy="284" r="3"/>
+          <circle class="idm-mesh-node" cx="202" cy="306" r="3"/>
+          <circle class="idm-mesh-node" cx="160" cy="270" r="3"/>
+          <line class="idm-mesh-edge" x1="124" y1="288" x2="150" y2="302"/>
+          <line class="idm-mesh-edge" x1="150" y1="302" x2="176" y2="284"/>
+          <line class="idm-mesh-edge" x1="176" y1="284" x2="202" y2="306"/>
+          <line class="idm-mesh-edge" x1="150" y1="302" x2="160" y2="270"/>
+          <line class="idm-mesh-edge" x1="176" y1="284" x2="160" y2="270"/>
+        </g>
+
+        <g class="idm-braid">
+          <text class="idm-slabtxt" x="70" y="22" text-anchor="middle">PROCESS</text>
+          <text class="idm-slabtxt" x="130" y="22" text-anchor="middle">DATA</text>
+          <text class="idm-slabtxt" x="190" y="22" text-anchor="middle">TECHNOLOGY</text>
+          <text class="idm-slabtxt" x="250" y="22" text-anchor="middle">PEOPLE</text>
+          <path class="idm-strand" d="M70,34 C 84,82 56,135.3 74,188.7 S 60,239.3 70,250"/>
+          <path class="idm-strand" d="M130,34 C 116,82 144,135.3 126,188.7 S 140,239.3 130,250"/>
+          <path class="idm-strand" d="M190,34 C 204,82 176,135.3 194,188.7 S 180,239.3 190,250"/>
+          <path class="idm-strand" d="M250,34 C 236,82 264,135.3 246,188.7 S 260,239.3 250,250"/>
+        </g>
+
+        <path class="idm-railline" d="M20,250 L344,250"/>
+        <text class="idm-yr" x="20" y="270">2016</text>
+        <text class="idm-yr" x="308" y="270" text-anchor="end">2026</text>
+
+        <g class="idm-node-outline" transform="translate(90,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
+        <g transform="translate(90,250) rotate(45)"><rect class="idm-node-fill idm-node-fill-1" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
+        <g class="idm-node-outline" transform="translate(170,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
+        <g transform="translate(170,250) rotate(45)"><rect class="idm-node-fill idm-node-fill-2" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
+        <g class="idm-node-outline" transform="translate(250,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
+        <g transform="translate(250,250) rotate(45)"><rect class="idm-node-fill idm-node-fill-3" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
+
+        <g class="idm-figure" id="idmFigure">
+          <g class="idm-torso" filter="url(#idmWobble)">
+            <circle cx="0" cy="-24" r="5.5"/>
+            <circle class="idm-eye" cx="-1.8" cy="-24.6" r="0.9"/>
+            <circle class="idm-eye" cx="1.8" cy="-24.6" r="0.9"/>
+            <path d="M0,-18.5 L0,-2"/>
+            <path d="M0,-14 L-9,-6"/>
+            <g class="idm-armU"><path d="M0,-14 L9,-9"/></g>
+          </g>
+          <g class="idm-legL"><path d="M0,-2 L-8,14"/></g>
+          <g class="idm-legR"><path d="M0,-2 L8,10"/></g>
+        </g>
+
+        <g class="idm-caption" text-anchor="middle">
+          <text class="idm-cap-line" x="160" y="370">THE TOOLS CHANGED THREE TIMES.</text>
+          <text class="idm-cap-line" x="160" y="386">THE SYSTEM DIDN'T.</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="idm-counters" id="idmCounters" aria-hidden="true">
+    <div class="idm-crow"><span class="idm-cv" data-idm-val="2016"></span><span class="idm-cd">SINCE</span></div>
+    <div class="idm-crow"><span class="idm-cv" data-idm-val="$100M+"></span><span class="idm-cd">AND COUNTING</span></div>
+    <div class="idm-crow"><span class="idm-cv" data-idm-val="1M+"></span><span class="idm-cd">HOURS RETURNED</span></div>
+    <div class="idm-crow"><span class="idm-cv" data-idm-val="TEN"></span><span class="idm-cd">ENTERPRISES</span></div>
+    <div class="idm-crow"><span class="idm-cv" data-idm-val="FIVE"></span><span class="idm-cd">INDUSTRIES</span></div>
+  </div>
+
   <div class="idslot-label">AZHAR KHAN</div>
 </div>
 
@@ -3286,6 +3531,133 @@ return {skip:skip,open:open};
 
 </script>
 
+<script>
+/* ── idm: identity plate driver. Namespaced to avoid colliding with the rest of the page. ── */
+(function(){
+  var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var stage = document.getElementById('idmStage');
+  if (!stage) return;
+  var figure = document.getElementById('idmFigure');
+
+  document.querySelectorAll('#idmStage .idm-strand').forEach(function(p){
+    try { var len = p.getTotalLength(); p.style.strokeDasharray = len; p.style.setProperty('--slen', len); } catch (e) {}
+  });
+  document.querySelectorAll('#idmStage .idm-gatetrace').forEach(function(p){
+    try { var len = p.getTotalLength(); p.style.strokeDasharray = len; p.style.setProperty('--glen', len); } catch (e) {}
+  });
+  document.querySelectorAll('#idmStage .idm-agenttrace').forEach(function(p){
+    try { var len = p.getTotalLength(); p.style.strokeDasharray = len; p.style.setProperty('--alen', len); } catch (e) {}
+  });
+
+  stage.classList.add('idm-ready');
+
+  if (!reduced && figure) {
+    stage.classList.add('idm-go');
+    var variant = 0;
+    function scheduleBeats(){
+      setTimeout(function(){ figure.classList.add('idm-crouch'); }, 1500);
+      setTimeout(function(){ figure.classList.remove('idm-crouch'); figure.classList.add('idm-walk'); }, 1800);
+      setTimeout(function(){ figure.classList.add('idm-reach'); }, 3000);
+      setTimeout(function(){ figure.classList.remove('idm-reach'); }, 3300);
+      setTimeout(function(){ figure.classList.remove('idm-walk'); figure.classList.add('idm-kneel'); }, 3500);
+      setTimeout(function(){ figure.classList.remove('idm-kneel'); figure.classList.add('idm-walk'); }, 4000);
+      setTimeout(function(){ figure.classList.add('idm-lean', 'idm-fast'); }, 4500);
+      setTimeout(function(){ figure.classList.remove('idm-walk', 'idm-fast', 'idm-lean'); figure.classList.add('idm-still'); }, 6000);
+      setTimeout(function(){ figure.classList.remove('idm-still'); figure.classList.add('idm-walk', 'idm-fast'); }, 6900);
+      setTimeout(function(){ figure.classList.remove('idm-walk', 'idm-fast'); }, 7200);
+      variant = (variant + 1) % 3;
+      stage.setAttribute('data-idm-variant', String(variant));
+    }
+    var clock = stage.querySelector('.idm-clock');
+    if (clock) {
+      clock.addEventListener('animationiteration', function(e){
+        if (e.animationName === 'idm-clocktick') scheduleBeats();
+      });
+    }
+    scheduleBeats();
+  }
+
+  /* ---- counters: namespaced split-flap tiles. Independent of the SVG loop; never reset. ---- */
+  var DIG = '0123456789', ALPHA = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+.';
+  function mkTile(host, ch){
+    var c = document.createElement('span');
+    c.className = 'idm-tile' + ((ch === ' ' || ch === '.') ? ' idm-narrow' : '');
+    c.innerHTML = '<span class="h ht"><span></span></span><span class="h hb"><span></span></span><span class="f ft"><span></span></span><span class="f fb"><span></span></span>';
+    host.appendChild(c);
+    var q = { el: c, cur: ' ', ht: c.children[0].firstChild, hb: c.children[1].firstChild, ft: c.children[2].firstChild, fb: c.children[3].firstChild };
+    q.show = function(v){ q.cur = v; q.ht.textContent = v; q.hb.textContent = v; q.ft.textContent = v; q.fb.textContent = v; };
+    q.flip = function(next, done){
+      if (next === q.cur) { done && done(); return; }
+      q.ft.textContent = q.cur; q.fb.textContent = next; q.ht.textContent = next;
+      q.el.classList.add('idm-tick');
+      setTimeout(function(){ q.el.classList.add('idm-tock'); }, 35);
+      setTimeout(function(){
+        q.hb.textContent = next; q.ft.textContent = next; q.cur = next;
+        q.el.classList.remove('idm-tick'); q.el.classList.remove('idm-tock');
+        done && done();
+      }, 70);
+    };
+    q.spinTo = function(target, spins, set){
+      if (reduced) { q.show(target); return; }
+      var seq = [], i;
+      for (i = 0; i < spins; i++) seq.push(set[Math.floor(Math.random() * set.length)]);
+      seq.push(target);
+      (function step(k){
+        if (k >= seq.length) return;
+        q.flip(seq[k], function(){ setTimeout(function(){ step(k + 1); }, 16); });
+      })(0);
+    };
+    q.show(' ');
+    return q;
+  }
+
+  var rows = [];
+  document.querySelectorAll('#idmCounters .idm-cv').forEach(function(host){
+    var text = host.getAttribute('data-idm-val') || '', cells = [];
+    for (var i = 0; i < text.length; i++) cells.push({ q: mkTile(host, text[i]), ch: text[i] });
+    rows.push({ host: host, cells: cells, text: text });
+  });
+
+  function landRow(row){ row.cells.forEach(function(o){ o.q.show(o.ch); }); }
+  function revealRow(row, base){
+    row.cells.forEach(function(o, i){
+      setTimeout(function(){
+        var isDigit = DIG.indexOf(o.ch) > -1;
+        o.q.spinTo(o.ch, isDigit ? 4 : 2, isDigit ? DIG : ALPHA);
+      }, base + i * 70);
+    });
+  }
+  function startTicking(){
+    if (reduced) return;
+    var tickTargets = [rows[1], rows[2]].filter(Boolean);
+    var n = 0;
+    setInterval(function(){
+      var row = tickTargets[n % tickTargets.length]; n++;
+      if (!row) return;
+      row.cells.forEach(function(o, i){
+        if (DIG.indexOf(o.ch) === -1) return;
+        setTimeout(function(){ o.q.spinTo(o.ch, 3, DIG); }, i * 40);
+      });
+    }, 4200);
+  }
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    rows.forEach(landRow);
+  } else {
+    var fired = false;
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting || fired) return;
+        fired = true; io.disconnect();
+        rows.forEach(function(row, k){ revealRow(row, 220 + k * 260); });
+        setTimeout(startTicking, 220 + rows.length * 260 + 900);
+      });
+    }, { threshold: 0.3 });
+    var counters = document.getElementById('idmCounters');
+    if (counters) io.observe(counters);
+  }
+})();
+</script>
 
 
 </body></html>
