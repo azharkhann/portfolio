@@ -945,7 +945,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <div class="frame">
 
 
-<section class="case" id="case-thekey">
+<section class="case" id="case-homecare">
   <div class="entry">Transformation 01 · National Home Care</div>
   <p class="scene"><i>02:11</i> · a rate batch stages itself, every client agreement. It waits on one signature.</p>
   <h3 class="lede">One governed orchestration layer runs eleven business functions end to end.</h3>
@@ -1220,7 +1220,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <p class="fine">Nine acquisitions, one rebrand, and one country launch have landed as configuration changes since, without a platform rebuild.</p>
 </section>
 
-<section class="case" id="case-ems">
+<section class="case" id="case-utilities">
   <div class="entry">Transformation 02 · Utilities</div>
   <p class="scene"><i>02:14</i> · one invoice in a hundred falls below the confidence line. The twin holds it.</p>
   <h3 class="lede">A $2B+ payments operation runs on one digital twin, $1B of it through the platform.</h3>
@@ -1242,7 +1242,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   </div>
   
 <div class="mapshell rv">
-<div class="maphost" data-map="ems"><button class="fsbtn" type="button" aria-label="View map full screen">⛶ Full screen</button><div class="avm-root" id="avm-ems" data-variant="a">
+<div class="maphost" data-map="util"><button class="fsbtn" type="button" aria-label="View map full screen">⛶ Full screen</button><div class="avm-root" id="avm-util" data-variant="a">
 <div class="avm-bar" role="toolbar">
 <span class="avm-lab">LAYERS</span>
 <div class="avm-grp">
@@ -1252,11 +1252,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <button class="avm-tgl" data-ov="receipts" aria-pressed="false">How to read it</button>
 </div>
 <span class="avm-spacer"></span>
-<button class="avm-print" type="button" id="printBtn-ems">Print</button>
+<button class="avm-print" type="button" id="printBtn-util">Print</button>
 </div>
 <div class="avm-svgscroll">
-<div id="tip-ems" class="map-tip" role="status"></div>
-<svg id="map-ems" viewBox="0 32 2280 1228" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Utility billing digital-twin operating map">
+<div id="tip-util" class="map-tip" role="status"></div>
+<svg id="map-util" viewBox="0 32 2280 1228" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Utility billing digital-twin operating map">
 <rect width="2280" height="1780" fill="#fff"></rect>
 <rect x="70" y="44" width="30" height="22" rx="2" fill="#16324c"></rect><text x="85" y="60" fill="#fff" font-size="13" font-weight="800" text-anchor="middle">03</text>
 <text x="114" y="60" fill="#5b6b7a" font-size="13" font-weight="700" letter-spacing="2.5">AGENTIC ORCHESTRATION · UTILITY BILL MANAGEMENT: DATA PLATFORM</text>
@@ -1868,7 +1868,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <div class="sir" style="margin-top:30px">
     <div class="arcrow"><div class="k">2016–2019 · RPA</div><div class="v">The RPA adoption era: process discovery, automation delivery, and proofs of concept across clients · CoE design and a 250-automation program at a top US telecom · then a Fortune 20 energy company, leading intelligent automation as a pillar of the wider transformation (S/4HANA migration, M&amp;A, a corporate split).</div></div>
     <div class="arcrow"><div class="k">2019–2021 · Intelligent automation</div><div class="v">Governance and observability productized as BotScope and shipped to production.</div></div>
-    <div class="arcrow"><div class="k">2021–2026 · Agentic operations</div><div class="v">Governed agentic operations in production · the four engagements on this page.</div></div>
+    <div class="arcrow"><div class="k">2021–2026 · Agentic operations</div><div class="v">Governed agentic operations in production · four of the five engagements on this page.</div></div>
   </div>
 </section>
 
@@ -2465,7 +2465,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   /* ── running head + read line ── */
   (function(){
     var rh=document.getElementById('runhead'), rl=document.getElementById('readline');
-    var ids=['top','floor','work','standing','case-thekey','case-ems','demos','case-fintech','case-bank','arc','record','contact'];
+    var ids=['top','floor','work','standing','case-homecare','case-utilities','demos','case-fintech','case-bank','arc','record','contact'];
     function fitToWidth(text,maxWidthPx,font,trackPx){
       var canvas=fitToWidth._c||(fitToWidth._c=document.createElement('canvas'));
       var ctx=canvas.getContext('2d');
@@ -3039,8 +3039,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 
 (function(){
   'use strict';
-  var root=document.getElementById('avm-ems'); if(!root) return;
-  var tip=root.querySelector('#tip-ems');
+  var root=document.getElementById('avm-utilities'); if(!root) return;
+  var tip=root.querySelector('#tip-utilities');
   var scrollHost=root.querySelector('.avm-svgscroll')||root;
   root.querySelectorAll('.station').forEach(function(s){
     var show=function(){
@@ -3073,7 +3073,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       if(window.__mapToggleFx) window.__mapToggleFx(root);
     });
   });
-  var pb=root.querySelector('#printBtn-ems');
+  var pb=root.querySelector('#printBtn-utilities');
   if(pb) pb.addEventListener('click',function(){window.print()});
 })();
 /* ── toggle fx: layers visibly work ── */
@@ -3222,7 +3222,7 @@ window.__mapToggleFx=function(root){
     }
   }
   makeTrace('avm-care',['#ln-rev'],'Trace one job','a person posts the cash · lead to cash, closed');
-  makeTrace('avm-ems',['#ln-byp'],'Trace one invoice','audited against tariff · paid · $1B in payments runs this path');
+  makeTrace('avm-utilities',['#ln-byp'],'Trace one invoice','audited against tariff · paid · $1B in payments runs this path');
 })();
 </script>
 <script>
@@ -3265,7 +3265,7 @@ window.__mapToggleFx=function(root){
     });
   }
   function run(){
-    ['map-care','map-ems','map-fin'].forEach(function(id){
+    ['map-care','map-utilities','map-fin'].forEach(function(id){
       var svg=document.getElementById(id);
       if(svg) addHalos(svg);
     });
@@ -3459,7 +3459,7 @@ return {skip:skip,open:open};
           g.classList.add('ggd-min');
           setTimeout(function(){g.classList.remove('ggd-min')},5200);
         } else if(k==='sum'){
-          var SUM={'top':'Agents do the work; people keep the judgment calls.','proof':'Three live ratios: 9 in 10,000 · 1 in 100 · 129 to 1.','work':'Rails run the repeatable; models read the variable; people own judgment.','standing':'Operator since 2016 across three tool generations.','case-thekey':'Eleven functions on one governed orchestration layer, 170M tasks a year.','case-ems':'A digital twin carries $1B in payments; 1 in 100 invoices waits for a person.','demos':'The human gate: nothing regulated ships without a signature.','case-fintech':'129 signals to one human decision, 660K cases a month.','case-bank':'62 touchpoints cut to 3 for a global bank.','arc':'RPA to IA to agents; the discipline never changed.','record':'Ten years, $100M+ delivered, every line checkable.','contact':'One action: email Azhar Khan.'};
+          var SUM={'top':'Agents do the work; people keep the judgment calls.','proof':'Three live ratios: 9 in 10,000 · 1 in 100 · 129 to 1.','work':'Rails run the repeatable; models read the variable; people own judgment.','standing':'Operator since 2016 across three tool generations.','case-homecare':'Eleven functions on one governed orchestration layer, 170M tasks a year.','case-utilities':'A digital twin carries $1B in payments; 1 in 100 invoices waits for a person.','demos':'The human gate: nothing regulated ships without a signature.','case-fintech':'129 signals to one human decision, 660K cases a month.','case-bank':'62 touchpoints cut to 3 for a global bank.','arc':'RPA to IA to agents; the discipline never changed.','record':'Ten years, $100M+ delivered, the full program record.','contact':'One action: email Azhar Khan.'};
           var id=g.dataset.section||'top';
           if(nar)nar.textContent='One line: '+(SUM[id]||'this section reads clean.');
           log('summarize § '+id+' · read-only'); bump();
@@ -3555,8 +3555,8 @@ return {skip:skip,open:open};
     'proof':      { narration: 'Reading production telemetry. Three escalation ratios, three systems.', scope: 'read tiles', data: 'aggregate only', pii: 'none' },
     'work':   { narration: 'Reading the division of labor between the agent engine and the operator.', scope: 'read policy', data: 'aggregate only', pii: 'none' },
     'standing':   { narration: 'Reading standing. The patents and recognitions behind the practice.', scope: 'read credentials', data: 'aggregate only', pii: 'none' },
-    'case-thekey': { narration: 'Reading the foundation. Home care operations, running since 2021.', scope: 'read engagement', data: 'aggregate only', pii: 'none' },
-    'case-ems':        { narration: 'Reading utilities. Utility billing orchestrated at scale.', scope: 'read engagement', data: 'aggregate only', pii: 'none' },
+    'case-homecare': { narration: 'Reading the foundation. Home care operations, running since 2021.', scope: 'read engagement', data: 'aggregate only', pii: 'none' },
+    'case-utilities':        { narration: 'Reading utilities. Utility billing orchestrated at scale.', scope: 'read engagement', data: 'aggregate only', pii: 'none' },
     'demos':      { narration: 'Watching a live human-in-the-loop demo. The controls run, the case is a sample.', scope: 'read demo', data: 'sandboxed sample', pii: 'none' },
     'case-fintech':   { narration: 'Reading the deep case. A fraud file, with pii masked before this page ever loads it.', scope: 'read case file', data: 'case-level', pii: 'masked' },
     'case-bank':       { narration: 'Reading the bank engagement. 62 touchpoints cut to 3.', scope: 'read engagement', data: 'aggregate only', pii: 'none' },
@@ -3570,8 +3570,8 @@ return {skip:skip,open:open};
     'proof': 'read tiles · three escalation ratios pulled',
     'work': 'policy read · agent / operator split confirmed',
     'standing': 'credentials pulled · patents, recognitions',
-    'case-thekey': 'engagement loaded · home care, since 2021',
-    'case-ems': 'engagement loaded · utility billing twin',
+    'case-homecare': 'engagement loaded · home care, since 2021',
+    'case-utilities': 'engagement loaded · utility billing twin',
     'demos': 'demo sandboxed · sample case, no live pii',
     'case-fintech': 'case file loaded · pii masked at source',
     'case-bank': 'engagement loaded · 62 touchpoints → 3',
