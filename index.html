@@ -27,7 +27,7 @@
   --paper:#141310;--ink:#EDEAE0;--ink-2:#A8A496;--ink-3:#6E6B5F;--rule:#2E2C25;--hum:#FF4D5A;--hum-soft:#3A181B;--sys:#2FBFB0;
 }
 *{margin:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html.smooth-on{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font:17px/1.55 -apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif}
 .frame{max-width:1220px;margin:0 auto;padding:0 48px}
 section,#proof,.mastsheet{scroll-margin-top:98px}
@@ -734,7 +734,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <nav>
     <a href="#work">Method</a><a href="#demos">Demos</a><a href="resume.pdf" target="_blank" rel="noopener">Résumé</a><a href="#contact">Contact</a>
     
-    <button id="pdf" type="button" aria-label="Print or save as PDF">PDF</button>
+    <button id="pdf" type="button" aria-label="Print or save as PDF">PRINT</button>
   </nav>
 <div class="readline" id="readline" aria-hidden="true"></div></div></header>
 
@@ -1856,7 +1856,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 
 <section class="record" id="record">
   <div class="entry">The Full Record · Azhar Khan</div>
-  <p class="rintro">Ten years in production: RPA → intelligent automation → agentic. $100M+ delivered.</p>
+  <p class="rintro">Ten years in production: RPA → intelligent automation → agentic. $100M+ delivered across the full program record; highlights below.</p>
   <div class="rrows">
     <div class="rrow"><div class="who">Top US telecom</div><div class="what">Enterprise operating model, designed and stood up: council governance, intake and prioritization, CoE controllership, value scorecard · 250-automation program · <b>$18M returned</b> · one redesign alone: <b>$988K/yr</b>.</div><div class="when">2016–2021</div></div>
     <div class="rrow"><div class="who">The practice</div><div class="what">CoE built <b>4 → 30+</b> · practice accelerators: CoE-in-a-Box five-day sprint, BotScope · internal intelligent-automation setup for delivery itself.</div><div class="when">2016–present</div></div>
@@ -3538,4 +3538,5 @@ return {skip:skip,open:open};
 </script>
 
 
+<script>addEventListener("load",function(){setTimeout(function(){document.documentElement.classList.add("smooth-on")},150)});</script>
 </body></html>
