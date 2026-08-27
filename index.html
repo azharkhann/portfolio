@@ -108,7 +108,8 @@ h1 .struck::after{content:"";position:absolute;left:-2%;right:-2%;top:54%;height
 
 /* ── standing: a short ruled interlude ── */
 .standing{padding:96px 0 0}
-.idplate{background:var(--void);margin:0 -48px;padding:8px 48px 72px;display:grid;grid-template-columns:minmax(380px,520px) minmax(300px,400px);gap:16px 72px;align-items:center;justify-content:center;--ink-3:#8E8A7C}.idplate .idm-plate{grid-column:1;grid-row:1 / span 2;width:100%;max-width:520px;aspect-ratio:320/400;height:auto}.idplate .idm-counters{grid-column:2;grid-row:1;align-self:end}.idplate .idslot-label{grid-column:2;grid-row:2;align-self:start;margin-top:4px}@media (max-width:900px){.idplate{display:block}}@media (max-width:820px){.idplate{margin:0 -24px;padding:8px 24px 48px}}
+.idplate{background:var(--void);margin:0 -48px;padding:8px 48px 72px;display:grid;grid-template-columns:minmax(380px,520px) minmax(300px,400px);gap:16px 72px;align-items:center;justify-content:center;--ink-3:#8E8A7C}.idplate .idm-plate{grid-column:1;grid-row:1 / span 2;width:100%;max-width:520px;aspect-ratio:320/400;height:auto}.idplate .idm-counters{grid-column:2;grid-row:1;align-self:end}.idplate .idslot-label{grid-column:2;grid-row:2;align-self:start;margin-top:4px}
+.idslot-sub{font:700 9px/1.6 var(--mono);letter-spacing:.18em;color:#8B877A;margin-top:6px}@media (max-width:900px){.idplate{display:block}}@media (max-width:820px){.idplate{margin:0 -24px;padding:8px 24px 48px}}
 .idslot{aspect-ratio:4/5;max-width:360px;margin:0 auto;border:1px solid var(--rule);background:var(--paper)}
 .idslot-label{margin:16px auto 0;max-width:360px;text-align:center;font:700 13px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
 
@@ -902,11 +903,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <div class="idm-crow"><span class="idm-cv" data-idm-val="2016"></span><span class="idm-cd">SINCE</span></div>
     <div class="idm-crow"><span class="idm-cv" data-idm-val="$100M+"></span><span class="idm-cd">AND COUNTING</span></div>
     <div class="idm-crow"><span class="idm-cv" data-idm-val="1M+"></span><span class="idm-cd">HOURS RETURNED</span></div>
-    <div class="idm-crow"><span class="idm-cv" data-idm-val="TEN"></span><span class="idm-cd">ENTERPRISES</span></div>
     <div class="idm-crow"><span class="idm-cv" data-idm-val="FIVE"></span><span class="idm-cd">INDUSTRIES</span></div>
   </div>
 
-  <div class="idslot-label">AZHAR KHAN</div>
+  <div class="idslot-label">AZHAR KHAN<div class="idslot-sub">INTEGRATE · AUTOMATE · ORCHESTRATE</div></div>
 </div>
 
 <section class="standing" id="standing">
@@ -950,7 +950,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 
 
 <section class="case" id="case-homecare">
-  <div class="entry">Transformation 01 · National Home Care</div>
+  <div class="entry" data-crumb="Transformation 01 · Home Care">Transformation 01 · National Home Care</div>
   <p class="scene"><i>02:11</i> · a rate batch stages itself, every client agreement. It waits on one signature.</p>
   <h2 class="lede">One governed orchestration layer runs eleven business functions end to end.</h2>
   <div class="sir">
@@ -1759,7 +1759,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <section class="case" id="case-bank">
   <div class="entry">Transformation 04 · Global Bank</div>
   <p class="scene"><i>Day 5</i> · 62 touchpoints on the table. Three survive.</p>
-  <h2 class="lede">One target operating model for eight fraud journeys.</h2>
+  <h2 class="lede">One target operating model for eight fraud case-management journeys.</h2>
   <div class="sir">
     <div class="sir-row"><div class="k">Situation</div><div class="v">188 FTE · 40 systems · eight fraud case types · 62 separate touchpoints.</div></div>
     <div class="sir-row"><div class="k">Intervention</div><div class="v">Five-day discovery sprint → operating-model redesign: <b>62 touchpoints to 3 intervention points.</b> ~20 applications into one case view; 20+ post-decision actions automated per outcome.</div></div>
@@ -1855,7 +1855,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   </div>
 
   <p class="closer">"Their expertise, leadership, and commitment to excellence were instrumental in the successful development and implementation of this transformative tool."</p>
-  <p class="fine"><b>· VP of Global Dealer Enablement, NYSE-listed industrial manufacturer</b></p>
+  <p class="fine"><b>· VP of Global Dealer Enablement, industrial manufacturer</b></p>
 </section>
 
 <div class="mastsheet"><div class="entry" style="justify-content:center">Act IV · The Operator</div><div class="paper" style="margin-top:14px">THE PRACTICE</div><div class="dateline">Azhar Khan · Home care · Utilities · Fraud · Banking · 2016–2026</div></div>
@@ -2491,7 +2491,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
         es.forEach(function(e){
           if(!e.isIntersecting) return;
           var en=e.target.querySelector('.entry');
-          if(en){ var full=en.textContent.replace(/ · Azhar Khan$/,''); var cs=getComputedStyle(rh); var tp=parseFloat(cs.letterSpacing)||0; var mw=Math.min(innerWidth*0.34,320)-8; rh.textContent=fitToWidth(full,mw,cs.font,tp); rh.classList.add('on'); }
+          if(en){ var full=(en.dataset.crumb||en.textContent).replace(/ · Azhar Khan$/,''); var cs=getComputedStyle(rh); var tp=parseFloat(cs.letterSpacing)||0; var mw=Math.min(innerWidth*0.34,320)-8; rh.textContent=fitToWidth(full,mw,cs.font,tp); rh.classList.add('on'); }
           if(e.target.id==='top') rh.classList.remove('on');
         });
       },{rootMargin:'-35% 0px -55% 0px'});
@@ -3449,7 +3449,7 @@ return {skip:skip,open:open};
   </div>
   <button type="button" class="ggd-refuse" data-ggd="refuse-btn">Ask it to draft an offer letter</button>
   <p class="ggd-refusal" data-ggd="refusal" hidden=""></p>
-  <div class="ggd-log" data-ggd="log" role="log" aria-live="polite" aria-label="Audit trail"></div>
+  <div class="ggd-log" data-ggd="log" role="log" aria-live="off" aria-label="Audit trail"></div>
 </aside>
 <script>
 (function(){
@@ -3708,4 +3708,7 @@ return {skip:skip,open:open};
 
 
 <script>addEventListener("load",function(){setTimeout(function(){document.documentElement.classList.add("smooth-on")},150)});</script>
+<script>(function(){var g=document.getElementById('governed-guide');if(!g)return;var log=g.querySelector('[data-ggd="log"]');if(!log)return;
+g.addEventListener('focusin',function(){log.setAttribute('aria-live','polite')});
+g.addEventListener('focusout',function(){log.setAttribute('aria-live','off')});})();</script>
 </body></html>
