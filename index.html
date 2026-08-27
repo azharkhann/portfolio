@@ -97,26 +97,25 @@ h1 .struck::after{content:"";position:absolute;left:-2%;right:-2%;top:54%;height
 
 /* ── standing: a short ruled interlude ── */
 .standing{padding:96px 0 0}
-.idplate{margin:64px auto 0;padding:0}
+.idplate{background:var(--void);margin:0 -48px;padding:8px 48px 72px;display:grid;grid-template-columns:minmax(380px,520px) minmax(300px,400px);gap:16px 72px;align-items:center;justify-content:center}.idplate .idm-plate{grid-column:1;grid-row:1 / span 2;width:100%;max-width:520px;aspect-ratio:320/400;height:auto}.idplate .idm-counters{grid-column:2;grid-row:1;align-self:end}.idplate .idslot-label{grid-column:2;grid-row:2;align-self:start;margin-top:4px}@media (max-width:900px){.idplate{display:block}}@media (max-width:820px){.idplate{margin:0 -24px;padding:8px 24px 48px}}
 .idslot{aspect-ratio:4/5;max-width:360px;margin:0 auto;border:1px solid var(--rule);background:var(--paper)}
 .idslot-label{margin:16px auto 0;max-width:360px;text-align:center;font:700 13px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
 
-/* ── idm: identity plate, decade-rail walk cycle ── */
+/* ── idm: identity plate. Stately, near-still ledger plate. Settled on load; the
+   counters are the only living element. No scene script, no walk cycle. ── */
 .idslot.idm-plate{background:var(--void);border-color:var(--dline);overflow:hidden;position:relative}
 .idm-stage{position:absolute;inset:0;opacity:0;transition:opacity .6s var(--idm-settle,ease)}
 .idm-stage.idm-ready{opacity:1}
 .idm-svg{width:100%;height:100%;display:block}
-.idm-clock{position:absolute;width:0;height:0;left:0;top:0;opacity:0;pointer-events:none}
-.idm-stage.idm-go .idm-clock{animation:idm-clocktick 9000ms steps(1,end) infinite}
-@keyframes idm-clocktick{0%{left:0}100%{left:1px}}
 
 .idm-railline{fill:none;stroke:var(--dfog);stroke-width:2}
 .idm-yr{font:400 10px/1 var(--mono);letter-spacing:.04em;fill:var(--haze)}
-.idm-slabtxt{font:700 7px/1 var(--mono);letter-spacing:.06em;fill:var(--haze);opacity:0}
-.idm-strand{fill:none;stroke:var(--haze);stroke-width:1.3;opacity:0}
+.idm-slabtxt{font:700 7px/1 var(--mono);letter-spacing:.06em;fill:var(--haze)}
+.idm-eralab{font:700 7px/1 var(--mono);letter-spacing:.05em;fill:var(--haze)}
+.idm-strand{fill:none;stroke:var(--haze);stroke-width:1.3}
 
 .idm-node-outline{fill:none;stroke:var(--dfog);stroke-width:1.5}
-.idm-node-fill{fill:var(--dwhite);opacity:1;transform-box:fill-box;transform-origin:center}
+.idm-node-fill{fill:var(--dwhite)}
 
 .idm-era1{opacity:.28}
 .idm-era2{opacity:.32}
@@ -125,97 +124,31 @@ h1 .struck::after{content:"";position:absolute;left:-2%;right:-2%;top:54%;height
 .idm-tap{stroke:var(--haze);stroke-width:1}
 .idm-tick-dot{fill:var(--haze)}
 .idm-cluster-line{stroke:var(--dfog);stroke-width:1.2}
-.idm-gatetrace{fill:none;stroke:var(--dfog);stroke-width:1.4;stroke-dashoffset:0}
-.idm-touch{fill:var(--dwhite);opacity:0}
+.idm-gatetrace{fill:none;stroke:var(--dfog);stroke-width:1.4}
 .idm-mesh-node{fill:none;stroke:var(--dfog);stroke-width:1.3}
 .idm-mesh-edge{fill:none;stroke:var(--dline);stroke-width:1}
 .idm-notch{stroke:var(--haze);stroke-width:1.2}
-.idm-tvgroup{display:none}
-.idm-stage:not([data-idm-variant]) .idm-tvgroup[data-idm-v="0"],
-.idm-stage[data-idm-variant="0"] .idm-tvgroup[data-idm-v="0"],
-.idm-stage[data-idm-variant="1"] .idm-tvgroup[data-idm-v="1"],
-.idm-stage[data-idm-variant="2"] .idm-tvgroup[data-idm-v="2"]{display:block}
 .idm-agenttrace{fill:none;stroke:var(--haze);stroke-width:1;stroke-linecap:round;opacity:.4}
 
-.idm-figure{transform:translate(170px,250px)}
-.idm-torso{fill:none;stroke:var(--dfog);stroke-width:1.6;stroke-linecap:round;transform-box:fill-box;transform-origin:50% 100%;transition:transform .3s var(--idm-pop,cubic-bezier(.34,1.56,.64,1))}
+.idm-figure{transform:translate(285px,250px)}
+.idm-torso{fill:none;stroke:var(--dfog);stroke-width:1.6;stroke-linecap:round}
 .idm-eye{fill:var(--dwhite);stroke:none}
-.idm-armU{transform-box:fill-box;transform-origin:0% 0%;transition:transform .3s var(--idm-pop,cubic-bezier(.34,1.56,.64,1))}
-.idm-legL,.idm-legR{fill:none;stroke:var(--dfog);stroke-width:1.6;stroke-linecap:round;transform-box:fill-box;transition:transform .22s var(--idm-pop,cubic-bezier(.34,1.56,.64,1))}
-.idm-legL{transform-origin:100% 0%}
-.idm-legR{transform-origin:0% 0%}
-
-.idm-figure.idm-crouch .idm-torso{transform:translateY(3px) scaleY(.88)}
-.idm-figure.idm-reach .idm-armU{transform:rotate(-100deg)}
-.idm-figure.idm-kneel .idm-torso{transform:translateY(4px) scaleY(.82)}
-.idm-figure.idm-kneel .idm-legL{transition:none;transform:rotate(-34deg)}
-.idm-figure.idm-kneel .idm-legR{transition:none;transform:rotate(30deg)}
-.idm-figure.idm-kneel .idm-armU{transform:rotate(55deg)}
-.idm-figure.idm-lean .idm-torso{transform:rotate(-7deg)}
-.idm-figure.idm-still .idm-torso,.idm-figure.idm-still .idm-legL,.idm-figure.idm-still .idm-legR,.idm-figure.idm-still .idm-armU{transform:none}
-
-.idm-figure.idm-walk .idm-legL{animation:idm-swingL .38s var(--idm-walkease,cubic-bezier(.45,.05,.55,.95)) infinite}
-.idm-figure.idm-walk .idm-legR{animation:idm-swingR .38s var(--idm-walkease,cubic-bezier(.45,.05,.55,.95)) infinite}
-.idm-figure.idm-walk.idm-fast .idm-legL{animation:idm-swingLfast .27s var(--idm-walkease,cubic-bezier(.45,.05,.55,.95)) infinite}
-.idm-figure.idm-walk.idm-fast .idm-legR{animation:idm-swingRfast .27s var(--idm-walkease,cubic-bezier(.45,.05,.55,.95)) infinite}
-@keyframes idm-swingL{0%{transform:rotate(0)}25%{transform:rotate(-15deg)}50%{transform:rotate(0)}75%{transform:rotate(15deg)}100%{transform:rotate(0)}}
-@keyframes idm-swingR{0%{transform:rotate(0)}25%{transform:rotate(15deg)}50%{transform:rotate(0)}75%{transform:rotate(-15deg)}100%{transform:rotate(0)}}
-@keyframes idm-swingLfast{0%{transform:rotate(0)}25%{transform:rotate(-21deg)}50%{transform:rotate(0)}75%{transform:rotate(21deg)}100%{transform:rotate(0)}}
-@keyframes idm-swingRfast{0%{transform:rotate(0)}25%{transform:rotate(21deg)}50%{transform:rotate(0)}75%{transform:rotate(-21deg)}100%{transform:rotate(0)}}
+.idm-legL,.idm-legR{fill:none;stroke:var(--dfog);stroke-width:1.6;stroke-linecap:round}
 
 .idm-caption{opacity:1}
 .idm-cap-line{font:700 11px/1.5 var(--mono);letter-spacing:.02em;fill:var(--dwhite)}
-
-.idm-stage.idm-go .idm-strand{animation:idm-strandLife 9000ms var(--idm-draw,linear) infinite}
-.idm-stage.idm-go .idm-slabtxt{animation:idm-slabLife 9000ms linear infinite}
-.idm-stage.idm-go .idm-era1{animation:idm-era1Life 9000ms linear infinite}
-.idm-stage.idm-go .idm-era2{animation:idm-era2Life 9000ms linear infinite}
-.idm-stage.idm-go .idm-era3{animation:idm-era3Life 9000ms linear infinite}
-.idm-stage.idm-go .idm-node-fill-1{animation:idm-node1Life 9000ms linear infinite}
-.idm-stage.idm-go .idm-node-fill-2{animation:idm-node2Life 9000ms linear infinite}
-.idm-stage.idm-go .idm-node-fill-3{animation:idm-node3Life 9000ms linear infinite}
-.idm-stage.idm-go .idm-touch{animation:idm-touchLife 9000ms linear infinite}
-.idm-stage.idm-go .idm-gatetrace{animation:idm-gateLife 9000ms linear infinite}
-.idm-stage.idm-go .idm-agenttrace{animation:idm-agentLife 9000ms linear infinite}
-.idm-stage.idm-go .idm-figure{animation:idm-figPos 9000ms cubic-bezier(.22,1,.36,1) infinite,idm-figOpacity 9000ms linear infinite}
-.idm-stage.idm-go .idm-caption{animation:idm-capLife 9000ms linear infinite}
-
-@keyframes idm-strandLife{0%{opacity:0;stroke-dashoffset:var(--slen)}2%{opacity:1}13%{stroke-dashoffset:0;opacity:1}16%{opacity:0}100%{opacity:0}}
-@keyframes idm-slabLife{0%{opacity:0}2%{opacity:1}11%{opacity:1}15%{opacity:0}100%{opacity:0}}
-@keyframes idm-era1Life{0%,16.6%{opacity:0}18%{opacity:1}33.3%{opacity:1}36%{opacity:.28}100%{opacity:.28}}
-@keyframes idm-era2Life{0%,33.3%{opacity:0}34.8%{opacity:1}50%{opacity:1}52%{opacity:.32}100%{opacity:.32}}
-@keyframes idm-era3Life{0%,49.5%{opacity:0}51%{opacity:1}100%{opacity:1}}
-@keyframes idm-node1Life{0%,19.9%{opacity:0;transform:scale(.5)}20.3%{opacity:1;transform:scale(1.3)}21.5%,100%{opacity:1;transform:scale(1)}}
-@keyframes idm-node2Life{0%,43.9%{opacity:0;transform:scale(.5)}44.3%{opacity:1;transform:scale(1.3)}45.5%,100%{opacity:1;transform:scale(1)}}
-@keyframes idm-node3Life{0%,50.4%{opacity:0;transform:scale(.5)}50.8%{opacity:1;transform:scale(1.3)}52%,100%{opacity:1;transform:scale(1)}}
-@keyframes idm-gateLife{0%,33.3%{stroke-dashoffset:var(--glen)}38.8%{stroke-dashoffset:calc(var(--glen) * .12)}41.6%{stroke-dashoffset:calc(var(--glen) * .12)}44.4%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
-@keyframes idm-touchLife{0%,40.5%{opacity:0}41%{opacity:1}42.5%{opacity:0}100%{opacity:0}}
-@keyframes idm-agentLife{0%,49.9%{opacity:0;stroke-dashoffset:var(--alen)}52%{opacity:.4}63%{stroke-dashoffset:0;opacity:.4}80%{opacity:.4}84%{opacity:0}100%{opacity:0}}
-@keyframes idm-figPos{0%,16.6%,20%{transform:translate(30px,250px)}33.3%{transform:translate(100px,250px)}36.6%{transform:translate(150px,250px)}38.9%,44.4%{transform:translate(168px,250px)}50%{transform:translate(232px,250px)}66.6%,76.6%{transform:translate(300px,250px)}80%,100%{transform:translate(380px,250px)}}
-@keyframes idm-figOpacity{0%,16.6%{opacity:0}16.9%,80%{opacity:1}80.4%,100%{opacity:0}}
-@keyframes idm-capLife{0%,67.9%{opacity:0}69%{opacity:1}76%{opacity:1}77.5%{opacity:0}100%{opacity:0}}
 
 .idm-counters{max-width:360px;margin:20px auto 0;background:var(--void);border:1px solid var(--dline);padding:16px 20px}
 .idm-crow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--dline)}
 .idm-crow:last-child{border-bottom:0}
 .idm-cv{display:inline-flex;gap:1px}
 .idm-cd{font:700 10px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--haze);text-align:right}
-.idm-tile{position:relative;display:inline-block;width:.72em;height:1.15em;font:700 15px/1 var(--mono);color:var(--dwhite)}
-.idm-tile.idm-narrow{width:.4em}
-.idm-tile .h,.idm-tile .f{position:absolute;left:0;right:0;overflow:hidden;background:var(--steel);border:1px solid var(--dline)}
-.idm-tile .h span,.idm-tile .f span{position:absolute;left:0;right:0;height:1.15em;line-height:1.15em;text-align:center}
-.idm-tile .ht,.idm-tile .ft{top:0;height:50%}
-.idm-tile .ht span,.idm-tile .ft span{top:0}
-.idm-tile .hb,.idm-tile .fb{bottom:0;height:50%}
-.idm-tile .hb span,.idm-tile .fb span{bottom:0}
-.idm-tile .ft{z-index:2;transform-origin:bottom;transition:transform .07s ease-in}
-.idm-tile .fb{z-index:2;transform-origin:top;transform:scaleY(0);transition:transform .07s ease-out}
-.idm-tile.idm-tick .ft{transform:scaleY(0)}
-.idm-tile.idm-tock .fb{transform:scaleY(1)}
-.idm-tile::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.5);z-index:3;pointer-events:none}
+.idm-tile{position:relative;display:inline-block;min-width:.6em;font:700 15px/1.15 var(--mono);color:var(--dwhite);text-align:center;opacity:0;transform:translateY(3px);transition:opacity .35s ease,transform .35s ease,color .2s ease}
+.idm-tile.idm-narrow{min-width:.32em}
+.idm-tile.idm-in{opacity:1;transform:translateY(0)}
+.idm-tile.idm-dim{color:var(--haze)}
 @media (prefers-reduced-motion:reduce){
-  .idm-tile .ft,.idm-tile .fb,.idm-torso,.idm-armU,.idm-legL,.idm-legR,.idm-stage{transition:none}
-  .idm-stage.idm-go .idm-strand,.idm-stage.idm-go .idm-slabtxt,.idm-stage.idm-go .idm-era1,.idm-stage.idm-go .idm-era2,.idm-stage.idm-go .idm-era3,.idm-stage.idm-go .idm-node-fill-1,.idm-stage.idm-go .idm-node-fill-2,.idm-stage.idm-go .idm-node-fill-3,.idm-stage.idm-go .idm-touch,.idm-stage.idm-go .idm-gatetrace,.idm-stage.idm-go .idm-agenttrace,.idm-stage.idm-go .idm-figure,.idm-stage.idm-go .idm-caption,.idm-stage.idm-go .idm-clock,.idm-figure.idm-walk .idm-legL,.idm-figure.idm-walk .idm-legR,.idm-figure.idm-walk.idm-fast .idm-legL,.idm-figure.idm-walk.idm-fast .idm-legR{animation:none}
+  .idm-tile,.idm-stage{transition:none}
 }
 h3.slede{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:clamp(28px,3vw,38px);line-height:1.15;margin:32px 0 0;max-width:24ch}
 .sbody{margin:24px 0 0;font-size:17px;line-height:1.62;color:var(--ink-2);max-width:62ch}
@@ -526,7 +459,7 @@ button.pipe-chip:focus-visible{border-color:var(--ink);color:var(--ink)}
 
 /* ── V11 additions ── */
 /* ── V14: four acts ── */
-.hero{background:var(--void);margin:0 -48px;padding:96px 48px 64px}
+.hero{background:var(--void);margin:0 -48px;padding:96px 48px 24px}
 @media (max-width:820px){.hero{margin:0 -24px;padding:64px 24px 48px}}
 
 .prow{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-top:1px solid var(--dline);padding:24px 0 16px;flex-wrap:wrap}
@@ -825,13 +758,12 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <div class="prow beat"><div class="n"><span class="mark"></span><span class="sf" role="img" aria-label="129 signals to 1 decision" data-flap="129→1" data-dim="3"></span></div><div class="d">signals assembled per case · <em>one decision</em> · an analyst’s, by law</div></div>
   </div>
   <div class="board" id="opsboard" aria-hidden="true"></div>
-  <p class="pthesis" style="color:var(--dsilver)">One governed control plane for enterprise operations: <span style="color:var(--dfog)">deterministic rails, non-deterministic agents, the same guardrails.</span> <b style="color:var(--dwhite)">Judgment stays with people.</b></p>
+  <p class="pthesis" style="color:var(--dsilver)">One governed orchestration layer for enterprise operations: <span style="color:var(--dfog)">deterministic rails, non-deterministic agents, the same guardrails.</span> <b style="color:var(--dwhite)">Judgment stays with people.</b></p>
 </section>
 
 <div class="frame idplate">
-  <div class="idslot idm-plate" role="img" aria-label="Animated identity mark: a figure walks a decade rail from 2016 to 2026 while process, data, technology and people braid into one governed line and the estate evolves from RPA blocks to an agent mesh, ending with a turn to the viewer and the line: the tools changed three times, the system didn't">
+  <div class="idslot idm-plate" role="img" aria-label="A still ledger plate: a decade rail from 2016 to an open-ended 2026, marked with three shaded and labeled eras (RPA, intelligent automation, agentic operations), small nodes at each engagement start, and one continuous braided line of process, data, technology and people above it. A single still figure with dot eyes stands on the rail. Caption: the tools changed three times, the system didn't">
     <div class="idm-stage" id="idmStage">
-      <i class="idm-clock" aria-hidden="true"></i>
       <svg class="idm-svg" viewBox="0 0 320 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <defs>
           <filter id="idmWobble" x="-40%" y="-40%" width="180%" height="180%">
@@ -840,7 +772,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
           </filter>
         </defs>
 
-        <g class="idm-era1">
+        <g class="idm-era1" transform="translate(-79.4,48) scale(0.809)">
           <rect class="idm-block" x="118" y="294" width="16" height="28"/>
           <rect class="idm-block" x="144" y="280" width="16" height="42"/>
           <rect class="idm-block" x="170" y="298" width="16" height="24"/>
@@ -855,7 +787,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
           <circle class="idm-tick-dot" cx="204" cy="250" r="1.6"/>
         </g>
 
-        <g class="idm-era2">
+        <g class="idm-era2" transform="translate(2.9,61) scale(0.755)">
           <rect class="idm-block" x="118" y="294" width="16" height="28" rx="2"/>
           <rect class="idm-block" x="144" y="280" width="16" height="42" rx="2"/>
           <rect class="idm-block" x="170" y="298" width="16" height="24" rx="2"/>
@@ -875,27 +807,14 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
           <circle class="idm-tick-dot" cx="191" cy="250" r="1.3"/>
           <circle class="idm-tick-dot" cx="204" cy="250" r="1.6"/>
           <path class="idm-gatetrace" d="M150,308 Q170,316 190,304"/>
-          <circle class="idm-touch" cx="170" cy="312" r="2.4"/>
         </g>
 
-        <g class="idm-era3">
+        <g class="idm-era3" transform="translate(59.7,20) scale(0.922)">
           <line class="idm-notch" x1="112" y1="250" x2="112" y2="258"/>
           <line class="idm-notch" x1="228" y1="250" x2="228" y2="258"/>
-          <g class="idm-tvgroup" data-idm-v="0">
-            <path class="idm-agenttrace" d="M112,254 Q140,274 165,264 Q190,252 214,268"/>
-            <path class="idm-agenttrace" d="M112,254 Q135,266 158,290 Q182,280 214,262"/>
-            <path class="idm-agenttrace" d="M112,254 Q150,258 176,282 Q198,294 214,268"/>
-          </g>
-          <g class="idm-tvgroup" data-idm-v="1">
-            <path class="idm-agenttrace" d="M112,254 Q145,268 162,252 Q188,242 214,258"/>
-            <path class="idm-agenttrace" d="M112,254 Q130,276 156,268 Q178,288 214,274"/>
-            <path class="idm-agenttrace" d="M112,254 Q152,276 170,260 Q194,266 214,252"/>
-          </g>
-          <g class="idm-tvgroup" data-idm-v="2">
-            <path class="idm-agenttrace" d="M112,254 Q138,252 160,274 Q184,258 214,266"/>
-            <path class="idm-agenttrace" d="M112,254 Q142,280 168,266 Q186,250 214,256"/>
-            <path class="idm-agenttrace" d="M112,254 Q125,268 154,254 Q180,276 214,272"/>
-          </g>
+          <path class="idm-agenttrace" d="M112,254 Q140,274 165,264 Q190,252 214,268"/>
+          <path class="idm-agenttrace" d="M112,254 Q135,266 158,290 Q182,280 214,262"/>
+          <path class="idm-agenttrace" d="M112,254 Q150,258 176,282 Q198,294 214,268"/>
           <circle class="idm-mesh-node" cx="124" cy="288" r="3"/>
           <circle class="idm-mesh-node" cx="150" cy="302" r="3"/>
           <circle class="idm-mesh-node" cx="176" cy="284" r="3"/>
@@ -908,27 +827,32 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
           <line class="idm-mesh-edge" x1="176" y1="284" x2="160" y2="270"/>
         </g>
 
+        <text class="idm-eralab" x="54" y="336" text-anchor="middle">RPA</text>
+        <text class="idm-eralab" x="127" y="332" text-anchor="middle">INTELLIGENT</text>
+        <text class="idm-eralab" x="127" y="340" text-anchor="middle">AUTOMATION</text>
+        <text class="idm-eralab" x="216" y="336" text-anchor="middle">AGENTIC OPERATIONS</text>
+
         <g class="idm-braid">
-          <text class="idm-slabtxt" x="70" y="22" text-anchor="middle">PROCESS</text>
-          <text class="idm-slabtxt" x="130" y="22" text-anchor="middle">DATA</text>
-          <text class="idm-slabtxt" x="190" y="22" text-anchor="middle">TECHNOLOGY</text>
-          <text class="idm-slabtxt" x="250" y="22" text-anchor="middle">PEOPLE</text>
-          <path class="idm-strand" d="M70,34 C 84,82 56,135.3 74,188.7 S 60,239.3 70,250"/>
-          <path class="idm-strand" d="M130,34 C 116,82 144,135.3 126,188.7 S 140,239.3 130,250"/>
-          <path class="idm-strand" d="M190,34 C 204,82 176,135.3 194,188.7 S 180,239.3 190,250"/>
-          <path class="idm-strand" d="M250,34 C 236,82 264,135.3 246,188.7 S 260,239.3 250,250"/>
+          <text class="idm-slabtxt" x="55" y="22" text-anchor="middle">PROCESS</text>
+          <text class="idm-slabtxt" x="125" y="22" text-anchor="middle">DATA</text>
+          <text class="idm-slabtxt" x="195" y="22" text-anchor="middle">TECHNOLOGY</text>
+          <text class="idm-slabtxt" x="255" y="22" text-anchor="middle">PEOPLE</text>
+          <path class="idm-strand" d="M55,34 C 69,82 41,135.3 59,188.7 S 45,239.3 55,250"/>
+          <path class="idm-strand" d="M125,34 C 111,82 139,135.3 121,188.7 S 135,239.3 125,250"/>
+          <path class="idm-strand" d="M195,34 C 209,82 181,135.3 199,188.7 S 185,239.3 195,250"/>
+          <path class="idm-strand" d="M255,34 C 241,82 269,135.3 251,188.7 S 265,239.3 255,250"/>
         </g>
 
-        <path class="idm-railline" d="M20,250 L344,250"/>
-        <text class="idm-yr" x="20" y="270">2016</text>
-        <text class="idm-yr" x="308" y="270" text-anchor="end">2026</text>
+        <path class="idm-railline" d="M16,250 L312,250"/>
+        <text class="idm-yr" x="16" y="270">2016</text>
+        <text class="idm-yr" x="270" y="270" text-anchor="end">2026</text>
 
-        <g class="idm-node-outline" transform="translate(90,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
-        <g transform="translate(90,250) rotate(45)"><rect class="idm-node-fill idm-node-fill-1" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
-        <g class="idm-node-outline" transform="translate(170,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
-        <g transform="translate(170,250) rotate(45)"><rect class="idm-node-fill idm-node-fill-2" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
+        <g class="idm-node-outline" transform="translate(92,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
+        <g transform="translate(92,250) rotate(45)"><rect class="idm-node-fill" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
+        <g class="idm-node-outline" transform="translate(163,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
+        <g transform="translate(163,250) rotate(45)"><rect class="idm-node-fill" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
         <g class="idm-node-outline" transform="translate(250,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
-        <g transform="translate(250,250) rotate(45)"><rect class="idm-node-fill idm-node-fill-3" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
+        <g transform="translate(250,250) rotate(45)"><rect class="idm-node-fill" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
 
         <g class="idm-figure" id="idmFigure">
           <g class="idm-torso" filter="url(#idmWobble)">
@@ -937,7 +861,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
             <circle class="idm-eye" cx="1.8" cy="-24.6" r="0.9"/>
             <path d="M0,-18.5 L0,-2"/>
             <path d="M0,-14 L-9,-6"/>
-            <g class="idm-armU"><path d="M0,-14 L9,-9"/></g>
+            <path d="M0,-14 L9,-9"/>
           </g>
           <g class="idm-legL"><path d="M0,-2 L-8,14"/></g>
           <g class="idm-legR"><path d="M0,-2 L8,10"/></g>
@@ -1005,7 +929,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <section class="case" id="case-thekey">
   <div class="entry">Transformation 01 · National Home Care</div>
   <p class="scene"><i>02:11</i> · a rate batch stages itself, every client agreement. It waits on one signature.</p>
-  <h3 class="lede">One governed control plane runs eleven business functions end to end.</h3>
+  <h3 class="lede">One governed orchestration layer runs eleven business functions end to end.</h3>
   <div class="sir">
     <div class="sir-row"><div class="k">Situation</div><div class="v">Eleven functions, disconnected systems, people carrying work between screens.</div></div>
     <div class="sir-row"><div class="k">Target operating model</div><div class="v"><b>450 workflows from 3,650 shared services across 35 systems.</b> Failure paths engineered before features.</div></div>
@@ -1018,17 +942,17 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <div class="b1"><div class="bn red">9 in 10,000</div><div class="bt">escalation rate · 99.91% straight-through</div></div>
   </div>
   <div class="decs">
-    <div class="dec"><b>Return:</b> 35 systems under one governed layer, no rewrite since 2021.</div>
+    <div class="dec"><b>Return:</b> 35 systems under one governed orchestration layer, no rewrite since 2021.</div>
     <div class="dec"><b>Cost:</b> point-to-point integrations ruled out; shared services stood up once, reused everywhere.</div>
     <div class="dec"><b>Controls:</b> fail-closed batches, bounded retries, 3,175 typed error codes. Exception management by design.</div>
     <div class="dec"><b>Audit:</b> scored the client's own AI stack, <span style="color:var(--hum);font-weight:700">ruled all three proposed use cases unsafe</span>, delivered a phased path at no new spend.</div>
   </div>
   <div class="blocks5">
     <div class="b5"><div class="k">DATA</div><div class="v">One source of truth; every system feeds it, every decision reads it.</div></div>
-    <div class="b5"><div class="k">IDENTITY</div><div class="v">Every action carries a name: human, robot, or agent.</div></div>
-    <div class="b5"><div class="k">OBSERVABILITY</div><div class="v">The platform watches itself; every job reports what it did.</div></div>
+    <div class="b5"><div class="k">IDENTITY</div><div class="v">Agent identity and per-action entitlements on every action: human, bot, or agent, scoped and logged.</div></div>
+    <div class="b5"><div class="k">OBSERVABILITY</div><div class="v">Every agent action is traced: tool calls, cost, and step-level failures, to a reconstructable audit trail.</div></div>
     <div class="b5"><div class="k">EXCEPTIONS</div><div class="v">Failures arrive with instructions: retry, halt, or hand to a person.</div></div>
-    <div class="b5"><div class="k">GOVERNANCE</div><div class="v">Every release passes review; every exception has a reason on file.</div></div>
+    <div class="b5"><div class="k">GOVERNANCE</div><div class="v">Every release clears an eval gate; drift is monitored, retraining runs, every exception has a reason on file.</div></div>
   </div>
   <div class="bigfield rv">
     <div class="maphead">
@@ -1333,7 +1257,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <text x="1800" y="185" fill="#16324c" font-size="13" font-weight="700">GOVERNANCE</text><text x="1800" y="204" fill="#5f6a74" font-size="11">nothing ships without review · nothing stays without reason</text>
 <rect x="70" y="226" width="2140" height="1030" rx="26" fill="#fff" stroke="#e4e7ea" stroke-width="1.5"></rect>
 <rect x="71" y="227" width="2138" height="1028" rx="26" fill="#f9f7f1" opacity=".5"></rect>
-<text x="96" y="252" fill="#9aa4ad" font-size="13" font-style="italic">Ontology underneath · twin in between · traces on top. One linear spine of intake feeds the twin; the twin makes the products and stays live off their loop. Substrate identical across care, EMS, and fintech; only the flow changes.</text>
+<text x="96" y="252" fill="#9aa4ad" font-size="13" font-style="italic">Ontology underneath · twin in between · traces on top. One linear spine of intake feeds the twin; the twin makes the products and stays live off their loop.</text>
 <rect x="112" y="268" width="1976" height="62" rx="12" fill="#f2f4f6" stroke="#cfd5da" stroke-width="1.5" stroke-dasharray="9 7"></rect>
 <text x="132" y="293" fill="#5b6b7a" font-size="13" font-weight="800" letter-spacing=".5">EXECUTION TRACES · OBSERVABILITY</text>
 <text x="132" y="316" fill="#7a8894" font-size="13">every agent's decision · path · outcome · error, captured, the exhaust that makes the system auditable: feeds the evals · becomes the typed error catalog · retrains the model</text>
@@ -1367,7 +1291,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <g class="station" tabindex="0" data-tip="Paper and PDF bills scanned and queued; the tail no channel reaches still funnels to one intake." data-name="Mail / Scan" data-line="INTAKE · CAPTURE"><circle cx="450" cy="720" r="9" fill="#16324c"></circle><text x="450" y="752" fill="#3a4750" font-size="13" text-anchor="middle">Mail / Scan</text></g>
 <g class="station" tabindex="0" data-tip="Meter reads and interval data land alongside the bills · consumption joins the same reconciled source as spend." data-name="Meter Data" data-line="INTAKE · CAPTURE"><circle cx="570" cy="720" r="9" fill="#16324c"></circle><text x="570" y="700" fill="#3a4750" font-size="13" text-anchor="middle">Meter Data</text></g>
 <g class="station" tabindex="0" data-tip="A model routes each bill to its layout family across 300+ formats; unseen layouts queue for a pattern-builder. Applied ML · classification, not reasoning." data-name="Layout Classify" data-line="EXTRACTION"><rect x="662" y="708" width="24" height="24" rx="3" transform="rotate(45 674 720)" fill="#fff" stroke="#4a90c2" stroke-width="2.5"></rect><text x="674" y="752" fill="#3a4750" font-size="13" text-anchor="middle">Layout Classify</text></g>
-<g class="station" tabindex="0" data-tip="Document intelligence pulls line items, charges, and meter reads; deterministic rules first, the model on the residual. Applied ML · extraction, not reasoning." data-name="Field Extraction" data-line="EXTRACTION"><rect x="758" y="708" width="24" height="24" rx="3" transform="rotate(45 770 720)" fill="#fff" stroke="#4a90c2" stroke-width="2.5"></rect><text x="770" y="700" fill="#3a4750" font-size="13" text-anchor="middle">Field Extraction</text></g>
+<g class="station" tabindex="0" data-tip="Document intelligence pulls line items, charges, and meter reads; deterministic rules first, generative extraction on the residual. Applied ML · extraction, not reasoning." data-name="Field Extraction" data-line="EXTRACTION"><rect x="758" y="708" width="24" height="24" rx="3" transform="rotate(45 770 720)" fill="#fff" stroke="#4a90c2" stroke-width="2.5"></rect><text x="770" y="700" fill="#3a4750" font-size="13" text-anchor="middle">Field Extraction</text></g>
 <rect x="820" y="556" width="440" height="328" rx="16" fill="#f4f9fb" stroke="#2b6b8c" stroke-width="3"></rect>
 <text x="1040" y="590" fill="#1f5568" font-size="18" font-weight="800" text-anchor="middle">THE DIGITAL TWIN</text>
 <text x="1040" y="610" fill="#5b98a4" font-size="13" font-style="italic" text-anchor="middle">the modeled operation: every bill, meter &amp; site reconciled</text>
@@ -1500,7 +1424,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <div class="trow"><b>FRAUD</b><span>129 signals assembled per case</span><span class="hold">1 DECISION · YOURS</span></div>
   </div>
   <div class="grid2" id="floorgrid" aria-hidden="true"></div>
-  <div class="iaoband" id="iaoband" style="margin:44px 0 0;border:1px solid #31463A;position:relative">
+  <div class="entry" style="color:#8FA294;margin-top:44px">From Fragmentation to Orchestration</div>
+  <h3 style="font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:clamp(24px,2.6vw,32px);line-height:1.2;margin:12px 0 0;max-width:32ch;color:#EFEAD8">The execution plane for AI: orchestrating the enterprise.</h3>
+  <div class="iaoband" id="iaoband" style="margin:24px 0 0;border:1px solid #31463A;position:relative">
     <svg viewBox="0 0 1180 600" style="width:100%;display:block" role="img" aria-label="The governed control and execution plane, drawn as a rail bed cut open: one line of systems, bots and agents runs to a person who decides; beneath the line sit the rail head as the audit ledger, ties as identity, ballast as telemetry, and subgrade as exception paths and cost per step. Hover any station to move the cut.">
       <defs><path id="iaorail" d="M60 150 L1096 150"></path><clipPath id="rbclip"><polygon points="170,412 230,418 290,410 350,416 410,408 470,414 530,409 590,417 650,407 710,415 770,410 830,416 890,408 950,414 1010,411 1010,522 170,522"></polygon></clipPath></defs>
       <text x="36" y="42" font-family="ui-monospace,Menlo,monospace" font-size="15" fill="#8FA294">orchestration is not a step in the sequence · it is the plane the sequence runs on</text>
@@ -1510,7 +1436,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       <g class="iaocap" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" letter-spacing="2" fill="#8FA294">
         <text x="160" y="82" text-anchor="middle">INTEGRATE</text>
         <text x="440" y="82" text-anchor="middle">AUTOMATE · BOTS</text>
-        <text x="775" y="82" text-anchor="middle">AI AGENTS</text>
+        <text x="775" y="82" text-anchor="middle">ORCHESTRATE · AGENTS</text>
       </g>
       <path class="iaorailv" d="M60 150 L1096 150" fill="none" stroke="#8FA294" stroke-width="3" style="stroke-dasharray:1036;stroke-dashoffset:1036"></path>
 <g class="rb-stn iaostn" tabindex="0" data-cx="95"><circle cx="95" cy="150" r="5.5" fill="#5A6E60"></circle><text x="95" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#8FA294">CRM</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="160"><circle cx="160" cy="150" r="5.5" fill="#5A6E60"></circle><text x="160" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#8FA294">ERP</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="225"><circle cx="225" cy="150" r="5.5" fill="#5A6E60"></circle><text x="225" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#8FA294">HRIS</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="330"><rect x="322" y="142" width="16" height="16" fill="#1D2F24" stroke="#8FA294" stroke-width="1.8"></rect><text x="330" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#5A6E60">match</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="440"><rect x="432" y="142" width="16" height="16" fill="#1D2F24" stroke="#8FA294" stroke-width="1.8"></rect><text x="440" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#5A6E60">validate</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="550"><rect x="542" y="142" width="16" height="16" fill="#1D2F24" stroke="#8FA294" stroke-width="1.8"></rect><text x="550" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#5A6E60">post</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="665"><rect x="656.5" y="141.5" width="17" height="17" fill="#101E15" stroke="#8FA294" stroke-width="2" transform="rotate(45 665 150)"></rect><text x="665" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#5A6E60">draft</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="775"><rect x="766.5" y="141.5" width="17" height="17" fill="#101E15" stroke="#8FA294" stroke-width="2" transform="rotate(45 775 150)"></rect><text x="775" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#5A6E60">reconcile</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="885"><rect x="876.5" y="141.5" width="17" height="17" fill="#101E15" stroke="#8FA294" stroke-width="2" transform="rotate(45 885 150)"></rect><text x="885" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#5A6E60">investigate</text></g>      <g class="iaogate"><rect x="1085" y="139" width="22" height="22" fill="#C7122F" transform="rotate(45 1096 150)"></rect><text x="1108" y="108" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="15" font-weight="700" fill="#C7122F">a person decides</text><text x="1108" y="126" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#8FA294">judgment, routed off the plane</text></g>
@@ -1659,7 +1585,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <h3 class="lede">An agent engine works every fraud case end to end. One analyst holds the decision.</h3>
   <div class="sir">
     <div class="sir-row"><div class="k">Situation</div><div class="v">Seven alert streams, seven manual programs, 6–8 disconnected systems per case.</div></div>
-    <div class="sir-row"><div class="k">Intervention</div><div class="v">One orchestrator, three sub-agents: evidence gathered, risk scored, case drafted across 6–8 systems. 21 steps and 12–15 screens collapse into one workspace. <span class="red">Decision rights reserved: every regulated call stays with a person.</span></div></div>
+    <div class="sir-row"><div class="k">Intervention</div><div class="v">One orchestrator, three sub-agents, one shared context: evidence retrieved, risk scored, case drafted across 6–8 systems. 21 steps and 12–15 screens collapse into one workspace. <span class="red">Decision rights reserved: every regulated call stays with a person.</span></div></div>
     </div>
   <div class="band">
     <div class="b1"><div class="bn">660K</div><div class="bt">cases a month</div></div>
@@ -1673,6 +1599,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <div class="dec"><b>Sequence:</b> denial parameters evaluate first. First-pass yield over rework.</div>
     <div class="dec"><b>Rollout:</b> India to LATAM without a rebuild; EMEA now in design under the EU AI Act.</div>
     <div class="dec"><b>Account takeover:</b> 21,976 cases a month; AHT ~9 to ~5 minutes (~35–40%) with the agent drafting the SAR rationale and a person signing it.</div>
+    <div class="dec"><b>Guardrails:</b> blocks prompt injection, enforces SAR thresholds; PII stays tokenized and access-scoped end to end. Prompt caching and token-cost limits hold the line.</div>
   </div>
 
 <div class="mapshell rv">
@@ -1737,16 +1664,16 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 
 <!-- ENGINE NODES on the spine (no container) -->
 <g class="station" tabindex="0" data-tip="One orchestrator plans the case, calls the sub-agents in order, and holds the state they share · the spine every case runs on." data-name="Orchestrator" data-line="AGENT ENGINE"><rect x="547" y="455" width="26" height="26" transform="rotate(45 560 468)" fill="#16324c"></rect><text x="560" y="438" fill="#3a4750" font-size="11" text-anchor="middle">Orchestrator</text></g>
-<g class="station" tabindex="0" data-tip="Gathers evidence from the case's systems · transactions, KYC, device, prior cases · into shared state. The ontology tells it which system holds what." data-name="Ingestion" data-line="AGENT ENGINE"><rect x="659" y="457" width="22" height="22" fill="#16324c"></rect><text x="670" y="438" fill="#3a4750" font-size="11" text-anchor="middle">Ingestion</text></g>
-<g class="station" tabindex="0" data-tip="Reasons over the assembled evidence and the risk score to a finding · with citations back to the source records." data-name="Investigation" data-line="AGENT ENGINE"><rect x="769" y="457" width="22" height="22" fill="#16324c"></rect><text x="780" y="438" fill="#3a4750" font-size="11" text-anchor="middle">Investigation</text></g>
-<g class="station" tabindex="0" data-tip="Drafts the case summary and, where reportable, the SAR narrative · grounded in the evidence, never free-written." data-name="Reporting" data-line="AGENT ENGINE"><rect x="879" y="457" width="22" height="22" fill="#16324c"></rect><text x="890" y="438" fill="#3a4750" font-size="11" text-anchor="middle">Reporting</text></g>
+<g class="station" tabindex="0" data-tip="Hybrid retrieval, vector and keyword search, pulls evidence from the case's systems: transactions, KYC, device, prior cases, dispute history · into shared state. The ontology tells it which system holds what." data-name="Ingestion" data-line="AGENT ENGINE"><rect x="659" y="457" width="22" height="22" fill="#16324c"></rect><text x="670" y="438" fill="#3a4750" font-size="11" text-anchor="middle">Ingestion</text></g>
+<g class="station" tabindex="0" data-tip="The LLM reasons over the assembled evidence and the risk score to a finding · citations back to the source records, evals watching for hallucination." data-name="Investigation" data-line="AGENT ENGINE"><rect x="769" y="457" width="22" height="22" fill="#16324c"></rect><text x="780" y="438" fill="#3a4750" font-size="11" text-anchor="middle">Investigation</text></g>
+<g class="station" tabindex="0" data-tip="Drafts the case summary and, where reportable, the SAR narrative · grounded in retrieved evidence, never free-written." data-name="Reporting" data-line="AGENT ENGINE"><rect x="879" y="457" width="22" height="22" fill="#16324c"></rect><text x="890" y="438" fill="#3a4750" font-size="11" text-anchor="middle">Reporting</text></g>
 <line x1="548" y1="508" x2="900" y2="508" stroke="#c9ccd0" stroke-width="1.5"></line>
 <line x1="560" y1="486" x2="560" y2="508" stroke="#e3e6e9" stroke-width="1.5"></line>
 <line x1="670" y1="481" x2="670" y2="508" stroke="#e3e6e9" stroke-width="1.5"></line>
 <line x1="780" y1="481" x2="780" y2="508" stroke="#e3e6e9" stroke-width="1.5"></line>
 <line x1="890" y1="481" x2="890" y2="508" stroke="#e3e6e9" stroke-width="1.5"></line>
-<g class="station" tabindex="0" data-tip="The one case record every sub-agent reads and writes · the agents' working memory, resolved against the ontology below." data-name="Shared State" data-line="AGENT ENGINE"><text class="disp" x="600" y="528" fill="#8a95a0" font-size="11" font-weight="700" letter-spacing="1.4" text-anchor="middle">SHARED STATE</text><text x="600" y="542" fill="#aab2ba" font-size="10" text-anchor="middle">one case record · agent working memory</text></g>
-<g class="station" tabindex="0" data-tip="A gradient-boosted model scores each case into shared state. Applied ML · evidence for the agents, never an auto-decision." data-name="GBM Scorer" data-line="AGENT ENGINE"><rect x="830" y="498" width="20" height="20" fill="#fff" stroke="#16324c" stroke-width="2"></rect><text x="840" y="536" fill="#8a95a0" font-size="10" text-anchor="middle">Risk scoring model · applied ML</text></g>
+<g class="station" tabindex="0" data-tip="The one case record every sub-agent reads and writes · the agent's context, built by context engineering and resolved against the ontology below." data-name="Shared State" data-line="AGENT ENGINE"><text class="disp" x="600" y="528" fill="#8a95a0" font-size="11" font-weight="700" letter-spacing="1.4" text-anchor="middle">SHARED STATE</text><text x="600" y="542" fill="#aab2ba" font-size="10" text-anchor="middle">one case record · agent working memory</text></g>
+<g class="station" tabindex="0" data-tip="A gradient-boosted model scores risk tiers 1 to 4 into the agent's context. Applied ML · evidence for the agents, never an auto-decision." data-name="GBM Scorer" data-line="AGENT ENGINE"><rect x="830" y="498" width="20" height="20" fill="#fff" stroke="#16324c" stroke-width="2"></rect><text x="840" y="536" fill="#8a95a0" font-size="10" text-anchor="middle">Risk scoring model · applied ML</text></g>
 
 <!-- THE PIVOT · the human, the one red note -->
 <line x1="900" y1="468" x2="982" y2="468" stroke="#16324c" stroke-width="5"></line>
@@ -1826,7 +1753,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <h3 class="lede">A parts spreadsheet becomes a sellable catalog page.</h3>
   <div class="sir">
     <div class="sir-row"><div class="k">Situation</div><div class="v">The client's dealer catalog needed photography and descriptions for parts that had neither. Sourcing and shooting them at scale was slow and expensive.</div></div>
-    <div class="sir-row"><div class="k">Mechanism</div><div class="v">Two governed pipelines, not one model. <b>GPT-4 drafts descriptions from cleaned part data.</b> Stable Diffusion and ControlNet generate images conditioned on real geometry: edge detection, depth maps, and a 3D color snapshot: never freehand.</div></div>
+    <div class="sir-row"><div class="k">Mechanism</div><div class="v">Model routing, not one model. <b>The LLM (GPT-4) drafts descriptions from cleaned part data.</b> Stable Diffusion and ControlNet generate images conditioned on real geometry: edge detection, depth maps, and a 3D color snapshot: never freehand.</div></div>
     <div class="sir-row"><div class="k">Governance</div><div class="v">Every generated image and description passes a review gate before publish, bounded to three reprocess passes. <span class="red">Past that, a person builds the listing by hand.</span></div></div>
     <div class="sir-row"><div class="k">Result</div><div class="v">The 2023 POC proved the pipeline; <b>the client rolled it into an MVP for its new B2B dealer ecommerce site.</b></div></div>
   </div>
@@ -1834,11 +1761,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <div class="decs">
     <div class="dec"><b>Conditioning:</b> Blender edge + depth maps from CAD models · 2D drawings feed ControlNet directly</div>
     <div class="dec"><b>Style:</b> one LoRA holds the product-photo look · brand-swappable</div>
-    <div class="dec"><b>Estate:</b> PO entry · invoice entry · identity lifecycle · GenAI content · one governed layer</div>
+    <div class="dec"><b>Estate:</b> PO entry · invoice entry · identity lifecycle · GenAI content · one governed orchestration layer</div>
   </div>
 
   <div class="vmap">
-    <div class="maphead"><div class="maptitle">The estate, end to end</div><div class="fieldhint">$6.5M+ returned · four countries · one governed layer</div></div>
+    <div class="maphead"><div class="maptitle">The estate, end to end</div><div class="fieldhint">$6.5M+ returned · four countries · one governed orchestration layer</div></div>
     <svg viewBox="0 0 1180 600" role="img" aria-label="The manufacturer estate, end to end: a procurement-to-payables line where two PO-entry bots feed the ERP and an invoice-entry bot settles vendors with the AP rebate cycle cut from ninety days to two; a parts-to-dealer content line where the generative pipeline drafts copy and renders under a human review gate; and one identity-and-access bed running beneath both lines.">
 <text x="36" y="38" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" style="fill:var(--ink)">PROCUREMENT → PAYABLES</text><text x="1144" y="38" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" text-anchor="end" style="fill:var(--ink)">$6.5M+ RETURNED</text><text x="1144" y="56" font-family="ui-monospace,Menlo,monospace" font-size="11" text-anchor="end" style="fill:var(--ink-3)">US · MEXICO · AUSTRALIA · INDIA</text><circle cx="90" cy="120" r="6" style="fill:var(--ink)"></circle><text x="90" y="158" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" text-anchor="middle" style="fill:var(--ink)">CUSTOMER</text><text x="90" y="174" font-family="ui-monospace,Menlo,monospace" font-size="11" text-anchor="middle" style="fill:var(--ink-3)">PO by email · PDF</text><path d="M96 120 C150 120 160 88 214 88" fill="none" style="stroke:var(--rule)" stroke-width="1.6"></path><path d="M96 120 C150 120 160 152 214 152" fill="none" style="stroke:var(--rule)" stroke-width="1.6"></path><rect x="214" y="80" width="16" height="16" style="fill:var(--paper);stroke:var(--ink)" stroke-width="1.8"></rect><text x="240" y="74" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" style="fill:var(--ink)">PO ENTRY · EMAIL → ERP</text><rect x="214" y="144" width="16" height="16" style="fill:var(--paper);stroke:var(--ink)" stroke-width="1.8"></rect><text x="222" y="182" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" style="fill:var(--ink)">PO ENTRY · DIRECT</text><path d="M230 88 C300 88 312 120 370 120" fill="none" style="stroke:var(--rule)" stroke-width="1.6"></path><path d="M230 152 C300 152 312 120 370 120" fill="none" style="stroke:var(--rule)" stroke-width="1.6"></path><line x1="370" y1="120" x2="552" y2="120" style="stroke:var(--rule)" stroke-width="2"></line><rect x="370" y="110" width="20" height="20" style="fill:var(--paper);stroke:var(--ink)" stroke-width="2"></rect><text x="380" y="98" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" text-anchor="middle" style="fill:var(--ink)">ERP · ORDER CREATED</text><rect x="552" y="112" width="16" height="16" style="fill:var(--paper);stroke:var(--ink)" stroke-width="1.8"></rect><text x="560" y="158" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" text-anchor="middle" style="fill:var(--ink)">INVOICE ENTRY · 3-WAY MATCH</text><line x1="560" y1="84" x2="560" y2="108" style="stroke:var(--rule)" stroke-width="1.2" stroke-dasharray="3 4"></line><rect x="553.5" y="63.5" width="13" height="13" style="fill:var(--hum)" transform="rotate(45 560 70)"></rect><text x="578" y="74" font-family="ui-monospace,Menlo,monospace" font-size="11" font-weight="700" style="fill:var(--hum)">exceptions → a person</text><line x1="568" y1="120" x2="934" y2="120" style="stroke:var(--rule)" stroke-width="2"></line><line x1="640" y1="98" x2="920" y2="98" style="stroke:var(--ink)" stroke-width="1"></line><line x1="640" y1="92" x2="640" y2="104" style="stroke:var(--ink)" stroke-width="1"></line><line x1="920" y1="92" x2="920" y2="104" style="stroke:var(--ink)" stroke-width="1"></line><text x="780" y="88" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" text-anchor="middle" style="fill:var(--ink)">AP REBATE CYCLE · 90 DAYS → 2</text><circle cx="960" cy="120" r="6" style="fill:var(--ink)"></circle><text x="960" y="158" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" text-anchor="middle" style="fill:var(--ink)">VENDOR · SETTLED</text><text x="36" y="258" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" style="fill:var(--ink)">PARTS → CATALOG → DEALER</text><line x1="96" y1="330" x2="974" y2="330" style="stroke:var(--rule)" stroke-width="2"></line><circle cx="90" cy="330" r="6" style="fill:var(--ink)"></circle><text x="36" y="368" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" style="fill:var(--ink)">ENGINEERING DRAWINGS</text><text x="36" y="384" font-family="ui-monospace,Menlo,monospace" font-size="11" style="fill:var(--ink-3)">13,000+ products · no photo, no copy</text><rect x="321" y="321" width="18" height="18" style="fill:var(--paper);stroke:var(--ink)" stroke-width="2" transform="rotate(45 330 330)"></rect><text x="330" y="368" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" text-anchor="middle" style="fill:var(--ink)">GENAI PIPELINE</text><text x="330" y="402" font-family="ui-monospace,Menlo,monospace" font-size="11" text-anchor="middle" style="fill:var(--ink-3)">GPT-4 + SD/ControlNet · never freehand</text><rect x="552" y="322" width="16" height="16" style="fill:var(--hum)" transform="rotate(45 560 330)"></rect><text x="560" y="368" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" text-anchor="middle" style="fill:var(--hum)">REVIEW GATE</text><text x="560" y="384" font-family="ui-monospace,Menlo,monospace" font-size="11" text-anchor="middle" style="fill:var(--ink-3)">approves before publish</text><rect x="762" y="322" width="16" height="16" style="fill:var(--paper);stroke:var(--ink)" stroke-width="1.8"></rect><text x="770" y="368" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" text-anchor="middle" style="fill:var(--ink)">CATALOG</text><text x="770" y="402" font-family="ui-monospace,Menlo,monospace" font-size="11" text-anchor="middle" style="fill:var(--ink-3)">weeks → hours per part</text><circle cx="960" cy="330" r="6" style="fill:var(--ink)"></circle><text x="960" y="368" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" text-anchor="middle" style="fill:var(--ink)">DEALER SITE</text><text x="960" y="384" font-family="ui-monospace,Menlo,monospace" font-size="11" text-anchor="middle" style="fill:var(--ink-3)">B2B ecommerce · POC → MVP</text><line x1="380" y1="132" x2="380" y2="470" style="stroke:var(--rule)" stroke-width="1" stroke-dasharray="2 5"></line><line x1="560" y1="132" x2="560" y2="470" style="stroke:var(--rule)" stroke-width="1" stroke-dasharray="2 5"></line><line x1="330" y1="341" x2="330" y2="470" style="stroke:var(--rule)" stroke-width="1" stroke-dasharray="2 5"></line><line x1="770" y1="340" x2="770" y2="470" style="stroke:var(--rule)" stroke-width="1" stroke-dasharray="2 5"></line><line x1="60" y1="470" x2="1120" y2="470" style="stroke:var(--ink)" stroke-width="1.6" opacity=".85"></line><line x1="60" y1="476" x2="1120" y2="476" style="stroke:var(--ink)" stroke-width="1.6" opacity=".85"></line><rect x="78" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="140" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="202" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="264" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="326" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="388" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="450" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="512" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="574" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="636" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="698" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="760" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="822" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="884" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="946" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="1008" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><rect x="1070" y="488" width="26" height="11" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"></rect><text x="590" y="532" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" text-anchor="middle" style="fill:var(--ink)">IDENTITY &amp; ACCESS LIFECYCLE · THE BED UNDER BOTH LINES</text><text x="590" y="550" font-family="ui-monospace,Menlo,monospace" font-size="11" text-anchor="middle" style="fill:var(--ink-3)">who may act, in which system, every action logged · governed off-boarding</text></svg>
     <div class="fieldcap">squares = bots, deterministic · hollow diamond = the agent pipeline · <em>red = a person</em> · the content line’s GenAI station is runnable below</div>
@@ -2873,9 +2800,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     var log=document.getElementById('clog'); if(!log) return;
     var RMC=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
     var SCEN=[
-      [['a','02:11:04 agent · rate batch staged · 447 letters'],['a','02:11:05 rail · validations green · variance 0.8%'],['a','02:11:05 policy · regulated change → human gate'],['hld','HOLD · waiting on the director\u2019s signature'],['ok','02:13:52 director · signed'],['ok','02:13:52 release · letters sent · ledger sealed']],
-      [['a','02:14:11 twin · invoice 7031 parsed · conf 0.71'],['a','02:14:11 policy · below threshold → human gate'],['hld','HOLD · exception queued to an analyst'],['ok','02:15:30 analyst · corrected · vendor remapped'],['ok','02:15:31 rail · rule promoted · next one runs clean']],
-      [['a','23:52:08 engine · case 88231 assembled · 129 signals'],['a','23:52:09 checks · denylist clear · baseline clear'],['a','23:52:09 policy · filing threshold → human gate'],['hld','HOLD · the analyst decides'],['ok','23:54:40 analyst · filed under own name · sealed']]
+      [['a','02:11:04 agent · rate batch staged · 447 letters'],['a','02:11:05 rail · validations green · variance 0.8%'],['a','02:11:05 mcp · skill call authorized · agent identity verified'],['a','02:11:05 policy · regulated change → human gate'],['hld','HOLD · waiting on the director\u2019s signature'],['ok','02:13:52 director · signed'],['ok','02:13:52 release · letters sent · ledger sealed']],
+      [['a','02:14:11 twin · invoice 7031 parsed · conf 0.71'],['a','02:14:11 model · generative extraction on unmatched layout'],['a','02:14:11 policy · below threshold → human gate'],['hld','HOLD · exception queued to an analyst'],['ok','02:15:30 analyst · corrected · vendor remapped'],['ok','02:15:31 rail · rule promoted · next one runs clean']],
+      [['a','23:52:08 engine · case 88231 assembled · 129 signals'],['a','23:52:08 retrieval · hybrid vector+keyword · guardrail passed'],['a','23:52:09 checks · denylist clear · baseline clear'],['a','23:52:09 policy · filing threshold → human gate'],['hld','HOLD · the analyst decides'],['ok','23:54:40 analyst · filed under own name · sealed']]
     ];
     function put(cls,txt){
       var d=document.createElement('div'); d.className=cls; d.textContent=txt;
@@ -3318,7 +3245,7 @@ return {skip:skip,open:open};
 <aside id="governed-guide" class="ggd-collapsed" aria-label="Governed guide">
   <button type="button" class="ggd-pill" aria-expanded="false"><span class="ggd-pill-dot" aria-hidden="true"></span>Guide</button>
   <div class="ggd-head">
-    <span class="ggd-title">Governed Guide <span class="ggd-tag">· sample data</span></span>
+    <span class="ggd-title">Governed Guide <span class="ggd-tag">· agent identity &amp; entitlements, live</span></span>
     <span class="ggd-head-btns">
       <button type="button" class="ggd-collapse">Collapse</button>
       <button type="button" class="ggd-dismiss">Dismiss</button>
@@ -3358,7 +3285,7 @@ return {skip:skip,open:open};
           g.classList.add('ggd-min');
           setTimeout(function(){g.classList.remove('ggd-min')},5200);
         } else if(k==='sum'){
-          var SUM={'top':'Agents do the work; people keep the judgment calls.','proof':'Three live ratios: 9 in 10,000 · 1 in 100 · 129 to 1.','work':'Rails run the repeatable; models read the variable; people own judgment.','standing':'Operator since 2016 across three tool generations.','case-thekey':'Eleven functions on one governed control plane, 170M tasks a year.','case-ems':'A digital twin carries $1B in payments; 1 in 100 invoices waits for a person.','demos':'The human gate: nothing regulated ships without a signature.','case-fintech':'129 signals to one human decision, 660K cases a month.','case-bank':'62 touchpoints cut to 3 for a global bank.','arc':'RPA to IA to agents; the discipline never changed.','record':'Ten years, $100M+ delivered, every line checkable.','contact':'One action: email Azhar Khan.'};
+          var SUM={'top':'Agents do the work; people keep the judgment calls.','proof':'Three live ratios: 9 in 10,000 · 1 in 100 · 129 to 1.','work':'Rails run the repeatable; models read the variable; people own judgment.','standing':'Operator since 2016 across three tool generations.','case-thekey':'Eleven functions on one governed orchestration layer, 170M tasks a year.','case-ems':'A digital twin carries $1B in payments; 1 in 100 invoices waits for a person.','demos':'The human gate: nothing regulated ships without a signature.','case-fintech':'129 signals to one human decision, 660K cases a month.','case-bank':'62 touchpoints cut to 3 for a global bank.','arc':'RPA to IA to agents; the discipline never changed.','record':'Ten years, $100M+ delivered, every line checkable.','contact':'One action: email Azhar Khan.'};
           var id=g.dataset.section||'top';
           if(nar)nar.textContent='One line: '+(SUM[id]||'this section reads clean.');
           log('summarize § '+id+' · read-only'); bump();
@@ -3530,113 +3457,50 @@ return {skip:skip,open:open};
 </script>
 
 <script>
-/* ── idm: identity plate driver. Namespaced to avoid colliding with the rest of the page. ── */
+/* ── idm: identity plate driver. Static plate; the counters are the only living
+   element: a staggered settle-in, then an occasional quiet single-digit pulse. ── */
 (function(){
   var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var stage = document.getElementById('idmStage');
   if (!stage) return;
-  var figure = document.getElementById('idmFigure');
-
-  document.querySelectorAll('#idmStage .idm-strand').forEach(function(p){
-    try { var len = p.getTotalLength(); p.style.strokeDasharray = len; p.style.setProperty('--slen', len); } catch (e) {}
-  });
-  document.querySelectorAll('#idmStage .idm-gatetrace').forEach(function(p){
-    try { var len = p.getTotalLength(); p.style.strokeDasharray = len; p.style.setProperty('--glen', len); } catch (e) {}
-  });
-  document.querySelectorAll('#idmStage .idm-agenttrace').forEach(function(p){
-    try { var len = p.getTotalLength(); p.style.strokeDasharray = len; p.style.setProperty('--alen', len); } catch (e) {}
-  });
-
   stage.classList.add('idm-ready');
 
-  if (!reduced && figure) {
-    stage.classList.add('idm-go');
-    var variant = 0;
-    function scheduleBeats(){
-      setTimeout(function(){ figure.classList.add('idm-crouch'); }, 1500);
-      setTimeout(function(){ figure.classList.remove('idm-crouch'); figure.classList.add('idm-walk'); }, 1800);
-      setTimeout(function(){ figure.classList.add('idm-reach'); }, 3000);
-      setTimeout(function(){ figure.classList.remove('idm-reach'); }, 3300);
-      setTimeout(function(){ figure.classList.remove('idm-walk'); figure.classList.add('idm-kneel'); }, 3500);
-      setTimeout(function(){ figure.classList.remove('idm-kneel'); figure.classList.add('idm-walk'); }, 4000);
-      setTimeout(function(){ figure.classList.add('idm-lean', 'idm-fast'); }, 4500);
-      setTimeout(function(){ figure.classList.remove('idm-walk', 'idm-fast', 'idm-lean'); figure.classList.add('idm-still'); }, 6000);
-      setTimeout(function(){ figure.classList.remove('idm-still'); figure.classList.add('idm-walk', 'idm-fast'); }, 6900);
-      setTimeout(function(){ figure.classList.remove('idm-walk', 'idm-fast'); }, 7200);
-      variant = (variant + 1) % 3;
-      stage.setAttribute('data-idm-variant', String(variant));
-    }
-    var clock = stage.querySelector('.idm-clock');
-    if (clock) {
-      clock.addEventListener('animationiteration', function(e){
-        if (e.animationName === 'idm-clocktick') scheduleBeats();
-      });
-    }
-    scheduleBeats();
-  }
-
-  /* ---- counters: namespaced split-flap tiles. Independent of the SVG loop; never reset. ---- */
-  var DIG = '0123456789', ALPHA = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+.';
+  var DIG = '0123456789';
   function mkTile(host, ch){
     var c = document.createElement('span');
     c.className = 'idm-tile' + ((ch === ' ' || ch === '.') ? ' idm-narrow' : '');
-    c.innerHTML = '<span class="h ht"><span></span></span><span class="h hb"><span></span></span><span class="f ft"><span></span></span><span class="f fb"><span></span></span>';
+    c.textContent = ch;
     host.appendChild(c);
-    var q = { el: c, cur: ' ', ht: c.children[0].firstChild, hb: c.children[1].firstChild, ft: c.children[2].firstChild, fb: c.children[3].firstChild };
-    q.show = function(v){ q.cur = v; q.ht.textContent = v; q.hb.textContent = v; q.ft.textContent = v; q.fb.textContent = v; };
-    q.flip = function(next, done){
-      if (next === q.cur) { done && done(); return; }
-      q.ft.textContent = q.cur; q.fb.textContent = next; q.ht.textContent = next;
-      q.el.classList.add('idm-tick');
-      setTimeout(function(){ q.el.classList.add('idm-tock'); }, 35);
-      setTimeout(function(){
-        q.hb.textContent = next; q.ft.textContent = next; q.cur = next;
-        q.el.classList.remove('idm-tick'); q.el.classList.remove('idm-tock');
-        done && done();
-      }, 70);
-    };
-    q.spinTo = function(target, spins, set){
-      if (reduced) { q.show(target); return; }
-      var seq = [], i;
-      for (i = 0; i < spins; i++) seq.push(set[Math.floor(Math.random() * set.length)]);
-      seq.push(target);
-      (function step(k){
-        if (k >= seq.length) return;
-        q.flip(seq[k], function(){ setTimeout(function(){ step(k + 1); }, 16); });
-      })(0);
-    };
-    q.show(' ');
-    return q;
+    return c;
   }
 
   var rows = [];
   document.querySelectorAll('#idmCounters .idm-cv').forEach(function(host){
     var text = host.getAttribute('data-idm-val') || '', cells = [];
-    for (var i = 0; i < text.length; i++) cells.push({ q: mkTile(host, text[i]), ch: text[i] });
-    rows.push({ host: host, cells: cells, text: text });
+    for (var i = 0; i < text.length; i++) cells.push(mkTile(host, text[i]));
+    rows.push({ cells: cells, text: text });
   });
 
-  function landRow(row){ row.cells.forEach(function(o){ o.q.show(o.ch); }); }
+  function landRow(row){ row.cells.forEach(function(el){ el.classList.add('idm-in'); }); }
   function revealRow(row, base){
-    row.cells.forEach(function(o, i){
-      setTimeout(function(){
-        var isDigit = DIG.indexOf(o.ch) > -1;
-        o.q.spinTo(o.ch, isDigit ? 4 : 2, isDigit ? DIG : ALPHA);
-      }, base + i * 70);
+    row.cells.forEach(function(el, i){
+      setTimeout(function(){ el.classList.add('idm-in'); }, base + i * 70);
     });
   }
   function startTicking(){
     if (reduced) return;
-    var tickTargets = [rows[1], rows[2]].filter(Boolean);
-    var n = 0;
-    setInterval(function(){
-      var row = tickTargets[n % tickTargets.length]; n++;
-      if (!row) return;
-      row.cells.forEach(function(o, i){
-        if (DIG.indexOf(o.ch) === -1) return;
-        setTimeout(function(){ o.q.spinTo(o.ch, 3, DIG); }, i * 40);
+    var digitCells = [];
+    rows.forEach(function(row){
+      row.cells.forEach(function(el, i){
+        if (DIG.indexOf(row.text[i]) > -1) digitCells.push(el);
       });
-    }, 4200);
+    });
+    if (!digitCells.length) return;
+    setInterval(function(){
+      var el = digitCells[Math.floor(Math.random() * digitCells.length)];
+      el.classList.add('idm-dim');
+      setTimeout(function(){ el.classList.remove('idm-dim'); }, 260);
+    }, 8000);
   }
 
   if (reduced || !('IntersectionObserver' in window)) {
