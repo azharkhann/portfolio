@@ -979,7 +979,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <div class="bigfield rv">
     <div class="maphead">
       <div class="maptitle">Ten thousand jobs, one month of the floor</div>
-      <div class="fieldhint">hover the solid cells · <em>find the nine</em></div>
+      <div class="fieldhint">hover or tap the solid cells · <em>find the nine</em></div>
     </div>
     <canvas id="bigcare" width="1000" height="1000" role="img" aria-label="Grid of 10,000 cells, one per job; exactly 9 red cells mark where a person acts."></canvas>
     <div class="fieldcap">each cell = one job · <em>the solid nine</em> carry names · <span id="foundcount">found 0 of 9</span></div>
@@ -1245,7 +1245,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   </div>
   
 <div class="mapshell rv">
-<div class="maphost" data-map="util"><button class="fsbtn" type="button" aria-label="View map full screen">⛶ Full screen</button><div class="avm-root" id="avm-util" data-variant="a">
+<div class="maphost" data-map="utilities"><button class="fsbtn" type="button" aria-label="View map full screen">⛶ Full screen</button><div class="avm-root" id="avm-utilities" data-variant="a">
 <div class="avm-bar" role="toolbar">
 <span class="avm-lab">LAYERS</span>
 <div class="avm-grp">
@@ -1255,11 +1255,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <button class="avm-tgl" data-ov="receipts" aria-pressed="false">How to read it</button>
 </div>
 <span class="avm-spacer"></span>
-<button class="avm-print" type="button" id="printBtn-util">Print</button>
+<button class="avm-print" type="button" id="printBtn-utilities">Print</button>
 </div>
 <div class="avm-svgscroll">
-<div id="tip-util" class="map-tip" role="status"></div>
-<svg id="map-util" viewBox="0 32 2280 1228" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Utility billing digital-twin operating map">
+<div id="tip-utilities" class="map-tip" role="status"></div>
+<svg id="map-utilities" viewBox="0 32 2280 1228" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Utility billing digital-twin operating map">
 <rect width="2280" height="1780" fill="#fff"></rect>
 <rect x="70" y="44" width="30" height="22" rx="2" fill="#16324c"></rect><text x="85" y="60" fill="#fff" font-size="13" font-weight="800" text-anchor="middle">03</text>
 <text x="114" y="60" fill="#5b6b7a" font-size="13" font-weight="700" letter-spacing="2.5">AGENTIC ORCHESTRATION · UTILITY BILL MANAGEMENT: DATA PLATFORM</text>
@@ -2354,12 +2354,12 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     if(!c||!tip) return;
     var wrap=c.closest('.bigfield');
     var found={},foundN=0;
-    c.addEventListener('mousemove',function(e){
+    function sweep(e){
       var r=c.getBoundingClientRect();
       var px=(e.clientX-r.left)/r.width*100, py=(e.clientY-r.top)/r.height*100;
       var col=Math.floor(px), row=Math.floor(py), key=row+','+col, hit=BIGREDS[key];
       if(!hit){
-        var bestD=1.7,bestKey=null;
+        var bestD=(e.pointerType==='touch')?4:1.7,bestKey=null;
         Object.keys(BIGREDS).forEach(function(k){
           var kp=k.split(',').map(Number), dr=kp[0]+0.5-py, dc=kp[1]+0.5-px, d=Math.sqrt(dr*dr+dc*dc);
           if(d<bestD){bestD=d;bestKey=k;}
@@ -2380,7 +2380,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
         tip.classList.add('on');
         if(!found[key]){found[key]=1;foundN++;var fc=document.getElementById('foundcount');if(fc){if(foundN>=9){fc.textContent='all nine found · that is the whole job';fc.style.color='var(--hum)'}else{fc.textContent='found '+foundN+' of 9'}}}
       } else { tip.classList.remove('on'); if(ring) ring.classList.remove('on'); }
-    });
+    }
+    c.addEventListener('mousemove',sweep);
+    c.addEventListener('pointerdown',sweep);
     c.addEventListener('mouseleave',function(){tip.classList.remove('on'); if(ring) ring.classList.remove('on');});
   })();
 
@@ -2943,6 +2945,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       var host = btn.parentElement;
       if (document.fullscreenElement) { document.exitFullscreen(); }
       else if (host.requestFullscreen) { host.requestFullscreen(); }
+    });
+  });
+  document.addEventListener('fullscreenchange', function () {
+    document.querySelectorAll('.maphost .fsbtn').forEach(function (b) {
+      b.textContent = (document.fullscreenElement && b.parentElement === document.fullscreenElement) ? '✕ Exit full screen' : '⛶ Full screen';
     });
   });
 
