@@ -2446,12 +2446,26 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   (function(){
     var rh=document.getElementById('runhead'), rl=document.getElementById('readline');
     var ids=['top','floor','work','standing','case-thekey','case-ems','demos','case-fintech','case-bank','arc','record','contact'];
+    function fitToWidth(text,maxWidthPx,font,trackPx){
+      var canvas=fitToWidth._c||(fitToWidth._c=document.createElement('canvas'));
+      var ctx=canvas.getContext('2d');
+      ctx.font=font; trackPx=trackPx||0;
+      function w(s){ return ctx.measureText(s).width + s.length*trackPx; }
+      if(w(text)<=maxWidthPx) return text;
+      var words=text.split(' '), out='';
+      for(var i=0;i<words.length;i++){
+        var attempt=(out?out+' ':'')+words[i];
+        if(w(attempt+'\u2026')>maxWidthPx) break;
+        out=attempt;
+      }
+      return out?out+'\u2026':text;
+    }
     if(rh&&'IntersectionObserver' in window){
       var io=new IntersectionObserver(function(es){
         es.forEach(function(e){
           if(!e.isIntersecting) return;
           var en=e.target.querySelector('.entry');
-          if(en){ rh.textContent=en.textContent.replace(/ · Azhar Khan$/,''); rh.classList.add('on'); }
+          if(en){ var full=en.textContent.replace(/ · Azhar Khan$/,''); var cs=getComputedStyle(rh); var tp=parseFloat(cs.letterSpacing)||0; var mw=Math.min(innerWidth*0.34,320)-8; rh.textContent=fitToWidth(full,mw,cs.font,tp); rh.classList.add('on'); }
           if(e.target.id==='top') rh.classList.remove('on');
         });
       },{rootMargin:'-35% 0px -55% 0px'});
