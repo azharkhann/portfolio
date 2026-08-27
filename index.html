@@ -4,6 +4,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <meta name="description" content="Governed autonomy in production: home care, utilities, fraud, and a global bank. Operating models designed and run by Azhar Khan.">
+<link rel="canonical" href="https://azharkhann.github.io/portfolio/">
+<meta property="og:title" content="Azhar Khan · Governed Agent Operations">
+<meta property="og:description" content="Governed autonomy in production: home care, utilities, fraud, and a global bank. Operating models designed and run by Azhar Khan.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://azharkhann.github.io/portfolio/">
+<meta property="og:image" content="https://azharkhann.github.io/portfolio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%23141310%27/%3E%3Cpath d=%27M16 7 25 16 16 25 7 16Z%27 fill=%27%23faf9f5%27/%3E%3C/svg%3E">
 <script>window.__pageErrors=[];window.onerror=function(m){window.__pageErrors.push(String(m));return false};</script>
 <title>Azhar Khan · Governed Agent Operations</title>
 <style>
@@ -463,7 +471,7 @@ button.pipe-chip:focus-visible{border-color:var(--ink);color:var(--ink)}
   .mast nav{flex-wrap:wrap;gap:16px;row-gap:8px}
 }
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-@media print{header,.gacts,.gout,.gverbs,.cta{display:none!important}.pivot{background:none;color:var(--ink)}}
+@media print{.hero,.idplate{background:#fff !important}.hero *,.idplate *{color:#111 !important;fill:#111 !important}.fileseam{display:none !important}header,.gacts,.gout,.gverbs,.cta{display:none!important}.pivot{background:none;color:var(--ink)}}
 
 /* ── V11 additions ── */
 /* ── V14: four acts ── */
@@ -754,7 +762,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <div class="hgrid">
   <div>
   <div class="entry" style="color:var(--haze)">Governed autonomy · in production</div>
-  <h1 style="color:var(--dwhite)">I let <s style="color:var(--haze);text-decoration:line-through;text-decoration-color:var(--dwhite);text-decoration-thickness:3px">bots</s> agents handle the boring details of the business.</h1>
+  <h1 style="color:var(--dwhite)" aria-label="I let agents handle the boring details of the business.">I let <s style="color:var(--haze);text-decoration:line-through;text-decoration-color:var(--dwhite);text-decoration-thickness:3px">bots</s> agents handle the boring details of the business.</h1>
   <p class="sub" style="color:var(--dsilver);font:400 14px/1.7 var(--mono);margin:22px 0 0;max-width:52ch">Governed autonomy, run across three generations of digital workforce. <b style="color:var(--dwhite)">The tools changed three times. The system didn't.</b></p>
   </div>
   <aside class="console" id="opsconsole" aria-label="Operator console, sample session">
@@ -2018,7 +2026,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
         var i=0;
         function fin(){ if(typing){clearInterval(typing);typing=null;} txt.textContent=DESC; if(cur.parentNode)cur.remove(); }
         para.addEventListener('click',fin,{once:true});
-        typing=setInterval(function(){
+        typing=setInterval(function(){if(document.hidden)return;
           i+=2; txt.textContent=DESC.slice(0,i);
           if(i>=DESC.length) fin();
         },22);
@@ -2287,7 +2295,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     }
     function startCounter(){
       if(!readoutEl||tickTimer||mode==='manual')return;
-      tickTimer=setInterval(function(){count++;readoutEl.textContent=String(count);},260);
+      tickTimer=setInterval(function(){if(document.hidden)return;count++;readoutEl.textContent=String(count);},260);
     }
     function stopCounter(){if(tickTimer){clearInterval(tickTimer);tickTimer=null;}}
     function start(){if(running||RM2)return;running=true;raf=requestAnimationFrame(frame);startCounter();}
@@ -2590,7 +2598,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
         dots.appendChild(b2);
       })(k);
     }
-    function restart(){ if(timer)clearInterval(timer); if(!RMj){ timer=setInterval(function(){ setStage((cur+1)%5); },4200); } }
+    function restart(){ if(timer)clearInterval(timer); if(!RMj){ timer=setInterval(function(){if(document.hidden)return; setStage((cur+1)%5); },4200); } }
     drawScene(); restart();
   })();
   /* ── split-flap driver: hero ratios + ambient board ── */
@@ -2689,7 +2697,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       if(!RMF&&'IntersectionObserver' in window){
         var bio=new IntersectionObserver(function(es){ es.forEach(function(e){ visible=e.isIntersecting; }); },{threshold:0.1});
         bio.observe(board);
-        setInterval(function(){
+        setInterval(function(){if(document.hidden)return;
           if(!visible||document.hidden||window.__MOTION==='still') return;
           mi=(mi+1)%MSGS.length; setMsg(mi,true);
         },6500);
@@ -2882,7 +2890,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     [23,71,109,143].forEach(function(ix){cellsArr[ix].className='red'});
     var RMg=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(!RMg){
-      setInterval(function(){
+      setInterval(function(){if(document.hidden)return;
         for(var k=0;k<4;k++){
           var c=cellsArr[Math.floor(Math.random()*cellsArr.length)];
           if(c.className!=='red'){c.className='on';(function(cc){setTimeout(function(){cc.className=''},700)})(c);}
@@ -3084,7 +3092,7 @@ window.__mapToggleFx=function(root){
 /* ── trace one job: a narrated journey along a real stream ── */
 (function(){
   'use strict';
-  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   var SVGNS='http://www.w3.org/2000/svg';
   function makeTrace(rootId, groupIds, label, endNote){
     var root=document.getElementById(rootId); if(!root) return;
@@ -3098,24 +3106,69 @@ window.__mapToggleFx=function(root){
     });
     if(!paths.length) return;
     function cxOf(s){ var c=s.querySelector('circle')||s.querySelector('rect'); if(!c) return 0; return parseFloat(c.getAttribute('cx')||c.getAttribute('x')||0); }
+    function markOf(s){ return s.querySelector('circle')||s.querySelector('rect'); }
     stations.sort(function(a,b){ return cxOf(a)-cxOf(b); });
     var btn=document.createElement('button');
-    btn.type='button'; btn.className='avm-tgl'; btn.textContent='▶ '+label;
+    btn.type='button'; btn.className='avm-tgl';
     btn.style.color='var(--hum)'; btn.style.fontWeight='700';
     bar.insertBefore(btn, bar.firstChild);
-    var running=false;
-    btn.addEventListener('click',function(){
-      if(running) return; running=true; btn.textContent='● tracing…';
-      var dot=document.createElementNS(SVGNS,'circle');
+
+    if(RM){
+      var shown=false, snote=null;
+      btn.textContent='Show the path';
+      btn.addEventListener('click',function(){
+        if(shown){
+          stations.forEach(function(s){ var m=markOf(s); if(m){ m.style.stroke=''; m.style.strokeWidth=''; } });
+          svg.querySelectorAll('.line-g').forEach(function(g){ g.style.opacity=''; });
+          if(snote){ snote.remove(); snote=null; }
+          btn.textContent='Show the path';
+          shown=false;
+        } else {
+          svg.querySelectorAll('.line-g').forEach(function(g){ if(paths.every(function(p){return !g.contains(p);})) g.style.opacity=0.14; });
+          stations.forEach(function(s){ var m=markOf(s); if(m){ m.style.stroke='#C8102E'; m.style.strokeWidth='3'; } });
+          var pt0=paths[paths.length-1].getPointAtLength(paths[paths.length-1].getTotalLength());
+          snote=document.createElementNS(SVGNS,'text');
+          snote.setAttribute('x',Math.min(pt0.x, 2100)); snote.setAttribute('y',pt0.y-34);
+          snote.setAttribute('text-anchor','end'); snote.setAttribute('font-family','ui-monospace,Menlo,monospace');
+          snote.setAttribute('font-size','16'); snote.setAttribute('font-weight','700'); snote.setAttribute('fill','#C8102E');
+          snote.textContent=endNote;
+          svg.appendChild(snote);
+          btn.textContent='Hide the path';
+          shown=true;
+        }
+      });
+      return;
+    }
+
+    btn.textContent='▶ '+label;
+    var running=false, dot=null, note=null, lastStation=null, finishTimer=null;
+    function cleanup(){
+      if(lastStation){ lastStation.dispatchEvent(new Event('mouseleave')); lastStation=null; }
+      if(dot){ dot.remove(); dot=null; }
+      if(note){ note.remove(); note=null; }
+      svg.querySelectorAll('.line-g').forEach(function(g){ g.style.opacity=''; });
+    }
+    function stop(){
+      if(!running) return;
+      running=false;
+      if(finishTimer){ clearTimeout(finishTimer); finishTimer=null; }
+      cleanup();
+      btn.textContent='▶ '+label;
+    }
+    function start(){
+      running=true; btn.textContent='■ Stop';
+      dot=document.createElementNS(SVGNS,'circle');
       dot.setAttribute('r','11'); dot.setAttribute('fill','#fff');
       dot.setAttribute('stroke','#C8102E'); dot.setAttribute('stroke-width','4');
       svg.appendChild(dot);
       svg.querySelectorAll('.line-g').forEach(function(g){ if(paths.every(function(p){return !g.contains(p);})) g.style.opacity=0.14; });
       var seg=0, L=paths[0].getTotalLength(), t=0, lastTs=null, fired={};
       var speed=Math.max(120, L/7);
-      var pauseUntil=0, lastStation=null;
+      var pauseUntil=0;
       function frame(ts){
+        if(!running) return;
         if(lastTs===null) lastTs=ts;
+        if(document.hidden){ lastTs=ts; requestAnimationFrame(frame); return; }
         var dt=(ts-lastTs)/1000; lastTs=ts;
         if(ts<pauseUntil){ requestAnimationFrame(frame); return; }
         t+=speed*dt;
@@ -3141,23 +3194,32 @@ window.__mapToggleFx=function(root){
       }
       function finish(){
         dot.setAttribute('fill','#C8102E');
-        var note=document.createElementNS(SVGNS,'text');
+        note=document.createElementNS(SVGNS,'text');
         var pt=paths[paths.length-1].getPointAtLength(paths[paths.length-1].getTotalLength());
         note.setAttribute('x',Math.min(pt.x, 2100)); note.setAttribute('y',pt.y-34);
         note.setAttribute('text-anchor','end'); note.setAttribute('font-family','ui-monospace,Menlo,monospace');
         note.setAttribute('font-size','16'); note.setAttribute('font-weight','700'); note.setAttribute('fill','#C8102E');
         note.textContent=endNote;
         svg.appendChild(note);
-        setTimeout(function(){
-          if(lastStation) lastStation.dispatchEvent(new Event('mouseleave'));
-          dot.remove(); note.remove();
-          svg.querySelectorAll('.line-g').forEach(function(g){ g.style.opacity=''; });
+        finishTimer=setTimeout(function(){
+          finishTimer=null;
+          running=false;
+          cleanup();
           if(window.__mapToggleFx) window.__mapToggleFx(root);
-          btn.textContent='▶ '+label; running=false;
+          btn.textContent='▶ '+label;
         },2400);
       }
       requestAnimationFrame(frame);
+    }
+    btn.addEventListener('click',function(){
+      if(running) stop(); else start();
     });
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(!e.isIntersecting) stop(); });
+      },{threshold:0});
+      io.observe(root);
+    }
   }
   makeTrace('avm-care',['#ln-rev'],'Trace one job','a person posts the cash · lead to cash, closed');
   makeTrace('avm-ems',['#ln-byp'],'Trace one invoice','audited against tariff · paid · $1B in payments runs this path');
@@ -3384,7 +3446,7 @@ return {skip:skip,open:open};
   function wire(){
     var logEl=g.querySelector('[data-ggd="log"]'), nar=g.querySelector('[data-ggd="narration"]'), act=g.querySelector('[data-ggd="actions"]'), cost=g.querySelector('[data-ggd="cost"]');
     function stamp(){var d=new Date();function p(n){return n<10?'0'+n:n}return p(d.getMinutes())+':'+p(d.getSeconds())}
-    function log(t){if(!logEl)return;var r=document.createElement('div');r.textContent='['+stamp()+'] '+t;logEl.appendChild(r);logEl.scrollTop=logEl.scrollHeight;}
+    function log(t){if(!logEl)return;var r=document.createElement('div');r.textContent='['+stamp()+'] '+t;while(logEl.children.length>11){logEl.removeChild(logEl.firstChild)};logEl.appendChild(r);logEl.scrollTop=logEl.scrollHeight;}
     function bump(){if(act){var n=parseInt((act.textContent||'').replace(/\D/g,''),10)||0;act.textContent='actions: '+(n+1);}if(cost){var c=parseFloat((cost.textContent||'').replace(/[^0-9.]/g,''))||0;cost.textContent='cost: $'+(c+0.0021).toFixed(4);}}
     g.querySelectorAll('.ggd-cmd').forEach(function(b){
       b.addEventListener('click',function(){
@@ -3608,7 +3670,7 @@ return {skip:skip,open:open};
       });
     });
     if (!digitCells.length) return;
-    setInterval(function(){
+    setInterval(function(){if(document.hidden)return;
       var el = digitCells[Math.floor(Math.random() * digitCells.length)];
       el.classList.add('idm-dim');
       setTimeout(function(){ el.classList.remove('idm-dim'); }, 260);
