@@ -1553,72 +1553,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 </div>
 
 <div class="frame">
-<section class="demos" id="demos"><h2 class="srh">Human-in-the-Loop · agents on the work, people on the judgment calls</h2>
-  <div class="entry">Human-in-the-Loop · agents on the work, people on the judgment calls</div>
-  <p class="dintro">Human-in-the-loop control: one checkpoint before any regulated decision ships. Two live cases. <b>Nothing releases from this page.</b></p>
-
-  <div class="gate" id="gate-a">
-    <div class="ghead">
-      <div><div class="gtag">Demo A · the client Rate-Release Review</div><div class="gtitle">Human-in-the-Loop Review · Rate Increase Release</div></div>
-      <div class="gbadge">Review Required</div>
-    </div>
-    <div class="gbody">
-      <div class="glabel">Proposal</div>
-      <p class="gprop">Release the annual rate increase: a notification letter staged for every active client agreement, rate and stage updates queued in Salesforce</p>
-      <p class="gnote">Staged straight-through. Release rights stay with a person.</p>
-      <div class="glabel">Supporting evidence</div>
-      <button type="button" class="gev" aria-expanded="false">Client Rate Table, Salesforce</button>
-      <div class="gevnote">Rate policy per agreement, passed.</div>
-      <button type="button" class="gev" aria-expanded="false">Notification Letter Batch</button>
-      <div class="gevnote">Letter template validation, passed.</div>
-      <div class="gtwo">
-        <div><div class="glabel">Trigger reason</div><div class="gkv">Batch staged complete; release withheld by design</div></div>
-        <div><div class="glabel">Audit record</div><div class="gkv">Release pending approver signature</div></div>
-      </div>
-      <div class="glabel">Consequence if approved</div>
-      <div class="gkv"><b>Letters send and stages update; billing reprices on the next cycle; the release is written to the ledger</b></div>
-      <div class="gacts">
-        <button type="button" class="gbtn primary" data-act="APPROVED">Approve</button>
-        <button type="button" class="gbtn" data-act="EDIT">Edit Parameters</button>
-        <button type="button" class="gbtn" data-act="ESCALATE">Escalate</button>
-        <button type="button" class="gbtn reject" data-act="REJECT">Reject</button>
-      </div>
-      <p class="gverbs">Approve releases and writes the record · Edit parameters reprices before release · Escalate routes to the named owner · Reject files the reason, nothing sends</p>
-      <div class="gout" role="status" aria-live="polite"></div>
-    </div>
-  </div>
-
-  <div class="gate" id="gate-b" style="margin-top:36px">
-    <div class="ghead">
-      <div><div class="gtag">Demo B · Fintech Regulatory Filing Review</div><div class="gtitle">Human-in-the-Loop Review · Regulatory Filing</div></div>
-      <div class="gbadge">Review Required</div>
-    </div>
-    <div class="gbody">
-      <div class="glabel">Proposal</div>
-      <p class="gprop">Raise the regulatory report: the case cleared the reporting threshold and the draft is assembled for the investigator</p>
-      <p class="gnote">The engine ran the three shared checks and built the case file. The filing decision is reserved for a person, by law and by design.</p>
-      <div class="glabel">Supporting evidence</div>
-      <button type="button" class="gev" aria-expanded="false">Denylist Validation Result</button>
-      <div class="gevnote">Denylist validation, passed.</div>
-      <button type="button" class="gev" aria-expanded="false">Event-Stream Baseline</button>
-      <div class="gevnote">Event-stream anomaly, confirmed.</div>
-      <div class="gtwo">
-        <div><div class="glabel">Trigger reason</div><div class="gkv">Reporting threshold cleared on the shared checks; investigator decision required</div></div>
-        <div><div class="glabel">Audit record</div><div class="gkv">Case file sealed pending the filing decision</div></div>
-      </div>
-      <div class="glabel">Consequence if approved</div>
-      <div class="gkv"><b>The report files, account actions apply, and the decision trail seals for audit</b></div>
-      <div class="gacts">
-        <button type="button" class="gbtn primary" data-act="APPROVED">Approve</button>
-        <button type="button" class="gbtn" data-act="EDIT">Edit Parameters</button>
-        <button type="button" class="gbtn" data-act="ESCALATE">Escalate</button>
-        <button type="button" class="gbtn reject" data-act="REJECT">Reject</button>
-      </div>
-      <p class="gverbs">Approve files the report and seals the chain for audit · Edit parameters regenerates the draft for a fresh filing decision · Escalate routes to the financial crimes desk · Reject records a no-file decision, the reason is kept</p>
-      <div class="gout" role="status" aria-live="polite"></div>
-    </div>
-  </div>
-</section>
 
 <section class="case" id="case-fintech">
   <div class="entry">Transformation 03 · Fintech, Fraud &amp; Risk</div>
@@ -1769,6 +1703,73 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <div class="maphead"><div class="maptitle">One investigation, redesigned · account takeover</div><div class="fieldhint">21,976 cases a month · bar length = measured AHT</div></div>
     <svg id="atoSvg" viewBox="0 0 1180 330" role="img" aria-label="Account takeover, before and after, drawn to time: the TODAY bar spans about nine minutes with all six steps owned by one analyst; the REDESIGNED bar compresses to about five minutes as the agent takes the middle three steps, leaving a ghost outline showing the roughly four minutes removed. One red diamond marks the signature that files the SAR."></svg>
     <div class="fieldcap">solid = a person decides · hollow = the agent works · <em>red = the signature that files the SAR</em> · step widths equal, for legibility only</div>
+  </div>
+</section>
+
+<section class="demos" id="demos"><h2 class="srh">Human-in-the-Loop · agents on the work, people on the judgment calls</h2>
+  <div class="entry">Human-in-the-Loop · agents on the work, people on the judgment calls</div>
+  <p class="dintro">Human-in-the-loop control: one checkpoint before any regulated decision ships. Two live cases. <b>Nothing releases from this page.</b></p>
+
+  <div class="gate" id="gate-a">
+    <div class="ghead">
+      <div><div class="gtag">Demo A · the client Rate-Release Review</div><div class="gtitle">Human-in-the-Loop Review · Rate Increase Release</div></div>
+      <div class="gbadge">Review Required</div>
+    </div>
+    <div class="gbody">
+      <div class="glabel">Proposal</div>
+      <p class="gprop">Release the annual rate increase: a notification letter staged for every active client agreement, rate and stage updates queued in Salesforce</p>
+      <p class="gnote">Staged straight-through. Release rights stay with a person.</p>
+      <div class="glabel">Supporting evidence</div>
+      <button type="button" class="gev" aria-expanded="false">Client Rate Table, Salesforce</button>
+      <div class="gevnote">Rate policy per agreement, passed.</div>
+      <button type="button" class="gev" aria-expanded="false">Notification Letter Batch</button>
+      <div class="gevnote">Letter template validation, passed.</div>
+      <div class="gtwo">
+        <div><div class="glabel">Trigger reason</div><div class="gkv">Batch staged complete; release withheld by design</div></div>
+        <div><div class="glabel">Audit record</div><div class="gkv">Release pending approver signature</div></div>
+      </div>
+      <div class="glabel">Consequence if approved</div>
+      <div class="gkv"><b>Letters send and stages update; billing reprices on the next cycle; the release is written to the ledger</b></div>
+      <div class="gacts">
+        <button type="button" class="gbtn primary" data-act="APPROVED">Approve</button>
+        <button type="button" class="gbtn" data-act="EDIT">Edit Parameters</button>
+        <button type="button" class="gbtn" data-act="ESCALATE">Escalate</button>
+        <button type="button" class="gbtn reject" data-act="REJECT">Reject</button>
+      </div>
+      <p class="gverbs">Approve releases and writes the record · Edit parameters reprices before release · Escalate routes to the named owner · Reject files the reason, nothing sends</p>
+      <div class="gout" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="gate" id="gate-b" style="margin-top:36px">
+    <div class="ghead">
+      <div><div class="gtag">Demo B · Fintech Regulatory Filing Review</div><div class="gtitle">Human-in-the-Loop Review · Regulatory Filing</div></div>
+      <div class="gbadge">Review Required</div>
+    </div>
+    <div class="gbody">
+      <div class="glabel">Proposal</div>
+      <p class="gprop">Raise the regulatory report: the case cleared the reporting threshold and the draft is assembled for the investigator</p>
+      <p class="gnote">The engine ran the three shared checks and built the case file. The filing decision is reserved for a person, by law and by design.</p>
+      <div class="glabel">Supporting evidence</div>
+      <button type="button" class="gev" aria-expanded="false">Denylist Validation Result</button>
+      <div class="gevnote">Denylist validation, passed.</div>
+      <button type="button" class="gev" aria-expanded="false">Event-Stream Baseline</button>
+      <div class="gevnote">Event-stream anomaly, confirmed.</div>
+      <div class="gtwo">
+        <div><div class="glabel">Trigger reason</div><div class="gkv">Reporting threshold cleared on the shared checks; investigator decision required</div></div>
+        <div><div class="glabel">Audit record</div><div class="gkv">Case file sealed pending the filing decision</div></div>
+      </div>
+      <div class="glabel">Consequence if approved</div>
+      <div class="gkv"><b>The report files, account actions apply, and the decision trail seals for audit</b></div>
+      <div class="gacts">
+        <button type="button" class="gbtn primary" data-act="APPROVED">Approve</button>
+        <button type="button" class="gbtn" data-act="EDIT">Edit Parameters</button>
+        <button type="button" class="gbtn" data-act="ESCALATE">Escalate</button>
+        <button type="button" class="gbtn reject" data-act="REJECT">Reject</button>
+      </div>
+      <p class="gverbs">Approve files the report and seals the chain for audit · Edit parameters regenerates the draft for a fresh filing decision · Escalate routes to the financial crimes desk · Reject records a no-file decision, the reason is kept</p>
+      <div class="gout" role="status" aria-live="polite"></div>
+    </div>
   </div>
 </section>
 
@@ -2487,7 +2488,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   /* ── running head + read line ── */
   (function(){
     var rh=document.getElementById('runhead'), rl=document.getElementById('readline');
-    var ids=['top','floor','work','standing','case-homecare','case-utilities','demos','case-fintech','case-bank','arc','record','contact'];
+    var ids=['top','floor','work','standing','case-homecare','case-utilities','case-fintech','demos','case-bank','arc','record','contact'];
     function fitToWidth(text,maxWidthPx,font,trackPx){
       var canvas=fitToWidth._c||(fitToWidth._c=document.createElement('canvas'));
       var ctx=canvas.getContext('2d');
@@ -3486,7 +3487,7 @@ return {skip:skip,open:open};
           g.classList.add('ggd-min');
           setTimeout(function(){g.classList.remove('ggd-min')},5200);
         } else if(k==='sum'){
-          var SUM={'top':'Agents do the work; people keep the judgment calls.','proof':'Three live ratios: 9 in 10,000 · 1 in 100 · 129 to 1.','work':'Rails run the repeatable; models read the variable; people own judgment.','standing':'Operator since 2016 across three tool generations.','case-homecare':'Eleven functions on one governed orchestration layer, 170M tasks a year.','case-utilities':'A digital twin carries $1B in payments; 1 in 100 invoices waits for a person.','demos':'The human gate: nothing regulated ships without a signature.','case-fintech':'129 signals to one human decision, 660K cases a month.','case-bank':'62 touchpoints cut to 3 for a global bank.','arc':'RPA to IA to agents; the discipline never changed.','record':'Ten years, $100M+ delivered, the full program record.','contact':'One action: email Azhar Khan.'};
+          var SUM={'top':'Agents do the work; people keep the judgment calls.','proof':'Three live ratios: 9 in 10,000 · 1 in 100 · 129 to 1.','work':'Rails run the repeatable; models read the variable; people own judgment.','standing':'Orchestration since 2016, across three tool generations.','case-homecare':'Eleven functions on one governed orchestration layer, 170M tasks a year.','case-utilities':'A digital twin carries $1B in payments; 1 in 100 invoices waits for a person.','demos':'The human gate: nothing regulated ships without a signature.','case-fintech':'129 signals to one human decision, 660K cases a month.','case-bank':'62 touchpoints cut to 3 for a global bank.','arc':'RPA to IA to agents; the discipline never changed.','record':'Ten years, $100M+ delivered, the full program record.','contact':'One action: email Azhar Khan.'};
           var id=g.dataset.section||'top';
           if(nar)nar.textContent='One line: '+(SUM[id]||'this section reads clean.');
           log('summarize § '+id+' · read-only'); bump();
