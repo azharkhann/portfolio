@@ -163,6 +163,8 @@ h1 .struck::after{content:"";position:absolute;left:-2%;right:-2%;top:54%;height
 .idm-tile.idm-dim{color:var(--haze)}
 @media (prefers-reduced-motion:reduce){
   .idm-tile,.idm-stage{transition:none}
+
+
 .cta,.gbtn,.sh-btn,.ggd-pill,.ggd-collapse,.ggd-dismiss,.ggd-cmd,.ggd-refuse{transition:color .15s ease,background-color .15s ease,border-color .15s ease}
 }
 .slede{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:clamp(28px,3vw,38px);line-height:1.15;margin:32px 0 0;max-width:24ch}
@@ -747,6 +749,40 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 
 .cta:focus-visible,.gev:focus-visible,.gbtn:focus-visible,.pipe-alt:focus-visible,.pipe-btn:focus-visible,button.pipe-chip:focus-visible,.ggd-cmd:focus-visible,.ggd-pill:focus-visible,.ggd-collapse:focus-visible,.ggd-dismiss:focus-visible,.ggd-refuse:focus-visible,.sh-skip:focus-visible,.sh-btn:focus-visible,.flink:focus-visible{outline:2px solid var(--hum);outline-offset:2px}
 
+
+/* era story: armed by JS (.idm-anim), played on .idm-ready; no-JS stays static */
+.idm-anim .idm-railline{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1)}
+.idm-anim.idm-ready .idm-railline{stroke-dashoffset:0}
+.idm-anim .idm-yr{opacity:0;transition:opacity .8s ease .9s}
+.idm-anim.idm-ready .idm-yr{opacity:1}
+.idm-anim .idm-slabtxt{opacity:0;transition:opacity .8s ease .4s}
+.idm-anim.idm-ready .idm-slabtxt{opacity:1}
+.idm-anim .idm-strand{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1)}
+.idm-anim.idm-ready .idm-strand{stroke-dashoffset:0}
+.idm-anim .idm-strand:nth-of-type(1){transition-delay:.6s}.idm-anim .idm-strand:nth-of-type(2){transition-delay:.75s}
+.idm-anim .idm-strand:nth-of-type(3){transition-delay:.9s}.idm-anim .idm-strand:nth-of-type(4){transition-delay:1.05s}
+.idm-anim .idm-nd1,.idm-anim .idm-nd2,.idm-anim .idm-nd3{opacity:0;transition:opacity .5s ease}
+.idm-anim.idm-ready .idm-nd1{opacity:1;transition-delay:1.8s}
+.idm-anim.idm-ready .idm-nd2{opacity:1;transition-delay:3.2s}
+.idm-anim.idm-ready .idm-nd3{opacity:1;transition-delay:4.6s}
+.idm-anim .idm-era1,.idm-anim .idm-era2{opacity:0;transition:opacity .9s cubic-bezier(.4,0,.2,1)}
+.idm-anim.idm-ready .idm-era1{opacity:1;transition-delay:2s}
+.idm-anim.idm-ready .idm-era2{opacity:1;transition-delay:3.4s}
+.idm-anim .idm-era3 .idm-notch,.idm-anim .idm-era3 .idm-mesh-node{opacity:0;transition:opacity .7s ease 4.8s}
+.idm-anim.idm-ready .idm-era3 .idm-notch,.idm-anim.idm-ready .idm-era3 .idm-mesh-node{opacity:1}
+.idm-anim .idm-agenttrace,.idm-anim .idm-era3 .idm-mesh-edge{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.3s cubic-bezier(.4,0,.2,1) 4.9s}
+.idm-anim.idm-ready .idm-agenttrace,.idm-anim.idm-ready .idm-era3 .idm-mesh-edge{stroke-dashoffset:0}
+.idm-anim .idm-gatetrace{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1) 3.7s}
+.idm-anim.idm-ready .idm-gatetrace{stroke-dashoffset:0}
+.idm-anim .idm-eralab{opacity:0;transition:opacity .7s ease}
+.idm-anim.idm-ready .idm-el1{opacity:1;transition-delay:2.3s}
+.idm-anim.idm-ready .idm-el2{opacity:1;transition-delay:3.7s}
+.idm-anim.idm-ready .idm-el3{opacity:1;transition-delay:5.1s}
+.idm-anim .idm-figure{opacity:0;transition:opacity .7s cubic-bezier(.4,0,.2,1) 6.1s}
+.idm-anim.idm-ready .idm-figure{opacity:1}
+@media (prefers-reduced-motion:reduce){
+.idm-anim .idm-railline,.idm-anim .idm-strand,.idm-anim .idm-agenttrace,.idm-anim .idm-era3 .idm-mesh-edge,.idm-anim .idm-gatetrace{stroke-dashoffset:0 !important;transition:none !important}
+.idm-anim .idm-yr,.idm-anim .idm-slabtxt,.idm-anim .idm-nd1,.idm-anim .idm-nd2,.idm-anim .idm-nd3,.idm-anim .idm-era1,.idm-anim .idm-era2,.idm-anim .idm-era3 .idm-notch,.idm-anim .idm-era3 .idm-mesh-node,.idm-anim .idm-eralab,.idm-anim .idm-figure{opacity:1 !important;transition:none !important}}
 </style>
 </head>
 <body>
@@ -766,7 +802,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <div class="hgrid">
   <div>
   <h1 style="color:var(--dwhite)" aria-label="I let agents handle the boring details of the business.">I let <s style="color:var(--haze);text-decoration:line-through;text-decoration-color:var(--dwhite);text-decoration-thickness:3px">bots</s> agents handle the boring details of the business.</h1>
-  <p class="sub" style="color:var(--dsilver);font:400 14px/1.7 var(--mono);margin:22px 0 0;max-width:52ch">Run across three generations of digital workforce. <b style="color:var(--dwhite)">The tools changed three times. The system didn't.</b></p>
+  <p class="sub" style="color:var(--dsilver);font:400 14px/1.7 var(--mono);margin:22px 0 0;max-width:52ch">Run across three generations of digital workforce.</p>
   </div>
   <aside class="console" id="opsconsole" aria-label="Operator console, sample session">
     <div class="chead"><span>OPERATOR CONSOLE</span><span class="lv"><i></i>SIMULATION</span></div>
@@ -828,53 +864,53 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
           <circle class="idm-tick-dot" cx="178" cy="250" r="1.6"/>
           <circle class="idm-tick-dot" cx="191" cy="250" r="1.3"/>
           <circle class="idm-tick-dot" cx="204" cy="250" r="1.6"/>
-          <path class="idm-gatetrace" d="M150,308 Q170,316 190,304"/>
+          <path class="idm-gatetrace" pathLength="100" d="M150,308 Q170,316 190,304"/>
         </g>
 
         <g class="idm-era3" transform="translate(59.7,20) scale(0.922)">
           <line class="idm-notch" x1="112" y1="250" x2="112" y2="258"/>
           <line class="idm-notch" x1="228" y1="250" x2="228" y2="258"/>
-          <path class="idm-agenttrace" d="M112,254 Q140,274 165,264 Q190,252 214,268"/>
-          <path class="idm-agenttrace" d="M112,254 Q135,266 158,290 Q182,280 214,262"/>
-          <path class="idm-agenttrace" d="M112,254 Q150,258 176,282 Q198,294 214,268"/>
+          <path class="idm-agenttrace" pathLength="100" d="M112,254 Q140,274 165,264 Q190,252 214,268"/>
+          <path class="idm-agenttrace" pathLength="100" d="M112,254 Q135,266 158,290 Q182,280 214,262"/>
+          <path class="idm-agenttrace" pathLength="100" d="M112,254 Q150,258 176,282 Q198,294 214,268"/>
           <circle class="idm-mesh-node" cx="124" cy="288" r="3"/>
           <circle class="idm-mesh-node" cx="150" cy="302" r="3"/>
           <circle class="idm-mesh-node" cx="176" cy="284" r="3"/>
           <circle class="idm-mesh-node" cx="202" cy="306" r="3"/>
           <circle class="idm-mesh-node" cx="160" cy="270" r="3"/>
-          <line class="idm-mesh-edge" x1="124" y1="288" x2="150" y2="302"/>
-          <line class="idm-mesh-edge" x1="150" y1="302" x2="176" y2="284"/>
-          <line class="idm-mesh-edge" x1="176" y1="284" x2="202" y2="306"/>
-          <line class="idm-mesh-edge" x1="150" y1="302" x2="160" y2="270"/>
-          <line class="idm-mesh-edge" x1="176" y1="284" x2="160" y2="270"/>
+          <line class="idm-mesh-edge" pathLength="100" x1="124" y1="288" x2="150" y2="302"/>
+          <line class="idm-mesh-edge" pathLength="100" x1="150" y1="302" x2="176" y2="284"/>
+          <line class="idm-mesh-edge" pathLength="100" x1="176" y1="284" x2="202" y2="306"/>
+          <line class="idm-mesh-edge" pathLength="100" x1="150" y1="302" x2="160" y2="270"/>
+          <line class="idm-mesh-edge" pathLength="100" x1="176" y1="284" x2="160" y2="270"/>
         </g>
 
-        <text class="idm-eralab" x="54" y="336" text-anchor="middle">RPA</text>
-        <text class="idm-eralab" x="127" y="332" text-anchor="middle">INTELLIGENT</text>
-        <text class="idm-eralab" x="127" y="340" text-anchor="middle">AUTOMATION</text>
-        <text class="idm-eralab" x="216" y="336" text-anchor="middle">AGENTIC OPERATIONS</text>
+        <text class="idm-eralab idm-el1" x="54" y="336" text-anchor="middle">RPA</text>
+        <text class="idm-eralab idm-el2" x="127" y="332" text-anchor="middle">INTELLIGENT</text>
+        <text class="idm-eralab idm-el2" x="127" y="340" text-anchor="middle">AUTOMATION</text>
+        <text class="idm-eralab idm-el3" x="216" y="336" text-anchor="middle">AGENTIC ORCHESTRATION</text>
 
         <g class="idm-braid">
           <text class="idm-slabtxt" x="55" y="22" text-anchor="middle">PROCESS</text>
           <text class="idm-slabtxt" x="125" y="22" text-anchor="middle">DATA</text>
           <text class="idm-slabtxt" x="195" y="22" text-anchor="middle">TECHNOLOGY</text>
           <text class="idm-slabtxt" x="255" y="22" text-anchor="middle">PEOPLE</text>
-          <path class="idm-strand" d="M55,34 C 69,82 41,135.3 59,188.7 S 45,239.3 55,250"/>
-          <path class="idm-strand" d="M125,34 C 111,82 139,135.3 121,188.7 S 135,239.3 125,250"/>
-          <path class="idm-strand" d="M195,34 C 209,82 181,135.3 199,188.7 S 185,239.3 195,250"/>
-          <path class="idm-strand" d="M255,34 C 241,82 269,135.3 251,188.7 S 265,239.3 255,250"/>
+          <path class="idm-strand" pathLength="100" d="M55,34 C 69,82 41,135.3 59,188.7 S 45,239.3 55,250"/>
+          <path class="idm-strand" pathLength="100" d="M125,34 C 111,82 139,135.3 121,188.7 S 135,239.3 125,250"/>
+          <path class="idm-strand" pathLength="100" d="M195,34 C 209,82 181,135.3 199,188.7 S 185,239.3 195,250"/>
+          <path class="idm-strand" pathLength="100" d="M255,34 C 241,82 269,135.3 251,188.7 S 265,239.3 255,250"/>
         </g>
 
-        <path class="idm-railline" d="M16,250 L312,250"/>
+        <path class="idm-railline" pathLength="100" d="M16,250 L312,250"/>
         <text class="idm-yr" x="16" y="270">2016</text>
         <text class="idm-yr" x="270" y="270" text-anchor="end">2026</text>
 
-        <g class="idm-node-outline" transform="translate(92,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
-        <g transform="translate(92,250) rotate(45)"><rect class="idm-node-fill" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
-        <g class="idm-node-outline" transform="translate(163,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
-        <g transform="translate(163,250) rotate(45)"><rect class="idm-node-fill" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
-        <g class="idm-node-outline" transform="translate(250,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
-        <g transform="translate(250,250) rotate(45)"><rect class="idm-node-fill" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
+        <g class="idm-node-outline idm-nd1" transform="translate(92,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
+        <g class="idm-ndf idm-nd1" transform="translate(92,250) rotate(45)"><rect class="idm-node-fill" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
+        <g class="idm-node-outline idm-nd2" transform="translate(163,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
+        <g class="idm-ndf idm-nd2" transform="translate(163,250) rotate(45)"><rect class="idm-node-fill" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
+        <g class="idm-node-outline idm-nd3" transform="translate(250,250) rotate(45)"><rect x="-5" y="-5" width="10" height="10"/></g>
+        <g class="idm-ndf idm-nd3" transform="translate(250,250) rotate(45)"><rect class="idm-node-fill" x="-3.2" y="-3.2" width="6.4" height="6.4"/></g>
 
         <g class="idm-figure" id="idmFigure">
           <g class="idm-torso" filter="url(#idmWobble)">
@@ -889,10 +925,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
           <g class="idm-legR"><path d="M0,-2 L8,10"/></g>
         </g>
 
-        <g class="idm-caption" text-anchor="middle">
-          <text class="idm-cap-line" x="160" y="370">THE TOOLS CHANGED THREE TIMES.</text>
-          <text class="idm-cap-line" x="160" y="386">THE SYSTEM DIDN'T.</text>
-        <path class="idm-cap-rule" d="M100,394 L220,394"/></g>
       </svg>
     </div>
   </div>
@@ -904,7 +936,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <div class="idm-crow"><span class="idm-cv" data-idm-val="FIVE"></span><span class="idm-cd">INDUSTRIES</span></div>
   </div>
 
-  <div class="idslot-label">AZHAR KHAN<div class="idslot-title">TRANSFORMATION LEAD<br>INTELLIGENT AUTOMATION &amp; AI</div><div class="idslot-sub">INTEGRATE · AUTOMATE · ORCHESTRATE</div></div>
+  <div class="idslot-label">AZHAR KHAN<div class="idslot-title">HEAD OF AI OPERATIONS<br>IMPLEMENTATION &amp; AGENTIC DELIVERY</div><div class="idslot-sub">INTEGRATE · AUTOMATE · ORCHESTRATE</div></div>
 </div>
 
 <section class="standing" id="standing">
@@ -3643,9 +3675,14 @@ return {skip:skip,open:open};
    element: a staggered settle-in, then an occasional quiet single-digit pulse. ── */
 (function(){
   var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var stage = document.getElementById('idmStage');
+  var stage = document.getElementById('idmStage');if(stage){stage.classList.add('idm-anim');void stage.offsetWidth;}
   if (!stage) return;
-  stage.classList.add('idm-ready');
+  if('IntersectionObserver' in window){
+    var idmIO=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){stage.classList.add('idm-ready');idmIO.disconnect();}
+    })},{threshold:0.3});
+    idmIO.observe(stage);
+  } else { stage.classList.add('idm-ready'); }
 
   var DIG = '0123456789';
   function mkTile(host, ch){
