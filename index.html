@@ -802,7 +802,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <div class="hgrid">
   <div>
   <h1 style="color:var(--dwhite)" aria-label="I let agents handle the boring details of the business.">I let <s style="color:var(--haze);text-decoration:line-through;text-decoration-color:var(--dwhite);text-decoration-thickness:3px">bots</s> agents handle the boring details of the business.</h1>
-  <p class="sub" style="color:var(--dsilver);font:400 14px/1.7 var(--mono);margin:22px 0 0;max-width:52ch">Run across three generations of digital workforce.</p>
   </div>
   <aside class="console" id="opsconsole" aria-label="Operator console, sample session">
     <div class="chead"><span>OPERATOR CONSOLE</span><span class="lv"><i></i>SIMULATION</span></div>
@@ -941,9 +940,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 
 <section class="standing" id="standing">
   <div class="entry">Who's Making the Call · Azhar Khan</div>
-  <h2 class="slede">Operator, not architect.</h2>
+  <h2 class="slede">The orchestration is the job.</h2>
   <p class="sbody">Since 2016: RPA, then intelligent automation, now agents. The discipline never changed: see the real process, weigh value against feasibility, model the twin, redesign against the model, run it in production.</p>
-  <div class="creds">BotScope: governance and observability for automation estates, built and shipped to production, 2019 to 2021 · <a class="flink" href="https://learn.microsoft.com/en-us/power-platform/guidance/case-studies/concentrix-invoice-processing" target="_blank" rel="noopener">Microsoft-published case study</a> · named in <i>The Forrester Wave™: Midsize RPA Services, Q1 2021</i></div>
+  <div class="creds">BotScope: governance and observability for automation estates, built and shipped to production, 2019 to 2021 · named in <i>The Forrester Wave™: Midsize RPA Services, Q1 2021</i></div>
 </section>
 </div>
 
@@ -992,21 +991,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <div class="b1"><div class="bn">170M</div><div class="bt">tasks/year, current run rate</div></div>
     <div class="b1"><div class="bn">97.6%</div><div class="bt">completion across 24.5M runs over five years, zero business-interrupting outages</div></div>
     <div class="b1"><div class="bn">$30M+</div><div class="bt">measured impact since 2021</div></div>
-    <div class="b1"><div class="bn red">9 in 10,000</div><div class="bt">escalation rate · 99.91% straight-through</div></div>
   </div>
   <div class="decs">
     <div class="dec"><b>Return:</b> 35 systems under one governed orchestration layer, no rewrite since 2021.</div>
     <div class="dec"><b>Cost:</b> point-to-point integrations ruled out; shared services stood up once, reused everywhere.</div>
     <div class="dec"><b>Controls:</b> fail-closed batches, bounded retries, 3,175 typed error codes. Exception management by design.</div>
-    <div class="dec"><b>Audit:</b> scored the client's own AI stack, <span style="color:var(--hum);font-weight:700">ruled all three proposed use cases unsafe</span>, delivered a phased path at no new spend.</div>
   </div>
-  <div class="blocks5">
-    <div class="b5"><div class="k">DATA</div><div class="v">One source of truth; every system feeds it, every decision reads it.</div></div>
-    <div class="b5"><div class="k">IDENTITY</div><div class="v">Agent identity and per-action entitlements on every action: human, bot, or agent, scoped and logged.</div></div>
-    <div class="b5"><div class="k">OBSERVABILITY</div><div class="v">Every agent action is traced: tool calls, cost, and step-level failures, to a reconstructable audit trail.</div></div>
-    <div class="b5"><div class="k">EXCEPTIONS</div><div class="v">Failures arrive with instructions: retry, halt, or hand to a person.</div></div>
-    <div class="b5"><div class="k">GOVERNANCE</div><div class="v">Every release clears an eval gate; drift is monitored, retraining runs, every exception has a reason on file.</div></div>
-  </div>
+  
   <div class="bigfield rv">
     <div class="maphead">
       <div class="maptitle">Ten thousand jobs, one month of the floor</div>
@@ -1545,7 +1536,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <div class="costs">
     <div class="cost"><b>Under 3 cents</b> per outcome.</div>
     <div class="cost">Consumption <b>down 39%</b> year over year while volume grew.</div>
-    <div class="cost"><b>Roughly 40%</b> of nominated use cases don't clear that review.</div>
   </div>
   <div class="chips">
     <div class="chip"><div class="clab">BOTTLENECK</div><p>One person or one step where every case queues, regardless of how fast the rest of the system runs.</p></div>
@@ -1555,9 +1545,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <div class="costs" style="margin-top:32px">
     <div class="cost"><b>4 → 30+</b> CoE headcount.</div>
     <div class="cost"><b>16-person</b> practice.</div>
-    <div class="cost"><b>$10M+</b> delivery revenue under management.</div>
     <div class="cost"><b>15+</b> engineers/architects hired · US, Mexico, India.</div>
-    <div class="cost"><b>Five</b> industries.</div>
   </div>
   <div class="creds" style="margin-top:32px">STACK · Vertex AI · Azure OpenAI · Azure AI Document Intelligence · LangGraph · BigQuery · Decagon · Sierra · Workato · UiPath · Appian · Datadog · Glean · Braintrust · Power Platform · Salesforce · Workday · NetSuite</div>
 </div>
@@ -1651,7 +1639,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <div class="dec"><b>Three checks:</b> owned once, inherited by every line of business.</div>
     <div class="dec"><b>Sequence:</b> denial parameters evaluate first. First-pass yield over rework.</div>
     <div class="dec"><b>Rollout:</b> India to LATAM without a rebuild; EMEA now in design under the EU AI Act.</div>
-    <div class="dec"><b>Account takeover:</b> 21,976 cases a month; AHT ~9 to ~5 minutes (~35–40%) with the agent drafting the SAR rationale and a person signing it.</div>
     <div class="dec"><b>Guardrails:</b> blocks prompt injection, enforces SAR thresholds; PII stays tokenized and access-scoped end to end. Prompt caching and token-cost limits hold the line.</div>
   </div>
 
@@ -1783,7 +1770,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <svg id="atoSvg" viewBox="0 0 1180 330" role="img" aria-label="Account takeover, before and after, drawn to time: the TODAY bar spans about nine minutes with all six steps owned by one analyst; the REDESIGNED bar compresses to about five minutes as the agent takes the middle three steps, leaving a ghost outline showing the roughly four minutes removed. One red diamond marks the signature that files the SAR."></svg>
     <div class="fieldcap">solid = a person decides · hollow = the agent works · <em>red = the signature that files the SAR</em> · step widths equal, for legibility only</div>
   </div>
-  <p class="fine">The same five blocks run under every stream; a person holds only the exceptions.</p>
 </section>
 
 <section class="case" id="case-bank">
@@ -1794,7 +1780,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <div class="sir-row"><div class="k">Situation</div><div class="v">188 FTE · 40 systems · eight fraud case types · 62 separate touchpoints.</div></div>
     <div class="sir-row"><div class="k">Intervention</div><div class="v">Five-day discovery sprint → operating-model redesign: <b>62 touchpoints to 3 intervention points.</b> ~20 applications into one case view; 20+ post-decision actions automated per outcome.</div></div>
     <div class="sir-row"><div class="k">The tiered model</div><div class="v">2.48M fraud calls a year in three tiers: automated · agent-assisted · <span class="red">human only, reserved for romance scams, high-loss cases, and vulnerable customers.</span></div></div>
-    <div class="sir-row"><div class="k">Result</div><div class="v">In production. <b>The bank brought the practice back to design what comes next.</b></div></div>
+    <div class="sir-row"><div class="k">Result</div><div class="v">In production.</div></div>
   </div>
   <p class="closer">The bank runs on the model I designed.</p>
   <p class="fine">The method travels to whatever platform a client already runs.</p>
@@ -1926,7 +1912,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 
 <section class="contact" id="contact" role="contentinfo">
   <div class="entry">Contact · Azhar Khan</div>
-  <h3 class="cline">Operating model first. Agents second. <span class="red">A person holds every decision that carries risk.</span></h3>
+  <h3 class="cline">Operating model first. Agents second.</h3>
   <div class="cfoot">
     <div>
       <a class="cta" href="mailto:ap.applyy@gmail.com?subject=Executive%20Conversation%20-%20Azhar%20Khan">Email Azhar Khan directly</a>
