@@ -26,7 +26,7 @@
 }
 :root{
   --paper:#F5F2EA;--ink:#16150F;--ink-2:#57544A;--ink-3:#716d61;--rule:#D8D3C4;
-  --hum:#F04438;--hum-soft:#E4E0D4;
+  --hum:#C7122F;--hum-soft:#E4E0D4;
   --sys:#57544A;
   --void:#0A0B0C;--dfloor:#111214;--steel:#1B1D20;--dline:#2A2D31;--haze:#7E838A;--dsilver:#A8ADB2;--dfog:#D6D9DC;--dwhite:#F7F8F8;
   --mono:ui-monospace,'SF Mono',Menlo,monospace;
@@ -2997,7 +2997,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       var show = function () {
         tip.innerHTML = '<span class="k">' + s.dataset.line + '</span><h4>' + s.dataset.name + '</h4><p>' + s.dataset.tip + '</p>';
         var w = scrollHost.getBoundingClientRect(), bb = s.getBoundingClientRect();
-        tip.style.left = Math.min(bb.left - w.left + 24, w.width - 320) + 'px';
+        var sl = scrollHost.scrollLeft; tip.style.left = Math.min(Math.max(bb.left - w.left + sl + 24, sl + 8), sl + w.width - 320) + 'px';
         tip.style.top = (bb.top - w.top - 10) + 'px';
         tip.style.opacity = 1;
       };
@@ -3044,7 +3044,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       var show = function () {
         tip.innerHTML = '<span class="k">' + s.dataset.line + '</span><h4>' + s.dataset.name + '</h4><p>' + s.dataset.tip + '</p>';
         var w = scrollHost.getBoundingClientRect(), bb = s.getBoundingClientRect();
-        tip.style.left = Math.min(Math.max(bb.left - w.left + bb.width / 2 - 145, 8), w.width - 300) + 'px';
+        var sl = scrollHost.scrollLeft; tip.style.left = Math.min(Math.max(bb.left - w.left + sl + bb.width / 2 - 145, sl + 8), sl + w.width - 300) + 'px';
         tip.style.top = (bb.top - w.top - 12) + 'px';
         tip.style.opacity = 1;
       };
@@ -3077,7 +3077,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     var show=function(){
       tip.innerHTML='<span class="k">'+s.dataset.line+'</span><h4>'+s.dataset.name+'</h4><p>'+s.dataset.tip+'</p>';
       var w=scrollHost.getBoundingClientRect(), bb=s.getBoundingClientRect();
-      tip.style.left=Math.min(bb.left-w.left+24, w.width-320)+'px';
+      var sl=scrollHost.scrollLeft; tip.style.left=Math.min(Math.max(bb.left-w.left+sl+24, sl+8), sl+w.width-320)+'px';
       tip.style.top=(bb.top-w.top-10)+'px';
       tip.style.opacity=1;
     };
