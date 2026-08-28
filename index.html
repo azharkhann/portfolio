@@ -26,7 +26,7 @@
 }
 :root{
   --paper:#F5F2EA;--ink:#16150F;--ink-2:#57544A;--ink-3:#716d61;--rule:#D8D3C4;
-  --hum:#E64960;--hum-soft:#E4E0D4;
+  --hum:#F04438;--hum-soft:#E4E0D4;
   --sys:#57544A;
   --void:#0A0B0C;--dfloor:#111214;--steel:#1B1D20;--dline:#2A2D31;--haze:#7E838A;--dsilver:#A8ADB2;--dfog:#D6D9DC;--dwhite:#F7F8F8;
   --mono:ui-monospace,'SF Mono',Menlo,monospace;
@@ -109,7 +109,8 @@ h1 .struck::after{content:"";position:absolute;left:-2%;right:-2%;top:54%;height
 /* ── standing: a short ruled interlude ── */
 .standing{padding:96px 0 0}
 .idplate{background:var(--void);margin:0 -48px;padding:8px 48px 72px;display:grid;grid-template-columns:minmax(380px,520px) minmax(300px,400px);gap:16px 72px;align-items:center;justify-content:center;--ink-3:#8E8A7C}.idplate .idm-plate{grid-column:1;grid-row:1 / span 2;width:100%;max-width:520px;aspect-ratio:320/400;height:auto}.idplate .idm-counters{grid-column:2;grid-row:1;align-self:end}.idplate .idslot-label{grid-column:2;grid-row:2;align-self:start;margin-top:4px}
-.idslot-sub{font:700 9px/1.6 var(--mono);letter-spacing:.18em;color:#8B877A;margin-top:6px}@media (max-width:900px){.idplate{display:block}}@media (max-width:820px){.idplate{margin:0 -24px;padding:8px 24px 48px}}
+.idslot-title{font:700 10px/1.6 var(--mono);letter-spacing:.14em;color:#C9C4B2;margin-top:8px}
+.idslot-sub{font:700 9px/1.6 var(--mono);letter-spacing:.18em;color:#8B877A;margin-top:5px}@media (max-width:900px){.idplate{display:block}}@media (max-width:820px){.idplate{margin:0 -24px;padding:8px 24px 48px}}
 .idslot{aspect-ratio:4/5;max-width:360px;margin:0 auto;border:1px solid var(--rule);background:var(--paper)}
 .idslot-label{margin:16px auto 0;max-width:360px;text-align:center;font:700 13px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
 
@@ -755,9 +756,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <div class="name" style="color:var(--dwhite)">Azhar Khan</div>
   <div class="runhead" id="runhead" aria-hidden="true"></div>
   <nav>
-    <a href="#work">Method</a><a href="#demos">Demos</a><a href="resume.pdf" target="_blank" rel="noopener">Résumé</a><a href="#contact">Contact</a>
-    
-    <button id="pdf" type="button" aria-label="Print or save as PDF">PRINT</button>
+    <a href="#work">Method</a><a href="#demos">Simulations</a><a href="resume.pdf" target="_blank" rel="noopener">Résumé</a><a href="#contact">Contact</a>
   </nav>
 <div class="readline" id="readline" aria-hidden="true"></div></div></header>
 
@@ -766,9 +765,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <section class="hero" id="top">
   <div class="hgrid">
   <div>
-  <div class="entry" style="color:var(--haze)">Governed autonomy · in production</div>
   <h1 style="color:var(--dwhite)" aria-label="I let agents handle the boring details of the business.">I let <s style="color:var(--haze);text-decoration:line-through;text-decoration-color:var(--dwhite);text-decoration-thickness:3px">bots</s> agents handle the boring details of the business.</h1>
-  <p class="sub" style="color:var(--dsilver);font:400 14px/1.7 var(--mono);margin:22px 0 0;max-width:52ch">Governed autonomy, run across three generations of digital workforce. <b style="color:var(--dwhite)">The tools changed three times. The system didn't.</b></p>
+  <p class="sub" style="color:var(--dsilver);font:400 14px/1.7 var(--mono);margin:22px 0 0;max-width:52ch">Run across three generations of digital workforce. <b style="color:var(--dwhite)">The tools changed three times. The system didn't.</b></p>
   </div>
   <aside class="console" id="opsconsole" aria-label="Operator console, sample session">
     <div class="chead"><span>OPERATOR CONSOLE</span><span class="lv"><i></i>SIMULATION</span></div>
@@ -906,7 +904,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <div class="idm-crow"><span class="idm-cv" data-idm-val="FIVE"></span><span class="idm-cd">INDUSTRIES</span></div>
   </div>
 
-  <div class="idslot-label">AZHAR KHAN<div class="idslot-sub">INTEGRATE · AUTOMATE · ORCHESTRATE</div></div>
+  <div class="idslot-label">AZHAR KHAN<div class="idslot-title">TRANSFORMATION LEAD<br>INTELLIGENT AUTOMATION &amp; AI</div><div class="idslot-sub">INTEGRATE · AUTOMATE · ORCHESTRATE</div></div>
 </div>
 
 <section class="standing" id="standing">
@@ -1462,7 +1460,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
         <text x="775" y="82" text-anchor="middle">ORCHESTRATE · AGENTS</text>
       </g>
       <path class="iaorailv" d="M60 150 L1096 150" fill="none" stroke="#8FA294" stroke-width="3" style="stroke-dasharray:1036;stroke-dashoffset:1036"></path>
-<g class="rb-stn iaostn" tabindex="0" data-cx="95"><circle cx="95" cy="150" r="5.5" fill="#7A9082"></circle><text x="95" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#8FA294">CRM</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="160"><circle cx="160" cy="150" r="5.5" fill="#7A9082"></circle><text x="160" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#8FA294">ERP</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="225"><circle cx="225" cy="150" r="5.5" fill="#7A9082"></circle><text x="225" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#8FA294">HRIS</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="330"><rect x="322" y="142" width="16" height="16" fill="#1D2F24" stroke="#8FA294" stroke-width="1.8"></rect><text x="330" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#7A9082">match</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="440"><rect x="432" y="142" width="16" height="16" fill="#1D2F24" stroke="#8FA294" stroke-width="1.8"></rect><text x="440" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#7A9082">validate</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="550"><rect x="542" y="142" width="16" height="16" fill="#1D2F24" stroke="#8FA294" stroke-width="1.8"></rect><text x="550" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#7A9082">post</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="665"><rect x="656.5" y="141.5" width="17" height="17" fill="#101E15" stroke="#8FA294" stroke-width="2" transform="rotate(45 665 150)"></rect><text x="665" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#7A9082">draft</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="775"><rect x="766.5" y="141.5" width="17" height="17" fill="#101E15" stroke="#8FA294" stroke-width="2" transform="rotate(45 775 150)"></rect><text x="775" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#7A9082">reconcile</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="885"><rect x="876.5" y="141.5" width="17" height="17" fill="#101E15" stroke="#8FA294" stroke-width="2" transform="rotate(45 885 150)"></rect><text x="885" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#7A9082">investigate</text></g>      <g class="iaogate"><rect x="1085" y="139" width="22" height="22" fill="#E64960" transform="rotate(45 1096 150)"></rect><text x="1108" y="108" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="15" font-weight="700" fill="#E64960">a person decides</text><text x="1108" y="126" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#8FA294">judgment, routed off the plane</text></g>
+<g class="rb-stn iaostn" tabindex="0" data-cx="95"><circle cx="95" cy="150" r="5.5" fill="#7A9082"></circle><text x="95" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#8FA294">CRM</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="160"><circle cx="160" cy="150" r="5.5" fill="#7A9082"></circle><text x="160" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#8FA294">ERP</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="225"><circle cx="225" cy="150" r="5.5" fill="#7A9082"></circle><text x="225" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#8FA294">HRIS</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="330"><rect x="322" y="142" width="16" height="16" fill="#1D2F24" stroke="#8FA294" stroke-width="1.8"></rect><text x="330" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#7A9082">match</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="440"><rect x="432" y="142" width="16" height="16" fill="#1D2F24" stroke="#8FA294" stroke-width="1.8"></rect><text x="440" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#7A9082">validate</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="550"><rect x="542" y="142" width="16" height="16" fill="#1D2F24" stroke="#8FA294" stroke-width="1.8"></rect><text x="550" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#7A9082">post</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="665"><rect x="656.5" y="141.5" width="17" height="17" fill="#101E15" stroke="#8FA294" stroke-width="2" transform="rotate(45 665 150)"></rect><text x="665" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#7A9082">draft</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="775"><rect x="766.5" y="141.5" width="17" height="17" fill="#101E15" stroke="#8FA294" stroke-width="2" transform="rotate(45 775 150)"></rect><text x="775" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#7A9082">reconcile</text></g><g class="rb-stn iaostn" tabindex="0" data-cx="885"><rect x="876.5" y="141.5" width="17" height="17" fill="#101E15" stroke="#8FA294" stroke-width="2" transform="rotate(45 885 150)"></rect><text x="885" y="180" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#7A9082">investigate</text></g>      <g class="iaogate"><rect x="1085" y="139" width="22" height="22" fill="#F04438" transform="rotate(45 1096 150)"></rect><text x="1108" y="108" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="15" font-weight="700" fill="#F04438">a person decides</text><text x="1108" y="126" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#8FA294">judgment, routed off the plane</text></g>
       <g class="iaocut">
       <line id="fl1" class="rb-flap" x1="426" y1="158" x2="170" y2="258" stroke="rgba(244,241,233,.35)" stroke-width="1" stroke-dasharray="2 4"></line>
       <line id="fl2" class="rb-flap" x1="454" y1="158" x2="1010" y2="258" stroke="rgba(244,241,233,.35)" stroke-width="1" stroke-dasharray="2 4"></line>
@@ -1897,7 +1895,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <section class="contact" id="contact" role="contentinfo">
   <div class="entry">Contact · Azhar Khan</div>
   <h3 class="cline">Operating model first. Agents second. <span class="red">A person holds every decision that carries risk.</span></h3>
-  <p class="closer" style="max-width:44ch"><b style="color:var(--hum)">Governed autonomy · in production since 2021.</b></p>
   <div class="cfoot">
     <div>
       <a class="cta" href="mailto:ap.applyy@gmail.com?subject=Executive%20Conversation%20-%20Azhar%20Khan">Email Azhar Khan directly</a>
@@ -1949,7 +1946,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     tt.textContent=d?'Dark':'Light';
     draw();
   });
-  document.getElementById('pdf').addEventListener('click',function(){window.print()});
+  var _pdfBtn=document.getElementById('pdf');if(_pdfBtn)_pdfBtn.addEventListener('click',function(){window.print()});
   /* nav links: smooth-scroll to section, honoring scroll-margin-top + reduced motion */
   (function(){
     var reduceMotion=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2716,7 +2713,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   (function(){
     var svgs=document.querySelectorAll('svg.plln'); if(!svgs.length) return;
     var RMp=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var HAZE='rgba(244,241,233,.34)', RED='#E64960';
+    var HAZE='rgba(244,241,233,.34)', RED='#F04438';
     var built=[];
     svgs.forEach(function(svg){
       var kind=svg.getAttribute('data-pl'), n=+svg.getAttribute('data-n'), red=+svg.getAttribute('data-red'), parts=[], s='';
