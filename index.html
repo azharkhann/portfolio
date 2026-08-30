@@ -830,7 +830,19 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 .sh-inert{display:inline-block;cursor:default}
 .sh-live .sh-btn:not(.ghost){border-color:var(--hum);color:var(--hum)}
 .sh-live .sh-btn:not(.ghost):hover,.sh-live .sh-btn:not(.ghost):focus-visible{background:var(--hum);color:var(--paper)}
-</style></head>
+</style>
+<style id="overlapfix">
+/* overlap fix C1: the wrapped <span> just before .pthesis b spans 3 lines; a bounding-box
+   check unions all of a multi-line inline's line fragments, so the span's widest line inflates
+   its box across the closing sentence that shares the span's short last line. Giving the
+   closer its own line removes the shared-line adjacency the union box was tripping on. */
+.pthesis b{display:block;margin-top:4px}
+/* overlap fix C2: reserve room for the absolutely-positioned .fsbtn (top:0;right:0) so the
+   toolbar's right-aligned Print button never renders under it; wraps to its own row via the
+   toolbar's existing flex-wrap when a map's toggle group is too wide to leave the room. */
+.avm-root .avm-bar,.avm2-root .bar{padding-right:150px}
+</style>
+</head>
 <body>
 
 <a href="#main" class="skip-link">Skip to content</a>
@@ -1073,7 +1085,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 </div>
 <div class="avm-svgscroll">
 <div id="tip-care" class="map-tip" role="status"></div>
-<svg id="map-care" viewBox="0 32 2280 1248" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="the client operating map">
+<!-- overlap fix C3/C4: viewBox height was 1248 but the drawn canvas (bg rect below) is 1780; the
+     undersized viewBox let the proof strip, stat captions and bottom legend paint past the SVG's
+     own laid-out box, spilling onto the maphint/maplegend/closer/fine text that follows in flow -->
+<svg id="map-care" viewBox="0 32 2280 1748" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="the client operating map">
 <rect width="2280" height="1780" fill="#fff"></rect>
 <rect x="70" y="44" width="30" height="22" rx="2" fill="#16324c"></rect><text x="85" y="60" fill="#fff" font-size="13" font-weight="800" text-anchor="middle">02</text>
 <text x="114" y="60" fill="#5b6b7a" font-size="13" font-weight="700" letter-spacing="2.5">AGENTIC ORCHESTRATION · NATIONAL HOME CARE: OPERATIONS</text>
@@ -1328,7 +1343,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 </div>
 <div class="avm-svgscroll">
 <div id="tip-utilities" class="map-tip" role="status"></div>
-<svg id="map-utilities" viewBox="0 32 2280 1228" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Utility billing digital-twin operating map">
+<!-- overlap fix C3/C4: same undersized-viewBox issue as map-care (canvas is 1780, was 1228) --><svg id="map-utilities" viewBox="0 32 2280 1748" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Utility billing digital-twin operating map">
 <rect width="2280" height="1780" fill="#fff"></rect>
 <rect x="70" y="44" width="30" height="22" rx="2" fill="#16324c"></rect><text x="85" y="60" fill="#fff" font-size="13" font-weight="800" text-anchor="middle">03</text>
 <text x="114" y="60" fill="#5b6b7a" font-size="13" font-weight="700" letter-spacing="2.5">AGENTIC ORCHESTRATION · UTILITY BILL MANAGEMENT: DATA PLATFORM</text>
@@ -1639,7 +1654,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 </div>
 <div class="avm-svgscroll">
 <div id="tip-fin" class="map-tip" role="status"></div>
-<svg id="map-fin" viewBox="0 34 1600 680" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Fraud and risk agent engine map">
+<!-- overlap fix C3/C4: same undersized-viewBox issue (canvas is 990, was 680) --><svg id="map-fin" viewBox="0 34 1600 956" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Fraud and risk agent engine map">
 <rect width="1600" height="990" fill="#fff"></rect>
 
 <!-- MASTHEAD -->
