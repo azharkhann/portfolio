@@ -866,18 +866,18 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <style id="rhythmfix">
 /* RHYTHM FIX 2026-08-30 · AZ order: 4 case sections carried 10-12 leaf font-sizes each;
    strays folded into each section's nearest major of the same role (label/body/number). */
-#case-homecare .scene,#case-fintech .scene,#case-utilities .scene,#case-valmont .scene{font-size:13px}
+#case-homecare .scene,#case-fintech .scene,#case-utilities .scene,#case-manufacturing .scene{font-size:13px}
 #case-homecare .maptitle{font-size:18px}
 #case-homecare .avm-lab,#case-utilities .avm-lab{font-size:11px}
 #case-homecare .maphint,#case-fintech .maphint,#case-utilities .maphint{font-size:11px}
 #case-fintech svg text[font-size="10"],#case-utilities svg text[font-size="10"]{font-size:11px}
 #case-fintech svg text[font-size="11.5"]{font-size:11px}
 #case-homecare .sir-row .v,#case-fintech .sir-row .v,#case-utilities .sir-row .v{font-size:15px}
-#case-valmont .pipe-prompt{font-size:13px}
-#case-valmont .pipe-f{font-size:16px}
-#case-valmont .pipe-f .k{font-size:11px}
-#case-valmont .dec{font-size:16px}
-#case-valmont .closer{font-size:19px}
+#case-manufacturing .pipe-prompt{font-size:13px}
+#case-manufacturing .pipe-f{font-size:16px}
+#case-manufacturing .pipe-f .k{font-size:11px}
+#case-manufacturing .dec{font-size:16px}
+#case-manufacturing .closer{font-size:19px}
 </style>
 </head>
 <body>
@@ -1889,7 +1889,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <p class="fine">The method travels to whatever platform a client already runs.</p>
 </section>
 
-<section class="case" id="case-valmont">
+<section class="case" id="case-manufacturing">
   <div class="entry">Transformation 05 · Industrial Manufacturing</div>
   <p class="scene"><i>14:02</i> · a part has no photo and no listing copy. The pipeline drafts both.</p>
   <h2 class="lede">A parts spreadsheet becomes a sellable catalog page.</h2>
@@ -1913,7 +1913,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <div class="fieldcap">squares = bots, deterministic · hollow diamond = the agent pipeline · <em>red = a person</em> · the content line's GenAI station is runnable below</div>
   </div>
 
-  <div class="pipe" id="valmontPipe">
+  <div class="pipe" id="manufacturingPipe">
     <div class="pipe-head"><div class="pipe-title">Run the pipeline</div><div class="pipe-sub">part #1701287 · real fields, real output, 2023</div></div>
     <div class="pipe-body">
       <div class="pipe-stage" data-stage="0">
@@ -2131,7 +2131,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 
   /* ── manufacturer: run-the-pipeline demo ── */
   (function(){
-    var root=document.getElementById('valmontPipe'); if(!root) return;
+    var root=document.getElementById('manufacturingPipe'); if(!root) return;
     var RMV=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
     var stages=root.querySelectorAll('.pipe-stage');
     function show(n){ stages.forEach(function(s){ s.hidden = s.getAttribute('data-stage')!==String(n); }); }
@@ -3060,6 +3060,20 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
    so content already shown went back to invisible on scroll-back. Fixed above:
    "in" is added once on first intersection and the element is unobserved, so it
    can never be removed again. No other reveal behavior changed. */
+</script>
+
+<script id="anonfix">
+/* Named delta, 2026-08-31: this section's client name still appeared 9 times in
+   source identifiers (a section id, CSS selectors, an element id, and its
+   getElementById call), even though the visible page text and testimonial were
+   already anonymized. A public repo makes source identifiers public too, so
+   this closes that gap: renamed throughout to an industry descriptor matching
+   this section's own eyebrow text and the page's existing case-id convention
+   (other sections name the industry, never the client). One literal token
+   replaced everywhere it occurred; verified zero survivors across rendered
+   text, SVG text, and every element attribute, and that the interaction inside
+   this section still runs after the rename. The old anchor into this section
+   no longer resolves; nothing else changed. */
 </script>
 
 <script>
