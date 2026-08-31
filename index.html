@@ -820,6 +820,38 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 .sh-live .sh-btn:not(.ghost){border-color:var(--hum);color:var(--hum)}
 .sh-live .sh-btn:not(.ghost):hover,.sh-live .sh-btn:not(.ghost):focus-visible{background:var(--hum);color:var(--paper)}
 </style>
+<style id="redlaw2">
+/* RED LAW, second pass, 2026-08-31: .chip .clab used #ed3855, a second red distinct
+   from --hum, missed by the original redlaw pass. Not a button a person clicks, so
+   it goes to ink per the same rule - but .chip sits inside .pivot, the page's one
+   section that inverts to an --ink background, where plain --ink text would be
+   invisible against its own background. Matches the section's own convention for
+   bold/label text (.pivot .pline b, .cost b, .pivot .pbody b all use --paper here). */
+.chip .clab{color:var(--paper)}
+</style>
+<style id="darkfix">
+/* DARK-MODE LEFTOVER, 2026-08-31: .avm-svgscroll carried a tan background and heavy
+   shadow under dark scheme (manual toggle and OS preference) from an earlier
+   dark-mode pass that was never wired to the rest of the page, which never goes
+   dark. Neutralized to the same appearance as light: no border, no shadow,
+   transparent background. */
+:root[data-theme="dark"] .avm-svgscroll{border:none;box-shadow:none;background:transparent;padding:0}
+@media (prefers-color-scheme:dark){.avm-svgscroll{border:none;box-shadow:none;background:transparent;padding:0}}
+</style>
+<style id="mapclipfix">
+/* MOBILE CLIP FIX, 2026-08-31: each map's headline and intro sentence were SVG <text>
+   at fixed coordinates inside .avm-svgscroll, a horizontal-scroll container holding a
+   fixed-width diagram (1600-2280 SVG units, rendered near its native pixel width). SVG
+   text cannot wrap, so at 390px (container shows ~308px of that width) both clipped
+   mid-word. Moved to normal-flow HTML directly above the diagram so they wrap at
+   container width; the diagram itself keeps its horizontal pan. Values and styling
+   copied exactly from the removed SVG text's computed style. */
+.mapclip-head{font:800 38px/1.15 -apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#16324c;margin:0 0 6px;padding-left:49px}
+.mapclip-intro{font:400 18px/1.4 -apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#3a4750;margin:0 0 16px;padding-left:49px}
+#case-fintech .mapclip-head{font-weight:700;letter-spacing:-1px;padding-left:69px}
+#case-fintech .mapclip-intro{font-size:15px;padding-left:69px}
+@media (max-width:820px){.mapclip-head,.mapclip-intro,#case-fintech .mapclip-head,#case-fintech .mapclip-intro{padding-left:0}}
+</style>
 <style id="overlapfix">
 /* overlap fix C1: the wrapped <span> just before .pthesis b spans 3 lines; a bounding-box
    check unions all of a multi-line inline's line fragments, so the span's widest line inflates
@@ -834,18 +866,18 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <style id="rhythmfix">
 /* RHYTHM FIX 2026-08-30 · AZ order: 4 case sections carried 10-12 leaf font-sizes each;
    strays folded into each section's nearest major of the same role (label/body/number). */
-#case-homecare .scene,#case-fintech .scene,#case-utilities .scene,#case-valmont .scene{font-size:13px}
+#case-homecare .scene,#case-fintech .scene,#case-utilities .scene,#case-manufacturing .scene{font-size:13px}
 #case-homecare .maptitle{font-size:18px}
 #case-homecare .avm-lab,#case-utilities .avm-lab{font-size:11px}
 #case-homecare .maphint,#case-fintech .maphint,#case-utilities .maphint{font-size:11px}
 #case-fintech svg text[font-size="10"],#case-utilities svg text[font-size="10"]{font-size:11px}
 #case-fintech svg text[font-size="11.5"]{font-size:11px}
 #case-homecare .sir-row .v,#case-fintech .sir-row .v,#case-utilities .sir-row .v{font-size:15px}
-#case-valmont .pipe-prompt{font-size:13px}
-#case-valmont .pipe-f{font-size:16px}
-#case-valmont .pipe-f .k{font-size:11px}
-#case-valmont .dec{font-size:16px}
-#case-valmont .closer{font-size:19px}
+#case-manufacturing .pipe-prompt{font-size:13px}
+#case-manufacturing .pipe-f{font-size:16px}
+#case-manufacturing .pipe-f .k{font-size:11px}
+#case-manufacturing .dec{font-size:16px}
+#case-manufacturing .closer{font-size:19px}
 </style>
 </head>
 <body>
@@ -1088,18 +1120,18 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <span class="avm-spacer"></span>
 <button class="avm-print" type="button" id="printBtn-care">Print</button>
 </div>
+<p class="mapclip-head">The enterprise that runs itself.</p>
+<p class="mapclip-intro">A national care operation run by one team across eleven business functions. Humans touch 9 of every 10,000 jobs. Judgment goes to a person; everything else closes itself.</p>
 <div class="avm-svgscroll">
 <div id="tip-care" class="map-tip" role="status"></div>
 <!-- overlap fix C3/C4: viewBox height was 1248 but the drawn canvas (bg rect below) is 1780; the
      undersized viewBox let the proof strip, stat captions and bottom legend paint past the SVG's
      own laid-out box, spilling onto the maphint/maplegend/closer/fine text that follows in flow -->
 <svg id="map-care" viewBox="0 32 2280 1748" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="the client operating map">
-<rect width="2280" height="1780" fill="#fff"></rect>
+<rect width="2280" height="1780" fill="var(--paper)"></rect>
 <rect x="70" y="44" width="30" height="22" rx="2" fill="#16324c"></rect><text x="85" y="60" fill="#fff" font-size="13" font-weight="800" text-anchor="middle">02</text>
 <text x="114" y="60" fill="#5b6b7a" font-size="13" font-weight="700" letter-spacing="2.5">AGENTIC ORCHESTRATION · NATIONAL HOME CARE: OPERATIONS</text>
 <text x="2210" y="60" fill="#5e6974" font-size="13" font-weight="700" letter-spacing="2" text-anchor="end">DIAGRAM 02 / 03</text>
-<text x="70" y="112" fill="#16324c" font-size="38" font-weight="800">The enterprise that runs itself.</text>
-<text x="70" y="142" fill="#3a4750" font-size="18">A national care operation run by one team across eleven business functions. Humans touch 9 of every 10,000 jobs. Judgment goes to a person; everything else closes itself.</text>
 <rect x="70" y="158" width="2140" height="2.5" fill="#16324c"></rect>
 <line x1="498" y1="166" x2="498" y2="214" stroke="#e2e6ea" stroke-width="1.5"></line>
 <line x1="926" y1="166" x2="926" y2="214" stroke="#e2e6ea" stroke-width="1.5"></line>
@@ -1111,7 +1143,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <text x="944" y="185" fill="#16324c" font-size="13" font-weight="700">OBSERVABILITY</text><text x="944" y="204" fill="#5f6a74" font-size="11">the platform watches itself · every job reports what it did</text>
 <text x="1372" y="185" fill="#16324c" font-size="13" font-weight="700">EXCEPTIONS</text><text x="1372" y="204" fill="#5f6a74" font-size="11">failures arrive with instructions: retry, halt, or hand to a person</text>
 <text x="1800" y="185" fill="#16324c" font-size="13" font-weight="700">GOVERNANCE</text><text x="1800" y="204" fill="#5f6a74" font-size="11">nothing ships without review · nothing stays without reason</text>
-<rect x="70" y="226" width="2140" height="1030" rx="26" fill="#fff" stroke="#e4e7ea" stroke-width="1.5"></rect>
+<rect x="70" y="226" width="2140" height="1030" rx="26" fill="var(--paper)" stroke="#e4e7ea" stroke-width="1.5"></rect>
 <rect x="71" y="227" width="2138" height="1028" rx="26" fill="#f9f7f1" opacity=".5"></rect>
 <text x="96" y="256" fill="#5e6974" font-size="13" font-style="italic">Every workflow rides one substrate: the same identity, logging, and error handling on every hop, batch or real-time</text>
 <line x1="90" y1="300" x2="2190" y2="300" stroke="#8a95a0" stroke-width="1" opacity=".08"></line>
@@ -1346,15 +1378,15 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <span class="avm-spacer"></span>
 <button class="avm-print" type="button" id="printBtn-utilities">Print</button>
 </div>
+<p class="mapclip-head">The operation that turns its data into a moat.</p>
+<p class="mapclip-intro">Every field of 700,000 invoices a month lands in one governed digital twin, then becomes analytics, benchmarking, and ML forecasts. Payment is the byproduct; the data is a moat no competitor can buy.</p>
 <div class="avm-svgscroll">
 <div id="tip-utilities" class="map-tip" role="status"></div>
 <!-- overlap fix C3/C4: same undersized-viewBox issue as map-care (canvas is 1780, was 1228) --><svg id="map-utilities" viewBox="0 32 2280 1748" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Utility billing digital-twin operating map">
-<rect width="2280" height="1780" fill="#fff"></rect>
+<rect width="2280" height="1780" fill="var(--paper)"></rect>
 <rect x="70" y="44" width="30" height="22" rx="2" fill="#16324c"></rect><text x="85" y="60" fill="#fff" font-size="13" font-weight="800" text-anchor="middle">03</text>
 <text x="114" y="60" fill="#5b6b7a" font-size="13" font-weight="700" letter-spacing="2.5">AGENTIC ORCHESTRATION · UTILITY BILL MANAGEMENT: DATA PLATFORM</text>
 <text x="2210" y="60" fill="#5e6974" font-size="13" font-weight="700" letter-spacing="2" text-anchor="end">DIAGRAM 03 / 03</text>
-<text x="70" y="112" fill="#16324c" font-size="38" font-weight="800">The operation that turns its data into a moat.</text>
-<text x="70" y="142" fill="#3a4750" font-size="18">Every field of 700,000 invoices a month lands in one governed digital twin, then becomes analytics, benchmarking, and ML forecasts. Payment is the byproduct; the data is a moat no competitor can buy.</text>
 <rect x="70" y="158" width="2140" height="2.5" fill="#16324c"></rect>
 <line x1="498" y1="166" x2="498" y2="214" stroke="#e2e6ea" stroke-width="1.5"></line>
 <line x1="926" y1="166" x2="926" y2="214" stroke="#e2e6ea" stroke-width="1.5"></line>
@@ -1366,7 +1398,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <text x="944" y="185" fill="#16324c" font-size="13" font-weight="700">OBSERVABILITY</text><text x="944" y="204" fill="#5f6a74" font-size="11">the platform watches itself · every job reports what it did</text>
 <text x="1372" y="185" fill="#16324c" font-size="13" font-weight="700">EXCEPTIONS</text><text x="1372" y="204" fill="#5f6a74" font-size="11">failures arrive with instructions: retry, halt, or hand to a person</text>
 <text x="1800" y="185" fill="#16324c" font-size="13" font-weight="700">GOVERNANCE</text><text x="1800" y="204" fill="#5f6a74" font-size="11">nothing ships without review · nothing stays without reason</text>
-<rect x="70" y="226" width="2140" height="1030" rx="26" fill="#fff" stroke="#e4e7ea" stroke-width="1.5"></rect>
+<rect x="70" y="226" width="2140" height="1030" rx="26" fill="var(--paper)" stroke="#e4e7ea" stroke-width="1.5"></rect>
 <rect x="71" y="227" width="2138" height="1028" rx="26" fill="#f9f7f1" opacity=".5"></rect>
 <text x="96" y="252" fill="#5e6974" font-size="13" font-style="italic">Ontology underneath · twin in between · traces on top. One linear spine of intake feeds the twin; the twin makes the products and stays live off their loop.</text>
 <rect x="112" y="268" width="1976" height="62" rx="12" fill="#f2f4f6" stroke="#cfd5da" stroke-width="1.5" stroke-dasharray="9 7"></rect>
@@ -1657,17 +1689,17 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <span class="avm-spacer"></span>
 <button class="print" type="button" id="printBtn-fin">Print</button>
 </div>
+<p class="mapclip-head">The engine that works the case.</p>
+<p class="mapclip-intro">An agent engine works every case end to end: every check, every citation. Every alert funnels in; every regulated decision funnels through one person.</p>
 <div class="avm-svgscroll">
 <div id="tip-fin" class="map-tip" role="status"></div>
 <!-- overlap fix C3/C4: same undersized-viewBox issue (canvas is 990, was 680) --><svg id="map-fin" viewBox="0 34 1600 956" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Fraud and risk agent engine map">
-<rect width="1600" height="990" fill="#fff"></rect>
+<rect width="1600" height="990" fill="var(--paper)"></rect>
 
 <!-- MASTHEAD -->
 <rect x="100" y="46" width="30" height="22" rx="2" fill="#16324c"></rect><text class="disp" x="115" y="63" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">01</text>
 <text class="disp" x="144" y="62" fill="#5b6b7a" font-size="13" font-weight="700" letter-spacing="2.4">AGENTIC ORCHESTRATION OF FRAUD &amp; RISK · FINTECH</text>
 <text class="disp" x="1500" y="62" fill="#5e6974" font-size="13" font-weight="700" letter-spacing="2" text-anchor="end">DIAGRAM 01 / 03</text>
-<text class="disp" x="100" y="114" fill="#16324c" font-size="38" font-weight="700" letter-spacing="-1">The engine that works the case.</text>
-<text x="100" y="142" fill="#3a4750" font-size="15">An agent engine works every case end to end: every check, every citation. Every alert funnels in; every regulated decision funnels through one person.</text>
 <rect x="100" y="158" width="1400" height="2" fill="#16324c"></rect>
 
 <!-- SUBSTRATE · thin rules, not bands -->
@@ -1857,7 +1889,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
   <p class="fine">The method travels to whatever platform a client already runs.</p>
 </section>
 
-<section class="case" id="case-valmont">
+<section class="case" id="case-manufacturing">
   <div class="entry">Transformation 05 · Industrial Manufacturing</div>
   <p class="scene"><i>14:02</i> · a part has no photo and no listing copy. The pipeline drafts both.</p>
   <h2 class="lede">A parts spreadsheet becomes a sellable catalog page.</h2>
@@ -1881,7 +1913,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     <div class="fieldcap">squares = bots, deterministic · hollow diamond = the agent pipeline · <em>red = a person</em> · the content line's GenAI station is runnable below</div>
   </div>
 
-  <div class="pipe" id="valmontPipe">
+  <div class="pipe" id="manufacturingPipe">
     <div class="pipe-head"><div class="pipe-title">Run the pipeline</div><div class="pipe-sub">part #1701287 · real fields, real output, 2023</div></div>
     <div class="pipe-body">
       <div class="pipe-stage" data-stage="0">
@@ -2099,7 +2131,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 
   /* ── manufacturer: run-the-pipeline demo ── */
   (function(){
-    var root=document.getElementById('valmontPipe'); if(!root) return;
+    var root=document.getElementById('manufacturingPipe'); if(!root) return;
     var RMV=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
     var stages=root.querySelectorAll('.pipe-stage');
     function show(n){ stages.forEach(function(s){ s.hidden = s.getAttribute('data-stage')!==String(n); }); }
@@ -2530,8 +2562,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     });
   })();
 
-  /* ── count-up on the stat bands ── */
+  /* ── count-up on the stat bands: disarmed, see #counterfix ── */
   (function(){
+    return; // counterfix: entrance count-up removed, see script#counterfix
     if(RMQ||!('IntersectionObserver' in window)) return;
     function arm(el){
       var orig=el.textContent;
@@ -2991,13 +3024,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       },240);
     } else { for(var k=0;k<40;k++){var c=cellsArr[Math.floor(Math.random()*cellsArr.length)]; if(c.className!=='red')c.className='on';} }
   })();
-  /* ── restrained reveals: applied by JS so no-JS never hides content ── */
+  /* ── restrained reveals: applied by JS so no-JS never hides content, see #revealfix ── */
   (function(){
     if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var targets=document.querySelectorAll('.case,.standing,.arc,.record,.gate,.mapwrap,.engine,.sim,.bigfield,.mapshell,.journey');
     if(!('IntersectionObserver' in window)) return;
     var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); } else { e.target.classList.remove('in'); } });
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     },{rootMargin:'0px 0px -8% 0px'});
     Array.prototype.forEach.call(targets,function(t){ t.classList.add('rv'); io.observe(t); });
     Array.prototype.forEach.call(document.querySelectorAll('.rv'),function(t){
@@ -3005,8 +3038,63 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     });
   })();
   /* repaint drawn artifacts on theme change */
-  
+
 })();
+</script>
+
+<script id="counterfix">
+/* Named delta, 2026-08-31: the .band .bn stat numbers used to count up from 0 on
+   scroll (850ms, e.g. showed "16.3%" while landing on "97.6%"), which read as
+   broken rather than crafted. That entrance count-up is disarmed above; every
+   number now shows its true, final value immediately, matching what
+   prefers-reduced-motion already displayed. No replacement animation is added.
+   The four identity-plate counters (#idmCounters: SINCE 2016, $100M+ AND
+   COUNTING, 1M+ HOURS RETURNED, FIVE INDUSTRIES) are a separate system, were
+   never part of this defect, and are untouched by this delta. */
+</script>
+
+<script id="revealfix">
+/* Named delta, 2026-08-31: the scroll-reveal IIFE removed class "in" whenever an
+   observed section (.case, .standing, .arc, .record, .gate, .mapwrap, .engine,
+   .sim, .bigfield, .mapshell, .journey) scrolled out of view in either direction,
+   so content already shown went back to invisible on scroll-back. Fixed above:
+   "in" is added once on first intersection and the element is unobserved, so it
+   can never be removed again. No other reveal behavior changed. */
+</script>
+
+<script id="anonfix">
+/* Named delta, 2026-08-31: this section's client name still appeared 9 times in
+   source identifiers (a section id, CSS selectors, an element id, and its
+   getElementById call), even though the visible page text and testimonial were
+   already anonymized. A public repo makes source identifiers public too, so
+   this closes that gap: renamed throughout to an industry descriptor matching
+   this section's own eyebrow text and the page's existing case-id convention
+   (other sections name the industry, never the client). One literal token
+   replaced everywhere it occurred; verified zero survivors across rendered
+   text, SVG text, and every element attribute, and that the interaction inside
+   this section still runs after the rename. The old anchor into this section
+   no longer resolves; nothing else changed. */
+</script>
+
+<script id="framefix">
+/* Named delta, 2026-08-31: the three map diagrams each drew their canvas and a
+   large inner content panel as plain white SVG rects, while the page's own
+   ground is paper. Verified against the current file (a prior session's note
+   assumed the same fix; confirmed the count still holds after the mapclipfix
+   masthead edit): 5 rects total, exactly the canvas plus inner panel for the
+   home-care and utilities maps, and the canvas alone for the fintech map (it
+   has no separate inner panel). All 5 changed from a literal #fff fill to
+   fill="var(--paper)", so the diagram surface matches the page ground in both
+   themes. A page-wide background census (every element's computed
+   background-color plus every large SVG fill, both viewport widths, full
+   scroll-through, two passes) found no other unsanctioned surface: everything
+   else already resolves to a root palette token, or belongs to one deliberate
+   scoped instrument section with its own established internal palette used
+   consistently throughout it. Several small near-white SVG fills inside these
+   same diagrams (dashed-border highlight boxes calling out specific data
+   paths, and a semi-transparent warm overlay already layered on the inner
+   panel) were left untouched: they are a different design element serving a
+   different purpose, not the canvas-vs-ground mismatch this delta closes. */
 </script>
 
 <script>
