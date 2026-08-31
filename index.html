@@ -2992,13 +2992,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
       },240);
     } else { for(var k=0;k<40;k++){var c=cellsArr[Math.floor(Math.random()*cellsArr.length)]; if(c.className!=='red')c.className='on';} }
   })();
-  /* ── restrained reveals: applied by JS so no-JS never hides content ── */
+  /* ── restrained reveals: applied by JS so no-JS never hides content, see #revealfix ── */
   (function(){
     if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var targets=document.querySelectorAll('.case,.standing,.arc,.record,.gate,.mapwrap,.engine,.sim,.bigfield,.mapshell,.journey');
     if(!('IntersectionObserver' in window)) return;
     var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); } else { e.target.classList.remove('in'); } });
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     },{rootMargin:'0px 0px -8% 0px'});
     Array.prototype.forEach.call(targets,function(t){ t.classList.add('rv'); io.observe(t); });
     Array.prototype.forEach.call(document.querySelectorAll('.rv'),function(t){
@@ -3019,6 +3019,15 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
    The four identity-plate counters (#idmCounters: SINCE 2016, $100M+ AND
    COUNTING, 1M+ HOURS RETURNED, FIVE INDUSTRIES) are a separate system, were
    never part of this defect, and are untouched by this delta. */
+</script>
+
+<script id="revealfix">
+/* Named delta, 2026-08-31: the scroll-reveal IIFE removed class "in" whenever an
+   observed section (.case, .standing, .arc, .record, .gate, .mapwrap, .engine,
+   .sim, .bigfield, .mapshell, .journey) scrolled out of view in either direction,
+   so content already shown went back to invisible on scroll-back. Fixed above:
+   "in" is added once on first intersection and the element is unobserved, so it
+   can never be removed again. No other reveal behavior changed. */
 </script>
 
 <script>
