@@ -820,6 +820,24 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 .sh-live .sh-btn:not(.ghost){border-color:var(--hum);color:var(--hum)}
 .sh-live .sh-btn:not(.ghost):hover,.sh-live .sh-btn:not(.ghost):focus-visible{background:var(--hum);color:var(--paper)}
 </style>
+<style id="redlaw2">
+/* RED LAW, second pass, 2026-08-31: .chip .clab used #ed3855, a second red distinct
+   from --hum, missed by the original redlaw pass. Not a button a person clicks, so
+   it goes to ink per the same rule - but .chip sits inside .pivot, the page's one
+   section that inverts to an --ink background, where plain --ink text would be
+   invisible against its own background. Matches the section's own convention for
+   bold/label text (.pivot .pline b, .cost b, .pivot .pbody b all use --paper here). */
+.chip .clab{color:var(--paper)}
+</style>
+<style id="darkfix">
+/* DARK-MODE LEFTOVER, 2026-08-31: .avm-svgscroll carried a tan background and heavy
+   shadow under dark scheme (manual toggle and OS preference) from an earlier
+   dark-mode pass that was never wired to the rest of the page, which never goes
+   dark. Neutralized to the same appearance as light: no border, no shadow,
+   transparent background. */
+:root[data-theme="dark"] .avm-svgscroll{border:none;box-shadow:none;background:transparent;padding:0}
+@media (prefers-color-scheme:dark){.avm-svgscroll{border:none;box-shadow:none;background:transparent;padding:0}}
+</style>
 <style id="overlapfix">
 /* overlap fix C1: the wrapped <span> just before .pthesis b spans 3 lines; a bounding-box
    check unions all of a multi-line inline's line fragments, so the span's widest line inflates
