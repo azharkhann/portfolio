@@ -838,6 +838,20 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 :root[data-theme="dark"] .avm-svgscroll{border:none;box-shadow:none;background:transparent;padding:0}
 @media (prefers-color-scheme:dark){.avm-svgscroll{border:none;box-shadow:none;background:transparent;padding:0}}
 </style>
+<style id="mapclipfix">
+/* MOBILE CLIP FIX, 2026-08-31: each map's headline and intro sentence were SVG <text>
+   at fixed coordinates inside .avm-svgscroll, a horizontal-scroll container holding a
+   fixed-width diagram (1600-2280 SVG units, rendered near its native pixel width). SVG
+   text cannot wrap, so at 390px (container shows ~308px of that width) both clipped
+   mid-word. Moved to normal-flow HTML directly above the diagram so they wrap at
+   container width; the diagram itself keeps its horizontal pan. Values and styling
+   copied exactly from the removed SVG text's computed style. */
+.mapclip-head{font:800 38px/1.15 -apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#16324c;margin:0 0 6px;padding-left:49px}
+.mapclip-intro{font:400 18px/1.4 -apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#3a4750;margin:0 0 16px;padding-left:49px}
+#case-fintech .mapclip-head{font-weight:700;letter-spacing:-1px;padding-left:69px}
+#case-fintech .mapclip-intro{font-size:15px;padding-left:69px}
+@media (max-width:820px){.mapclip-head,.mapclip-intro,#case-fintech .mapclip-head,#case-fintech .mapclip-intro{padding-left:0}}
+</style>
 <style id="overlapfix">
 /* overlap fix C1: the wrapped <span> just before .pthesis b spans 3 lines; a bounding-box
    check unions all of a multi-line inline's line fragments, so the span's widest line inflates
@@ -1106,6 +1120,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <span class="avm-spacer"></span>
 <button class="avm-print" type="button" id="printBtn-care">Print</button>
 </div>
+<p class="mapclip-head">The enterprise that runs itself.</p>
+<p class="mapclip-intro">A national care operation run by one team across eleven business functions. Humans touch 9 of every 10,000 jobs. Judgment goes to a person; everything else closes itself.</p>
 <div class="avm-svgscroll">
 <div id="tip-care" class="map-tip" role="status"></div>
 <!-- overlap fix C3/C4: viewBox height was 1248 but the drawn canvas (bg rect below) is 1780; the
@@ -1116,8 +1132,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <rect x="70" y="44" width="30" height="22" rx="2" fill="#16324c"></rect><text x="85" y="60" fill="#fff" font-size="13" font-weight="800" text-anchor="middle">02</text>
 <text x="114" y="60" fill="#5b6b7a" font-size="13" font-weight="700" letter-spacing="2.5">AGENTIC ORCHESTRATION · NATIONAL HOME CARE: OPERATIONS</text>
 <text x="2210" y="60" fill="#5e6974" font-size="13" font-weight="700" letter-spacing="2" text-anchor="end">DIAGRAM 02 / 03</text>
-<text x="70" y="112" fill="#16324c" font-size="38" font-weight="800">The enterprise that runs itself.</text>
-<text x="70" y="142" fill="#3a4750" font-size="18">A national care operation run by one team across eleven business functions. Humans touch 9 of every 10,000 jobs. Judgment goes to a person; everything else closes itself.</text>
 <rect x="70" y="158" width="2140" height="2.5" fill="#16324c"></rect>
 <line x1="498" y1="166" x2="498" y2="214" stroke="#e2e6ea" stroke-width="1.5"></line>
 <line x1="926" y1="166" x2="926" y2="214" stroke="#e2e6ea" stroke-width="1.5"></line>
@@ -1364,6 +1378,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <span class="avm-spacer"></span>
 <button class="avm-print" type="button" id="printBtn-utilities">Print</button>
 </div>
+<p class="mapclip-head">The operation that turns its data into a moat.</p>
+<p class="mapclip-intro">Every field of 700,000 invoices a month lands in one governed digital twin, then becomes analytics, benchmarking, and ML forecasts. Payment is the byproduct; the data is a moat no competitor can buy.</p>
 <div class="avm-svgscroll">
 <div id="tip-utilities" class="map-tip" role="status"></div>
 <!-- overlap fix C3/C4: same undersized-viewBox issue as map-care (canvas is 1780, was 1228) --><svg id="map-utilities" viewBox="0 32 2280 1748" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Utility billing digital-twin operating map">
@@ -1371,8 +1387,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <rect x="70" y="44" width="30" height="22" rx="2" fill="#16324c"></rect><text x="85" y="60" fill="#fff" font-size="13" font-weight="800" text-anchor="middle">03</text>
 <text x="114" y="60" fill="#5b6b7a" font-size="13" font-weight="700" letter-spacing="2.5">AGENTIC ORCHESTRATION · UTILITY BILL MANAGEMENT: DATA PLATFORM</text>
 <text x="2210" y="60" fill="#5e6974" font-size="13" font-weight="700" letter-spacing="2" text-anchor="end">DIAGRAM 03 / 03</text>
-<text x="70" y="112" fill="#16324c" font-size="38" font-weight="800">The operation that turns its data into a moat.</text>
-<text x="70" y="142" fill="#3a4750" font-size="18">Every field of 700,000 invoices a month lands in one governed digital twin, then becomes analytics, benchmarking, and ML forecasts. Payment is the byproduct; the data is a moat no competitor can buy.</text>
 <rect x="70" y="158" width="2140" height="2.5" fill="#16324c"></rect>
 <line x1="498" y1="166" x2="498" y2="214" stroke="#e2e6ea" stroke-width="1.5"></line>
 <line x1="926" y1="166" x2="926" y2="214" stroke="#e2e6ea" stroke-width="1.5"></line>
@@ -1675,6 +1689,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <span class="avm-spacer"></span>
 <button class="print" type="button" id="printBtn-fin">Print</button>
 </div>
+<p class="mapclip-head">The engine that works the case.</p>
+<p class="mapclip-intro">An agent engine works every case end to end: every check, every citation. Every alert funnels in; every regulated decision funnels through one person.</p>
 <div class="avm-svgscroll">
 <div id="tip-fin" class="map-tip" role="status"></div>
 <!-- overlap fix C3/C4: same undersized-viewBox issue (canvas is 990, was 680) --><svg id="map-fin" viewBox="0 34 1600 956" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Fraud and risk agent engine map">
@@ -1684,8 +1700,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
 <rect x="100" y="46" width="30" height="22" rx="2" fill="#16324c"></rect><text class="disp" x="115" y="63" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">01</text>
 <text class="disp" x="144" y="62" fill="#5b6b7a" font-size="13" font-weight="700" letter-spacing="2.4">AGENTIC ORCHESTRATION OF FRAUD &amp; RISK · FINTECH</text>
 <text class="disp" x="1500" y="62" fill="#5e6974" font-size="13" font-weight="700" letter-spacing="2" text-anchor="end">DIAGRAM 01 / 03</text>
-<text class="disp" x="100" y="114" fill="#16324c" font-size="38" font-weight="700" letter-spacing="-1">The engine that works the case.</text>
-<text x="100" y="142" fill="#3a4750" font-size="15">An agent engine works every case end to end: every check, every citation. Every alert funnels in; every regulated decision funnels through one person.</text>
 <rect x="100" y="158" width="1400" height="2" fill="#16324c"></rect>
 
 <!-- SUBSTRATE · thin rules, not bands -->
