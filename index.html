@@ -2530,8 +2530,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     });
   })();
 
-  /* ── count-up on the stat bands ── */
+  /* ── count-up on the stat bands: disarmed, see #counterfix ── */
   (function(){
+    return; // counterfix: entrance count-up removed, see script#counterfix
     if(RMQ||!('IntersectionObserver' in window)) return;
     function arm(el){
       var orig=el.textContent;
@@ -3005,8 +3006,19 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opa
     });
   })();
   /* repaint drawn artifacts on theme change */
-  
+
 })();
+</script>
+
+<script id="counterfix">
+/* Named delta, 2026-08-31: the .band .bn stat numbers used to count up from 0 on
+   scroll (850ms, e.g. showed "16.3%" while landing on "97.6%"), which read as
+   broken rather than crafted. That entrance count-up is disarmed above; every
+   number now shows its true, final value immediately, matching what
+   prefers-reduced-motion already displayed. No replacement animation is added.
+   The four identity-plate counters (#idmCounters: SINCE 2016, $100M+ AND
+   COUNTING, 1M+ HOURS RETURNED, FIVE INDUSTRIES) are a separate system, were
+   never part of this defect, and are untouched by this delta. */
 </script>
 
 <script>
